@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7867B70-3046-4ED9-B6DD-65189F2AD9B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>STOCK.My.MyApplication</StartupObject>
+    <RootNamespace>STOCK</RootNamespace>
+    <AssemblyName>STOCK</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>STOCK.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>STOCK.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BUSCAR_PRODUCTO.Designer.VB">
+      <DependentUpon>BUSCAR_PRODUCTO.VB</DependentUpon>
+    </Compile>
+    <Compile Include="BUSCAR_PRODUCTO.VB">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CLS_HERRAMIENTAS.vb" />
+    <Compile Include="CLS_INGRESOS.vb" />
+    <Compile Include="CLS_MOVIMIENTOS.vb" />
+    <Compile Include="CLS_OBRAS.vb" />
+    <Compile Include="CLS_TRANSFERENCIA.vb" />
+    <Compile Include="CLS_USUARIOS.vb" />
+    <Compile Include="INGRESO_MERCADERIA.Designer.vb">
+      <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="INGRESO_MERCADERIA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN.Designer.VB">
+      <DependentUpon>LOGIN.VB</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN.VB">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULO_STOCK.vb" />
+    <Compile Include="MOVIMIENTOS.Designer.VB">
+      <DependentUpon>MOVIMIENTOS.VB</DependentUpon>
+    </Compile>
+    <Compile Include="MOVIMIENTOS.VB">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REGISTRO_H_Y_I.Designer.vb">
+      <DependentUpon>REGISTRO_H_Y_I.vb</DependentUpon>
+    </Compile>
+    <Compile Include="REGISTRO_H_Y_I.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REGISTRO_USUARIOS.Designer.vb">
+      <DependentUpon>REGISTRO_USUARIOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="REGISTRO_USUARIOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REGISTRO_OBRAS.Designer.VB">
+      <DependentUpon>REGISTRO_OBRAS.VB</DependentUpon>
+    </Compile>
+    <Compile Include="REGISTRO_OBRAS.VB">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSFERENCIA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSFERENCIA.Designer.vb">
+      <DependentUpon>TRANSFERENCIA.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="STOCK.Designer.VB">
+      <DependentUpon>STOCK.VB</DependentUpon>
+    </Compile>
+    <Compile Include="STOCK.VB">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BUSCAR_PRODUCTO.resx">
+      <DependentUpon>BUSCAR_PRODUCTO.VB</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INGRESO_MERCADERIA.resx">
+      <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN.resx">
+      <DependentUpon>LOGIN.VB</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOVIMIENTOS.resx">
+      <DependentUpon>MOVIMIENTOS.VB</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REGISTRO_H_Y_I.resx">
+      <DependentUpon>REGISTRO_H_Y_I.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REGISTRO_OBRAS.resx">
+      <DependentUpon>REGISTRO_OBRAS.VB</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REGISTRO_USUARIOS.resx">
+      <DependentUpon>REGISTRO_USUARIOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSFERENCIA.resx">
+      <DependentUpon>TRANSFERENCIA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STOCK.resx">
+      <DependentUpon>STOCK.VB</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
