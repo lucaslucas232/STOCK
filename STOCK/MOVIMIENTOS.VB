@@ -67,11 +67,11 @@ Public Class MOVIMIENTOS
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim producto_ID As Integer = CInt(CMBPRODUCTO.SelectedValue)
+        Dim id_producto As Integer = CInt(CMBPRODUCTO.SelectedValue)
         Dim cantidad As Integer = CInt(TXTCANTIDAD.Text)
         Dim origen_ID As Integer = CInt(CMBORIGEN.SelectedValue)
         Dim destino_ID As Integer = CInt(CMBDESTINO.SelectedValue)
-        If TransferirMercaderia(producto_ID, cantidad, origen_ID, destino_ID) Then
+        If obj_MOVIMIENTOS.TransferirMercaderia(id_producto, cantidad, origen_ID, destino_ID) Then
             MessageBox.Show("Transferencia realizada con éxito.")
         Else
             MessageBox.Show("Error al realizar la transferencia.")

@@ -4,29 +4,30 @@
 Public Class CLS_MOVIMIENTOS
 
 
-    Public Function TransferirMercaderia(producto_id As Integer, cantidad As Integer, origen_id As Integer, destino_id As Integer) As Boolean
+    Public Function TransferirMercaderia(id_producto As Integer, cantidad As Integer, origen_id As Integer, destino_id As Integer) As Boolean
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
                 con.Open()
                 Dim transaction As OleDbTransaction = con.BeginTransaction()
 
                 Try
-                    Dim sqlEgreso As String = "INSERT INTO egresos (producto_id, cantidad, deposito_id) VALUES (@producto_id, @cantidad, @origen_id)"
+                    Dim sqlEgreso As String = "INSERT INTO egresos (id_producto, cantidad, id_obra) VALUES (@id_producto, @cantidad, @id_obra)"
                     Using cmdEgreso As New OleDbCommand(sqlEgreso, con, transaction)
-                        cmdEgreso.Parameters.AddWithValue("@producto_id", producto_id)
+                        cmdEgreso.Parameters.AddWithValue("@id_producto", id_producto)
                         cmdEgreso.Parameters.AddWithValue("@cantidad", cantidad)
-                        cmdEgreso.Parameters.AddWithValue("@origen_id", origen_id)
+                        cmdEgreso.Parameters.AddWithValue("@id_obra", origen_id)
                         cmdEgreso.ExecuteNonQuery()
                     End Using
+                    MessageBox.Show("Egreso ejecutado")
 
-                    Dim sqlIngreso As String = "INSERT INTO ingresos (producto_id, cantidad, deposito_id) VALUES (@producto_id, @cantidad, @destino_id)"
+                    Dim sqlIngreso As String = "INSERT INTO ingresos (id_producto, cantidad, id_obra) VALUES (@id_producto, @cantidad, @id_obra)"
                     Using cmdIngreso As New OleDbCommand(sqlIngreso, con, transaction)
-                        cmdIngreso.Parameters.AddWithValue("@producto_id", producto_id)
+                        cmdIngreso.Parameters.AddWithValue("@id_producto", id_producto)
                         cmdIngreso.Parameters.AddWithValue("@cantidad", cantidad)
-                        cmdIngreso.Parameters.AddWithValue("@destino_id", destino_id)
+                        cmdIngreso.Parameters.AddWithValue("@id_obra", destino_id)
                         cmdIngreso.ExecuteNonQuery()
                     End Using
-
+                    MessageBox.Show("Ingreso ejecutado")
                     transaction.Commit()
                     Return True
                 Catch ex As Exception
