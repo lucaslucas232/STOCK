@@ -41,7 +41,7 @@ Public Class MOVIMIENTOS
     End Function
 
     Private Sub MOVIMIENTOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim dbHelper As New DatabaseHelper()
+        'Dim dbHelper As New DatabaseHelper()
 
         ' Llenar ComboBox de Productos
         Dim dtProductos As DataTable = ObtenerProductos()
@@ -67,12 +67,11 @@ Public Class MOVIMIENTOS
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim productoID As Integer = CInt(CMBPRODUCTO.SelectedValue)
+        Dim producto_ID As Integer = CInt(CMBPRODUCTO.SelectedValue)
         Dim cantidad As Integer = CInt(TXTCANTIDAD.Text)
-        Dim origenID As Integer = CInt(CMBORIGEN.SelectedValue)
-        Dim destinoID As Integer = CInt(CMBDESTINO.SelectedValue)
-
-        TransferirMercaderia(productoID, cantidad, origenID, destinoID) Then
+        Dim origen_ID As Integer = CInt(CMBORIGEN.SelectedValue)
+        Dim destino_ID As Integer = CInt(CMBDESTINO.SelectedValue)
+        If TransferirMercaderia(producto_ID, cantidad, origen_ID, destino_ID) Then
             MessageBox.Show("Transferencia realizada con éxito.")
         Else
             MessageBox.Show("Error al realizar la transferencia.")
