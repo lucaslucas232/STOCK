@@ -2,8 +2,6 @@
 
 
 Public Class CLS_MOVIMIENTOS
-
-
     Public Function TransferirMercaderia(id_producto As Integer, cantidad As Integer, origen_id As Integer, destino_id As Integer) As Boolean
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)

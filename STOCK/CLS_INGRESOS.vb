@@ -12,14 +12,14 @@ Public Class CLS_INGRESOS
             Dim con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
 
-            Sql = "Insert into INGRESOS (nombre) " _
-                + "Values (@nombre)"
+            Sql = "Insert into INGRESOS (id_producto) " _
+                + "Values (@id_producto)"
 
             ComandoSql = New OleDbCommand
             With ComandoSql
                 .Connection = con
                 .CommandText = Sql
-                .Parameters.AddWithValue("@nombre", nombre.ToUpper)
+                .Parameters.AddWithValue("@id_produto", nombre.ToUpper)
 
                 .ExecuteNonQuery()
             End With

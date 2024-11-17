@@ -36,7 +36,7 @@ Public Class LOGIN
                         muestra()
 
                     End If
-                    usuario = dr("usuario")
+                    'usuario = dr("usuario")
                     stockForm.Show()
                     Me.Close()
                 End If

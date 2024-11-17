@@ -6,13 +6,16 @@ Public Class INGRESO_MERCADERIA
     Dim obj_INGRESOS As New CLS_INGRESOS
     Dim n As Integer
 
-    Sub LimpiarCampos()
-        TXT_NOMBRE.Text = ""
-    End Sub
-
 
     Private Sub INGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ActualizarTabla(Me.DGV1, "INGRESOS", "", "id") 'tabla usuarios ordenado por apellido        ' Label9.Text = n
+        Dim dtProductos As DataTable = ObtenerProductos()
+        If dtProductos IsNot Nothing Then
+            CMBPRODUCTO.DataSource = dtProductos
+            CMBPRODUCTO.DisplayMember = "nombre"
+            CMBPRODUCTO.ValueMember = "id_PRODUCTO"
+        End If
+
+        ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingresos") 'tabla usuarios ordenado por apellido        ' Label9.Text = n
     End Sub
 
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
@@ -44,10 +47,10 @@ Public Class INGRESO_MERCADERIA
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
             'If ValidarDatos() Then
-            If obj_INGRESOS.AgregaINGRESO(TXT_NOMBRE.Text) = True Then
+            If obj_INGRESOS.AgregaINGRESO(cmbproducto.Text) = True Then
 
                 MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                Me.LimpiarCampos()
+                'Me.LimpiarCampos()
                 ActualizarTabla(Me.DGV1, "INGRESOS", "", "id")
             Else
                 MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
@@ -69,10 +72,10 @@ Public Class INGRESO_MERCADERIA
 
                 If obj_INGRESOS.EliminaINGRESO(id) = True Then
                     MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                    Me.LimpiarCampos()
+                    'Me.LimpiarCampos()
                     ActualizarTabla(Me.DGV1, "INGRESOS", "", "id")
                     'Me.ModoInsercion()
-                    Me.LimpiarCampos()
+                    'Me.LimpiarCampos()
                 Else
                     MsgBox("Error al eliminar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
                 End If

@@ -14,8 +14,6 @@ Public Class REGISTRO_H_Y_I
             If nn > 0 Then
                 DGV1.Rows(nn).Selected = True
             End If
-
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -35,7 +33,6 @@ Public Class REGISTRO_H_Y_I
         BTN_MODIFICAR.Enabled = True
         BTN_CANCELAR.Enabled = True
     End Sub
-
     Sub LimpiarCampos()
         txt_producto.Text = ""
         cmb_tipo.Text = ""
@@ -64,14 +61,10 @@ Public Class REGISTRO_H_Y_I
             BTN_NUEVO.Enabled = False
             BTN_AGREGAR.Enabled = False
             BTN_ELIMINAR.Enabled = True
-
         End If
-
     End Sub
 
     Function ValidarDatos() As Boolean
-
-
         If txt_producto.Text.Trim = "" Then
             MsgBox("error en el producto...")
             txt_producto.Focus()
@@ -109,11 +102,8 @@ Public Class REGISTRO_H_Y_I
     Private Sub REGISTRO_H_Y_I_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         STOCK.muestra()
     End Sub
-
-
     Private Sub REGISTRO_H_Y_I_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ActualizarTabla(Me.DGV1, "HERRAMIENTAS", "", "id") 'tabla usuarios ordenado por apellido        ' Label9.Text = n
-
+        ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
     End Sub
 
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
@@ -121,21 +111,17 @@ Public Class REGISTRO_H_Y_I
             'If ValidarDatos() Then
             If obj_HERRAMIENTAS.Agregaherramienta(txt_producto.Text, cmb_tipo.Text) = True Then
 
-                    MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                    Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "herramientas", "", "ID")
-                Else
-                    MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
-                End If
+                MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
+                Me.LimpiarCampos()
+                ActualizarTabla(Me.DGV1, "productos", "", "ID_producto")
+            Else
+                MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
+            End If
             'End If
-
-
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
         End Try
         Me.ModoInsercion()
-
-
     End Sub
 
     Private Sub BTN_MODIFICAR_Click(sender As Object, e As EventArgs) Handles BTN_MODIFICAR.Click
@@ -148,7 +134,7 @@ Public Class REGISTRO_H_Y_I
                 If obj_HERRAMIENTAS.Modificaherramienta(txt_producto.Text, cmb_tipo.Text, id) = True Then
                     MsgBox("Registro actualizado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                     Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "herramientas", "", "id")
+                    ActualizarTabla(Me.DGV1, "PRODUCTOS", "", "id_producto")
 
                     Me.ModoInsercion()
                 Else
@@ -172,7 +158,7 @@ Public Class REGISTRO_H_Y_I
                 If obj_HERRAMIENTAS.Eliminaherramienta(id) = True Then
                     MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                     Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "herramientas", "", "id")
+                    ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
                     Me.ModoInsercion()
                     Me.LimpiarCampos()
                 Else

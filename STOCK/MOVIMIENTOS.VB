@@ -78,4 +78,7 @@ Public Class MOVIMIENTOS
         End If
     End Sub
 
+    Private Sub CMBPRODUCTO_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CMBPRODUCTO.SelectedIndexChanged
+
+    End Sub
 End Class

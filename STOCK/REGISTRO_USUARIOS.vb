@@ -5,6 +5,21 @@ Public Class REGISTRO_USUARIOS
     Dim obj_USUARIO As New CLS_USUARIOS
     Dim n As Integer
 
+    Sub LimpiarCampos()
+        txt_USUARIO.Text = ""
+        TXT_CONTRASEÑA.Text = ""
+        CMB_TIPO.Text = ""
+
+    End Sub
+    Sub ModoInsercion()
+        BTN_CANCELAR.Enabled = True
+        BTN_NUEVO.Enabled = True
+        BTN_ELIMINAR.Enabled = False
+        BTN_MODIFICAR.Enabled = True
+        BTN_AGREGAR.Enabled = True
+    End Sub
+
+
 
     Function ValidarDatos() As Boolean
 
@@ -49,9 +64,6 @@ Public Class REGISTRO_USUARIOS
             BTN_AGREGAR.Enabled = False
             BTN_ELIMINAR.Enabled = True
 
-            ' txtNombre.Focus()
-            '   Label6.Text = dgv1.CurrentRow.Index + 1
-            'ini = dgv1.CurrentRow.Index
 
         End If
 
@@ -88,8 +100,7 @@ Public Class REGISTRO_USUARIOS
     End Sub
 
     Private Sub REGISTRO_USUARIOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ActualizarTabla(Me.DGV1, "USUARIOS", "", "id") 'tabla usuarios ordenado por apellido        ' Label9.Text = n
-
+        ActualizarTabla(Me.DGV1, "USUARIOS", "", "id")
     End Sub
 
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
@@ -98,7 +109,7 @@ Public Class REGISTRO_USUARIOS
             If obj_USUARIO.AgregaUsuario(txt_USUARIO.Text, TXT_CONTRASEÑA.Text, CMB_TIPO.Text) = True Then
 
                 MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                'Me.LimpiarCampos()
+                Me.LimpiarCampos()
                 ActualizarTabla(Me.DGV1, "usuarios", "", "ID")
             Else
                 MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
@@ -113,30 +124,33 @@ Public Class REGISTRO_USUARIOS
 
     End Sub
 
+
     Private Sub BTN_MODIFICAR_Click(sender As Object, e As EventArgs) Handles BTN_MODIFICAR.Click
         Try
             Dim i = MsgBox("¿Desea modificar ese registro?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Confirmación")
 
             If i = MsgBoxResult.Yes Then
 
-                If ValidarDatos() Then
-                    If obj_USUARIO.Modificausuario(txt_USUARIO.Text, TXT_CONTRASEÑA.Text, CMB_TIPO.Text, id) = True Then
-                        MsgBox("Registro actualizado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                        'Me.LimpiarCampos()
-                        ActualizarTabla(Me.DGV1, "usuarios", "", "id")
-
-                        'Me.ModoInsercion()
-                    Else
-                        MsgBox("Error al modificar el registro, reintente la acción", MsgBoxStyle.Critical, "Error")
-                    End If
+                If obj_USUARIO Is Nothing Then
+                    MessageBox.Show("obj_USUARIO no está inicializado")
+                    Return
                 End If
-            End If
-            ' Me.LimpiarCampos()
+
+                If obj_USUARIO.Modificausuario(txt_USUARIO.Text, TXT_CONTRASEÑA.Text, CMB_TIPO.Text, id) = True Then
+                        MessageBox.Show("Registro actualizado satisfactoriamente")
+                    ActualizarTabla(Me.DGV1, "usuarios", "", "id")
+                    Me.LimpiarCampos()
+
+                Else
+                        MessageBox.Show("Error al modificar el registro, reintente la acción", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Else
+                    MessageBox.Show("Validación de datos fallida")
+                End If
+            'End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
+            MessageBox.Show("Error de Validación de datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-
     End Sub
 
     Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click
@@ -149,7 +163,7 @@ Public Class REGISTRO_USUARIOS
                     'Me.LimpiarCampos()
                     ActualizarTabla(Me.DGV1, "usuarios", "", "id")
                     'Me.ModoInsercion()
-                    'Me.LimpiarCampos()
+                    Me.LimpiarCampos()
                 Else
                     MsgBox("Error al eliminar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
                 End If
@@ -159,6 +173,52 @@ Public Class REGISTRO_USUARIOS
         Else
         End If
 
+
+    End Sub
+    Sub pinta_fila(ByVal nn As Integer)
+        Try
+            For i As Integer = 0 To DGV1.Rows.Count - 1
+                DGV1.Rows(i).Selected = False
+            Next
+            If nn > 0 Then
+                DGV1.Rows(nn).Selected = True
+            End If
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub BTN_CANCELAR_Click(sender As Object, e As EventArgs) Handles BTN_CANCELAR.Click
+        LimpiarCampos()
+        BTN_MODIFICAR.Enabled = True
+        BTN_ELIMINAR.Enabled = False
+        BTN_NUEVO.Enabled = True
+        BTN_AGREGAR.Enabled = True
+
+        pinta_fila(0)
+        If id > 0 Then
+            id = DGV1.Item(0, 0).Value
+        End If
+
+
+    End Sub
+
+    Private Sub BTN_NUEVO_Click(sender As Object, e As EventArgs) Handles BTN_NUEVO.Click
+        Try
+            BTN_AGREGAR.Enabled = True
+            BTN_NUEVO.Enabled = False
+            BTN_MODIFICAR.Enabled = True
+            BTN_ELIMINAR.Enabled = False
+            txt_USUARIO.Focus()
+
+            LimpiarCampos()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
 
     End Sub
 End Class

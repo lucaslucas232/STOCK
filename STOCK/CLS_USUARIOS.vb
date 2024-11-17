@@ -45,39 +45,33 @@ Public Class CLS_USUARIOS
 
     End Function
 
-
-    Function Modificausuario(ByVal USUARIO As String, ByVal CONTRASEÑA As String, ByVal TIPO As String, ByVal id As Integer) As Boolean
+    Function Modificausuario(ByVal USUARIO As String, ByVal CONTRASEÑA As String, ByVal TIPO As String, ByVal id As String) As Boolean
         Try
+            Using con As New OleDbConnection(RutaDB_STOCK)
+                con.Open()
 
-            Dim con As New OleDbConnection(RutaDB_STOCK)
+                ' TOUPPER  MAYUSCULAS  TOLOWER MINUSCULAS
+                Dim sql As String = "UPDATE usuarios SET usuario = @USUARIO, tipo = @TIPO, contraseña = @CONTRASEÑA WHERE ID = @id"
 
-            Dim MS As New MemoryStream
+                Using cmd As New OleDbCommand(sql, con)
+                    cmd.Parameters.AddWithValue("@USUARIO", USUARIO.ToUpper)
+                    cmd.Parameters.AddWithValue("@TIPO", TIPO)
+                    cmd.Parameters.AddWithValue("@CONTRASEÑA", CONTRASEÑA)
+                    cmd.Parameters.AddWithValue("@id", id)
 
-            con.Open()
-            'TOUPPER  MAYUSCULAS  TOLOWER MINUSCULAS
-            Sql = "UPDATE usuarios 
-SET 
-usuario = '" & USUARIO & "',
-tipo = '" & TIPO & "', 
-contraseña = '" & CONTRASEÑA & "',
-WHERE ID=" & id & ""
-
-            ComandoSql = New OleDbCommand(Sql, con)
-
-            ComandoSql.ExecuteNonQuery() 'EJECUTA LOS CAMBIOS
-            ComandoSql.Dispose() 'LIMPIA LA VARIABLE 
-            Sql = String.Empty 'EMPTY  LIMPIA LA VARIABLE
-            con.Close()
-            Return True
-
+                    cmd.ExecuteNonQuery() ' EJECUTA LOS CAMBIOS
+                End Using
+                Return True
+            End Using
         Catch exsql As OleDbException
+            MessageBox.Show("Error en SQL: " & exsql.Message)
             Return False
-
         Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
             Return False
         End Try
-
     End Function
+
 
     Function EliminaUsuarios(ByVal id As Integer) As Boolean
         Try

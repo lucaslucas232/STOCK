@@ -22,7 +22,6 @@ Partial Class INGRESO_MERCADERIA
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TXT_NOMBRE = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TXT_CANTIDAD = New System.Windows.Forms.TextBox()
@@ -38,15 +37,9 @@ Partial Class INGRESO_MERCADERIA
         Me.BTN_MODIFICAR = New System.Windows.Forms.Button()
         Me.BTN_AGREGAR = New System.Windows.Forms.Button()
         Me.BTN_NUEVO = New System.Windows.Forms.Button()
+        Me.cmbproducto = New System.Windows.Forms.ComboBox()
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'TXT_NOMBRE
-        '
-        Me.TXT_NOMBRE.Location = New System.Drawing.Point(76, 142)
-        Me.TXT_NOMBRE.Name = "TXT_NOMBRE"
-        Me.TXT_NOMBRE.Size = New System.Drawing.Size(220, 20)
-        Me.TXT_NOMBRE.TabIndex = 0
         '
         'Label1
         '
@@ -185,11 +178,20 @@ Partial Class INGRESO_MERCADERIA
         Me.BTN_NUEVO.Text = "NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
+        'cmbproducto
+        '
+        Me.cmbproducto.FormattingEnabled = True
+        Me.cmbproducto.Location = New System.Drawing.Point(76, 150)
+        Me.cmbproducto.Name = "cmbproducto"
+        Me.cmbproducto.Size = New System.Drawing.Size(169, 21)
+        Me.cmbproducto.TabIndex = 37
+        '
         'INGRESO_MERCADERIA
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.cmbproducto)
         Me.Controls.Add(Me.BTN_ELIMINAR)
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_MODIFICAR)
@@ -205,7 +207,6 @@ Partial Class INGRESO_MERCADERIA
         Me.Controls.Add(Me.TXT_CANTIDAD)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TXT_NOMBRE)
         Me.Name = "INGRESO_MERCADERIA"
         Me.Text = "INGRESO_MERCADERIA"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -213,8 +214,6 @@ Partial Class INGRESO_MERCADERIA
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents TXT_NOMBRE As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents TXT_CANTIDAD As TextBox
@@ -230,4 +229,5 @@ Partial Class INGRESO_MERCADERIA
     Friend WithEvents BTN_MODIFICAR As Button
     Friend WithEvents BTN_AGREGAR As Button
     Friend WithEvents BTN_NUEVO As Button
+    Friend WithEvents cmbproducto As ComboBox
 End Class

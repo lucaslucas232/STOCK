@@ -7,11 +7,11 @@ Public Class cls_herramientas
     Function Agregaherramienta(ByVal nombre As String, ByVal TIPO As String) As Boolean
 
         Try
-            Dim con As New OleDbConnection(RutaDB_STOCK) 'APUNTA A LA BASE DE DATOS.. CON = CONEXION 
+            Dim con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
 
 
-            Sql = "Insert into herramientas (nombre, TIPO) " _
+            Sql = "Insert into productos (nombre, TIPO) " _
                     + "Values (@nombre,@TIPO)"
 
             ComandoSql = New OleDbCommand
@@ -47,16 +47,14 @@ Public Class cls_herramientas
             Dim con As New OleDbConnection(RutaDB_STOCK)
 
             con.Open()
-            'TOUPPER  MAYUSCULAS  TOLOWER MINUSCULAS
-            Sql = "UPDATE herramientas
+            Sql = "UPDATE productos
 SET Nombre = '" & nombre.ToUpper & "',tipo = '" & tipo & "' 
-
-WHERE ID=" & ID & ""
+WHERE ID_producto =" & ID & ""
 
             ComandoSql = New OleDbCommand(Sql, con)
             ComandoSql.Parameters.AddWithValue("@nombre", nombre.ToUpper)
             ComandoSql.Parameters.AddWithValue("@tipo", tipo)
-            ComandoSql.Parameters.AddWithValue("@ID", ID)
+            ComandoSql.Parameters.AddWithValue("@ID_producto", ID)
             ComandoSql.ExecuteNonQuery() 'EJECUTA LOS CAMBIOS
             ComandoSql.Dispose() 'LIMPIA LA VARIABLE 
             Sql = String.Empty 'EMPTY  LIMPIA LA VARIABLE
@@ -76,7 +74,7 @@ WHERE ID=" & ID & ""
         Try
             Dim con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
-            Sql = "DELETE * FROM herramientas WHERE id =" & id
+            Sql = "DELETE * FROM productos WHERE id_producto =" & id
             ComandoSql = New OleDbCommand(Sql, con)
             ComandoSql.ExecuteNonQuery()
             ComandoSql.Dispose()
