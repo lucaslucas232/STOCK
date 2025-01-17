@@ -91,6 +91,12 @@
     <Compile Include="INGRESO_MERCADERIA.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="INVENTARIO.Designer.VB">
+      <DependentUpon>INVENTARIO.VB</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTARIO.VB">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LOGIN.Designer.VB">
       <DependentUpon>LOGIN.VB</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="INGRESO_MERCADERIA.resx">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INVENTARIO.resx">
+      <DependentUpon>INVENTARIO.VB</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.VB</DependentUpon>
