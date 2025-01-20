@@ -5,7 +5,7 @@ Public Class REGISTRO_OBRAS
     Dim n As Integer
     Dim id As Integer
     Dim ini As Integer
-    Sub pinta_fila(ByVal nn As Integer)
+    Sub Pinta_fila(ByVal nn As Integer)
         Try
             For i As Integer = 0 To DGV1.Rows.Count - 1
                 DGV1.Rows(i).Selected = False
@@ -162,13 +162,12 @@ Public Class REGISTRO_OBRAS
         BTN_ELIMINAR.Enabled = False
         BTN_NUEVO.Enabled = True
         BTN_AGREGAR.Enabled = True
-        pinta_fila(0)
+        Pinta_fila(0)
         If id > 0 Then
             id = DGV1.Item(0, 0).Value
         End If
     End Sub
-    Private Sub REGISTRO_OBRAS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        STOCK.muestra()
-    End Sub
 End Class
+
+
 

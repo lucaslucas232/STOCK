@@ -2,6 +2,7 @@
 
 Module MODULO_STOCK
     Public RutaDB_STOCK As String = "provider=microsoft.ace.oledb.12.0; data source=" & My.Application.Info.DirectoryPath & "\STOCK.accdb"
+    Public usuario As String = ""
 
     'Public usuario As String = ""
 

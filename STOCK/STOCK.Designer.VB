@@ -1,26 +1,40 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class STOCK
     Inherits System.Windows.Forms.Form
+    Protected Overrides Sub Dispose(disposing As Boolean)
+        ' Código de limpieza aquí
+    End Sub
+    '<System.Diagnostics.DebuggerNonUserCode()>
+    'Protected Overrides Sub Dispose(disposing As Boolean)
+    '    Try
+    '        If disposing AndAlso components IsNot Nothing Then
+    '            components.Dispose()
+    '        End If
+    '    Finally
+    '        MyBase.Dispose(disposing)
+    '    End Try
+    'End Sub
+
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
-    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-        Try
-            If disposing AndAlso components IsNot Nothing Then
-                components.Dispose()
-            End If
-        Finally
-            MyBase.Dispose(disposing)
-        End Try
-    End Sub
+    '<System.Diagnostics.DebuggerNonUserCode()>
+    'Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+    '    Try
+    '        If disposing AndAlso components IsNot Nothing Then
+    '            components.Dispose()
+    '        End If
+    '    Finally
+    '        MyBase.Dispose(disposing)
+    '    End Try
+    'End Sub
 
     'Requerido por el Diseñador de Windows Forms
-    Private components As System.ComponentModel.IContainer
+    'Private components As System.ComponentModel.IContainer
 
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btn_trans = New System.Windows.Forms.Button()
         Me.btn_ingreso = New System.Windows.Forms.Button()
@@ -71,19 +85,19 @@ Partial Class STOCK
         'USUARIOToolStripMenuItem
         '
         Me.USUARIOToolStripMenuItem.Name = "USUARIOToolStripMenuItem"
-        Me.USUARIOToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.USUARIOToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.USUARIOToolStripMenuItem.Text = "USUARIO"
         '
         'PRODUCTOToolStripMenuItem
         '
         Me.PRODUCTOToolStripMenuItem.Name = "PRODUCTOToolStripMenuItem"
-        Me.PRODUCTOToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.PRODUCTOToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PRODUCTOToolStripMenuItem.Text = "PRODUCTO"
         '
         'OBRAToolStripMenuItem
         '
         Me.OBRAToolStripMenuItem.Name = "OBRAToolStripMenuItem"
-        Me.OBRAToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.OBRAToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OBRAToolStripMenuItem.Text = "OBRA"
         '
         'btnlogout

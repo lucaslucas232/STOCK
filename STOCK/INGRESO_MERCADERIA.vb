@@ -1,23 +1,17 @@
 ﻿Imports System.Data.OleDb
-
-
 Public Class INGRESO_MERCADERIA
     Dim id As Integer
     Dim obj_INGRESOS As New CLS_INGRESOS
     Dim n As Integer
-
-
     Private Sub INGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dtProductos As DataTable = ObtenerProductos()
         If dtProductos IsNot Nothing Then
-            CMBPRODUCTO.DataSource = dtProductos
-            CMBPRODUCTO.DisplayMember = "nombre"
-            CMBPRODUCTO.ValueMember = "id_PRODUCTO"
+            cmbproducto.DataSource = dtProductos
+            cmbproducto.DisplayMember = "nombre"
+            cmbproducto.ValueMember = "id_PRODUCTO"
         End If
-
         ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingresos") 'tabla usuarios ordenado por apellido        ' Label9.Text = n
     End Sub
-
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
                         ByVal campoSql As String, ByVal C_ORDEN As String)
         Try
@@ -41,9 +35,7 @@ Public Class INGRESO_MERCADERIA
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
     End Sub
-
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
             'If ValidarDatos() Then
@@ -87,7 +79,7 @@ Public Class INGRESO_MERCADERIA
 
     End Sub
     Private Sub INGRESO_MERCADERIA_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        STOCK.muestra()
+        STOCK.Muestra()
     End Sub
 
 End Class
