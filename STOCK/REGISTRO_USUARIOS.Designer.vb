@@ -53,7 +53,7 @@ Partial Class REGISTRO_USUARIOS
         Me.TXT_CONTRASEÑA.Location = New System.Drawing.Point(132, 103)
         Me.TXT_CONTRASEÑA.Name = "TXT_CONTRASEÑA"
         Me.TXT_CONTRASEÑA.Size = New System.Drawing.Size(237, 26)
-        Me.TXT_CONTRASEÑA.TabIndex = 40
+        Me.TXT_CONTRASEÑA.TabIndex = 3
         '
         'Label3
         '
@@ -71,7 +71,7 @@ Partial Class REGISTRO_USUARIOS
         Me.txt_USUARIO.Location = New System.Drawing.Point(132, 58)
         Me.txt_USUARIO.Name = "txt_USUARIO"
         Me.txt_USUARIO.Size = New System.Drawing.Size(237, 26)
-        Me.txt_USUARIO.TabIndex = 39
+        Me.txt_USUARIO.TabIndex = 2
         '
         'DGV1
         '
@@ -129,18 +129,19 @@ Partial Class REGISTRO_USUARIOS
         Me.BTN_NUEVO.Location = New System.Drawing.Point(643, 55)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
         Me.BTN_NUEVO.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_NUEVO.TabIndex = 46
+        Me.BTN_NUEVO.TabIndex = 1
         Me.BTN_NUEVO.Text = "NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
         'CMB_TIPO
         '
+        Me.CMB_TIPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CMB_TIPO.FormattingEnabled = True
         Me.CMB_TIPO.Items.AddRange(New Object() {"ADMIN", "USUARIO"})
         Me.CMB_TIPO.Location = New System.Drawing.Point(132, 155)
         Me.CMB_TIPO.Name = "CMB_TIPO"
         Me.CMB_TIPO.Size = New System.Drawing.Size(121, 21)
-        Me.CMB_TIPO.TabIndex = 51
+        Me.CMB_TIPO.TabIndex = 4
         '
         'Label1
         '

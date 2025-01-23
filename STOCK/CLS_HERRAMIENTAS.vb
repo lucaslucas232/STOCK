@@ -39,36 +39,28 @@ Public Class cls_herramientas
         End Try
 
     End Function
-
-    Function Modificaherramienta(ByVal nombre As String, ByVal tipo As String,
-                           ByVal ID As Integer) As Boolean
+    Function Modificaherramienta(ByVal nombre As String, ByVal tipo As String, ByVal ID As Integer) As Boolean
         Try
-
-            Dim con As New OleDbConnection(RutaDB_STOCK)
-
-            con.Open()
-            Sql = "UPDATE productos
-SET Nombre = '" & nombre.ToUpper & "',tipo = '" & tipo & "' 
-WHERE ID_producto =" & ID & ""
-
-            ComandoSql = New OleDbCommand(Sql, con)
-            ComandoSql.Parameters.AddWithValue("@nombre", nombre.ToUpper)
-            ComandoSql.Parameters.AddWithValue("@tipo", tipo)
-            ComandoSql.Parameters.AddWithValue("@ID_producto", ID)
-            ComandoSql.ExecuteNonQuery() 'EJECUTA LOS CAMBIOS
-            ComandoSql.Dispose() 'LIMPIA LA VARIABLE 
-            Sql = String.Empty 'EMPTY  LIMPIA LA VARIABLE
-            con.Close()
+            Using con As New OleDbConnection(RutaDB_STOCK)
+                con.Open()
+                Dim sql As String = "UPDATE productos SET Nombre = ?, tipo = ? WHERE ID_producto = ?"
+                Using comandoSql As New OleDbCommand(sql, con)
+                    comandoSql.Parameters.AddWithValue("@nombre", nombre.ToUpper())
+                    comandoSql.Parameters.AddWithValue("@tipo", tipo)
+                    comandoSql.Parameters.AddWithValue("@ID_producto", ID)
+                    comandoSql.ExecuteNonQuery()
+                End Using
+            End Using
             Return True
-
         Catch exsql As OleDbException
+            MsgBox("Database error: " & exsql.Message, MsgBoxStyle.Critical, "Database Error")
             Return False
-
         Catch ex As Exception
+            MsgBox("General error: " & ex.Message, MsgBoxStyle.Critical, "General Error")
             Return False
         End Try
-
     End Function
+
 
     Function Eliminaherramienta(ByVal id As Integer) As Boolean
         Try

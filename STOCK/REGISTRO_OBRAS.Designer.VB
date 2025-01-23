@@ -41,7 +41,7 @@ Partial Class REGISTRO_OBRAS
         Me.BTN_ELIMINAR.Location = New System.Drawing.Point(587, 272)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
         Me.BTN_ELIMINAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_ELIMINAR.TabIndex = 77
+        Me.BTN_ELIMINAR.TabIndex = 5
         Me.BTN_ELIMINAR.Text = "ELIMINAR"
         Me.BTN_ELIMINAR.UseVisualStyleBackColor = True
         '
@@ -51,7 +51,7 @@ Partial Class REGISTRO_OBRAS
         Me.BTN_CANCELAR.Location = New System.Drawing.Point(587, 225)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_CANCELAR.TabIndex = 76
+        Me.BTN_CANCELAR.TabIndex = 4
         Me.BTN_CANCELAR.Text = "CANCELAR"
         Me.BTN_CANCELAR.UseVisualStyleBackColor = True
         '
@@ -61,7 +61,7 @@ Partial Class REGISTRO_OBRAS
         Me.BTN_MODIFICAR.Location = New System.Drawing.Point(587, 178)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
         Me.BTN_MODIFICAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_MODIFICAR.TabIndex = 75
+        Me.BTN_MODIFICAR.TabIndex = 3
         Me.BTN_MODIFICAR.Text = "MODIFICAR"
         Me.BTN_MODIFICAR.UseVisualStyleBackColor = True
         '
@@ -71,7 +71,7 @@ Partial Class REGISTRO_OBRAS
         Me.BTN_AGREGAR.Location = New System.Drawing.Point(587, 131)
         Me.BTN_AGREGAR.Name = "BTN_AGREGAR"
         Me.BTN_AGREGAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_AGREGAR.TabIndex = 74
+        Me.BTN_AGREGAR.TabIndex = 2
         Me.BTN_AGREGAR.Text = "AGREGAR"
         Me.BTN_AGREGAR.UseVisualStyleBackColor = True
         '
@@ -81,7 +81,7 @@ Partial Class REGISTRO_OBRAS
         Me.BTN_NUEVO.Location = New System.Drawing.Point(587, 84)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
         Me.BTN_NUEVO.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_NUEVO.TabIndex = 73
+        Me.BTN_NUEVO.TabIndex = 1
         Me.BTN_NUEVO.Text = "NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '

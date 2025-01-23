@@ -49,16 +49,12 @@ Public Class CLS_USUARIOS
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
                 con.Open()
-
-                ' TOUPPER  MAYUSCULAS  TOLOWER MINUSCULAS
                 Dim sql As String = "UPDATE usuarios SET usuario = @USUARIO, tipo = @TIPO, contraseña = @CONTRASEÑA WHERE ID = @id"
-
                 Using cmd As New OleDbCommand(sql, con)
                     cmd.Parameters.AddWithValue("@USUARIO", USUARIO.ToUpper)
                     cmd.Parameters.AddWithValue("@TIPO", TIPO)
                     cmd.Parameters.AddWithValue("@CONTRASEÑA", CONTRASEÑA)
                     cmd.Parameters.AddWithValue("@id", id)
-
                     cmd.ExecuteNonQuery() ' EJECUTA LOS CAMBIOS
                 End Using
                 Return True

@@ -4,13 +4,15 @@ Public Class INGRESO_MERCADERIA
     Dim obj_INGRESOS As New CLS_INGRESOS
     Dim n As Integer
     Private Sub INGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Dim dtProductos As DataTable = ObtenerProductos()
         If dtProductos IsNot Nothing Then
             cmbproducto.DataSource = dtProductos
             cmbproducto.DisplayMember = "nombre"
             cmbproducto.ValueMember = "id_PRODUCTO"
         End If
-        ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingresos") 'tabla usuarios ordenado por apellido        ' Label9.Text = n
+        ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingresos")
+
     End Sub
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
                         ByVal campoSql As String, ByVal C_ORDEN As String)
@@ -35,6 +37,13 @@ Public Class INGRESO_MERCADERIA
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        If DGV1.Columns.Contains("id_ingresos") Then
+            DGV1.Columns("id_ingresos").Visible = False
+        End If
+        If DGV1.Columns.Contains("id_producto") Then
+            DGV1.Columns("id_producto").Visible = False
+        End If
+
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
@@ -82,4 +91,7 @@ Public Class INGRESO_MERCADERIA
         STOCK.Muestra()
     End Sub
 
+    Private Sub DGV1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV1.CellContentClick
+
+    End Sub
 End Class

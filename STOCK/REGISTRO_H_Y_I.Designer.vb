@@ -39,15 +39,15 @@ Partial Class REGISTRO_H_Y_I
         '
         'txt_producto
         '
-        Me.txt_producto.Location = New System.Drawing.Point(87, 114)
+        Me.txt_producto.Location = New System.Drawing.Point(64, 114)
         Me.txt_producto.Name = "txt_producto"
         Me.txt_producto.Size = New System.Drawing.Size(206, 20)
-        Me.txt_producto.TabIndex = 0
+        Me.txt_producto.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(84, 87)
+        Me.Label1.Location = New System.Drawing.Point(61, 87)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 13)
         Me.Label1.TabIndex = 1
@@ -57,15 +57,15 @@ Partial Class REGISTRO_H_Y_I
         '
         Me.cmb_tipo.FormattingEnabled = True
         Me.cmb_tipo.Items.AddRange(New Object() {"HERRAMIENTA" & Global.Microsoft.VisualBasic.ChrW(9), "INSUMO"})
-        Me.cmb_tipo.Location = New System.Drawing.Point(87, 185)
+        Me.cmb_tipo.Location = New System.Drawing.Point(64, 185)
         Me.cmb_tipo.Name = "cmb_tipo"
         Me.cmb_tipo.Size = New System.Drawing.Size(121, 21)
-        Me.cmb_tipo.TabIndex = 2
+        Me.cmb_tipo.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(84, 154)
+        Me.Label2.Location = New System.Drawing.Point(61, 154)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(32, 13)
         Me.Label2.TabIndex = 3
@@ -74,7 +74,7 @@ Partial Class REGISTRO_H_Y_I
         'LBL_USUARIO
         '
         Me.LBL_USUARIO.AutoSize = True
-        Me.LBL_USUARIO.Location = New System.Drawing.Point(452, 28)
+        Me.LBL_USUARIO.Location = New System.Drawing.Point(429, 28)
         Me.LBL_USUARIO.Name = "LBL_USUARIO"
         Me.LBL_USUARIO.Size = New System.Drawing.Size(15, 13)
         Me.LBL_USUARIO.TabIndex = 11
@@ -83,7 +83,7 @@ Partial Class REGISTRO_H_Y_I
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(377, 28)
+        Me.Label5.Location = New System.Drawing.Point(354, 28)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 10
@@ -92,7 +92,7 @@ Partial Class REGISTRO_H_Y_I
         'DGV1
         '
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV1.Location = New System.Drawing.Point(308, 87)
+        Me.DGV1.Location = New System.Drawing.Point(285, 87)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.Size = New System.Drawing.Size(240, 150)
         Me.DGV1.TabIndex = 13
@@ -100,7 +100,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_ELIMINAR
         '
         Me.BTN_ELIMINAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(577, 255)
+        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(554, 255)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
         Me.BTN_ELIMINAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_ELIMINAR.TabIndex = 65
@@ -110,7 +110,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(577, 208)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(554, 208)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_CANCELAR.TabIndex = 64
@@ -120,7 +120,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_MODIFICAR
         '
         Me.BTN_MODIFICAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(577, 161)
+        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(554, 161)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
         Me.BTN_MODIFICAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_MODIFICAR.TabIndex = 63
@@ -130,20 +130,20 @@ Partial Class REGISTRO_H_Y_I
         'BTN_AGREGAR
         '
         Me.BTN_AGREGAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_AGREGAR.Location = New System.Drawing.Point(577, 114)
+        Me.BTN_AGREGAR.Location = New System.Drawing.Point(554, 114)
         Me.BTN_AGREGAR.Name = "BTN_AGREGAR"
         Me.BTN_AGREGAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_AGREGAR.TabIndex = 62
+        Me.BTN_AGREGAR.TabIndex = 4
         Me.BTN_AGREGAR.Text = "AGREGAR"
         Me.BTN_AGREGAR.UseVisualStyleBackColor = True
         '
         'BTN_NUEVO
         '
         Me.BTN_NUEVO.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_NUEVO.Location = New System.Drawing.Point(577, 67)
+        Me.BTN_NUEVO.Location = New System.Drawing.Point(554, 67)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
         Me.BTN_NUEVO.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_NUEVO.TabIndex = 61
+        Me.BTN_NUEVO.TabIndex = 1
         Me.BTN_NUEVO.Text = "NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
@@ -151,7 +151,7 @@ Partial Class REGISTRO_H_Y_I
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 326)
+        Me.ClientSize = New System.Drawing.Size(751, 333)
         Me.Controls.Add(Me.BTN_ELIMINAR)
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_MODIFICAR)
