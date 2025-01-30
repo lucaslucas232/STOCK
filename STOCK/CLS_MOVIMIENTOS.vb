@@ -16,7 +16,7 @@ Public Class CLS_MOVIMIENTOS
                         cmdEgreso.Parameters.AddWithValue("@id_obra", origen_id)
                         cmdEgreso.ExecuteNonQuery()
                     End Using
-                    MessageBox.Show("Egreso ejecutado")
+                    'MessageBox.Show("Egreso ejecutado")
 
                     Dim sqlIngreso As String = "INSERT INTO ingresos (id_producto, cantidad, id_obra) VALUES (@id_producto, @cantidad, @id_obra)"
                     Using cmdIngreso As New OleDbCommand(sqlIngreso, con, transaction)
@@ -25,7 +25,7 @@ Public Class CLS_MOVIMIENTOS
                         cmdIngreso.Parameters.AddWithValue("@id_obra", destino_id)
                         cmdIngreso.ExecuteNonQuery()
                     End Using
-                    MessageBox.Show("Ingreso ejecutado")
+                    'MessageBox.Show("Ingreso ejecutado")
                     transaction.Commit()
                     Return True
                 Catch ex As Exception

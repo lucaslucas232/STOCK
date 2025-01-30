@@ -27,9 +27,6 @@ Partial Class transferencia
         Me.CMB_DEPOSTIODESTINO = New System.Windows.Forms.ComboBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.fecha = New System.Windows.Forms.Label()
-        Me.TXT_codigo = New System.Windows.Forms.TextBox()
-        Me.BTN_BUSCAR = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BTN_ACEPTAR = New System.Windows.Forms.Button()
         Me.BTN_CANCELAR = New System.Windows.Forms.Button()
@@ -40,6 +37,7 @@ Partial Class transferencia
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_saldo = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.cmb_producto = New System.Windows.Forms.ComboBox()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -53,8 +51,9 @@ Partial Class transferencia
         '
         'CMB_DEPOSTIOORIGEN
         '
+        Me.CMB_DEPOSTIOORIGEN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CMB_DEPOSTIOORIGEN.FormattingEnabled = True
-        Me.CMB_DEPOSTIOORIGEN.Items.AddRange(New Object() {"DEPOSITO HERRAMIENTAS", "DEPOSITO PRODUCTOS"})
+        Me.CMB_DEPOSTIOORIGEN.Items.AddRange(New Object() {"HERRAMIENTA", "INSUMO"})
         Me.CMB_DEPOSTIOORIGEN.Location = New System.Drawing.Point(177, 55)
         Me.CMB_DEPOSTIOORIGEN.Name = "CMB_DEPOSTIOORIGEN"
         Me.CMB_DEPOSTIOORIGEN.Size = New System.Drawing.Size(121, 21)
@@ -85,31 +84,6 @@ Partial Class transferencia
         Me.fecha.Size = New System.Drawing.Size(45, 13)
         Me.fecha.TabIndex = 5
         Me.fecha.Text = "FECHA:"
-        '
-        'TXT_codigo
-        '
-        Me.TXT_codigo.Location = New System.Drawing.Point(35, 112)
-        Me.TXT_codigo.Name = "TXT_codigo"
-        Me.TXT_codigo.Size = New System.Drawing.Size(100, 20)
-        Me.TXT_codigo.TabIndex = 6
-        '
-        'BTN_BUSCAR
-        '
-        Me.BTN_BUSCAR.Location = New System.Drawing.Point(141, 110)
-        Me.BTN_BUSCAR.Name = "BTN_BUSCAR"
-        Me.BTN_BUSCAR.Size = New System.Drawing.Size(29, 23)
-        Me.BTN_BUSCAR.TabIndex = 7
-        Me.BTN_BUSCAR.Text = "..."
-        Me.BTN_BUSCAR.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 96)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 13)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "CODIGO:"
         '
         'Label2
         '
@@ -206,6 +180,14 @@ Partial Class transferencia
         Me.Label5.TabIndex = 18
         Me.Label5.Text = "ORIGEN"
         '
+        'cmb_producto
+        '
+        Me.cmb_producto.FormattingEnabled = True
+        Me.cmb_producto.Location = New System.Drawing.Point(35, 106)
+        Me.cmb_producto.Name = "cmb_producto"
+        Me.cmb_producto.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_producto.TabIndex = 19
+        '
         'transferencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -214,6 +196,7 @@ Partial Class transferencia
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(686, 411)
+        Me.Controls.Add(Me.cmb_producto)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lbl_saldo)
         Me.Controls.Add(Me.Label4)
@@ -224,9 +207,6 @@ Partial Class transferencia
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_ACEPTAR)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.BTN_BUSCAR)
-        Me.Controls.Add(Me.TXT_codigo)
         Me.Controls.Add(Me.fecha)
         Me.Controls.Add(Me.dgv1)
         Me.Controls.Add(Me.CMB_DEPOSTIODESTINO)
@@ -245,9 +225,6 @@ Partial Class transferencia
     Friend WithEvents CMB_DEPOSTIODESTINO As ComboBox
     Friend WithEvents dgv1 As DataGridView
     Friend WithEvents fecha As Label
-    Friend WithEvents TXT_codigo As TextBox
-    Friend WithEvents BTN_BUSCAR As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents BTN_ACEPTAR As Button
     Friend WithEvents BTN_CANCELAR As Button
@@ -258,4 +235,5 @@ Partial Class transferencia
     Friend WithEvents Label4 As Label
     Friend WithEvents lbl_saldo As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents cmb_producto As ComboBox
 End Class

@@ -212,6 +212,25 @@ Public Class REGISTRO_OBRAS
         If result = MsgBoxResult.Yes Then
             Try
                 'MessageBox.Show("ID del registro a eliminar: " & id)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 If obj_OBRAS.EliminaOBRA(id) Then
                     MsgBox("Registro eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmación")
                     Me.LimpiarCampos()

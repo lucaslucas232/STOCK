@@ -26,7 +26,7 @@ Partial Class INGRESO_MERCADERIA
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TXT_CANTIDAD = New System.Windows.Forms.TextBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.CMB = New System.Windows.Forms.ComboBox()
+        Me.CMB_producto = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -74,14 +74,14 @@ Partial Class INGRESO_MERCADERIA
         Me.DateTimePicker1.Size = New System.Drawing.Size(96, 20)
         Me.DateTimePicker1.TabIndex = 4
         '
-        'CMB
+        'CMB_producto
         '
-        Me.CMB.FormattingEnabled = True
-        Me.CMB.Items.AddRange(New Object() {"HERRAMIENTA", "INSUMO"})
-        Me.CMB.Location = New System.Drawing.Point(76, 245)
-        Me.CMB.Name = "CMB"
-        Me.CMB.Size = New System.Drawing.Size(121, 21)
-        Me.CMB.TabIndex = 5
+        Me.CMB_producto.FormattingEnabled = True
+        Me.CMB_producto.Items.AddRange(New Object() {"HERRAMIENTA", "INSUMO"})
+        Me.CMB_producto.Location = New System.Drawing.Point(76, 245)
+        Me.CMB_producto.Name = "CMB_producto"
+        Me.CMB_producto.Size = New System.Drawing.Size(121, 21)
+        Me.CMB_producto.TabIndex = 5
         '
         'Label3
         '
@@ -203,7 +203,7 @@ Partial Class INGRESO_MERCADERIA
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.CMB)
+        Me.Controls.Add(Me.CMB_producto)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.TXT_CANTIDAD)
         Me.Controls.Add(Me.Label2)
@@ -219,7 +219,7 @@ Partial Class INGRESO_MERCADERIA
     Friend WithEvents Label2 As Label
     Friend WithEvents TXT_CANTIDAD As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents CMB As ComboBox
+    Friend WithEvents CMB_producto As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label

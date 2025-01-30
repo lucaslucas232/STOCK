@@ -57,13 +57,10 @@ Public Class INGRESO_MERCADERIA
                 MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
             End If
             'End If
-
-
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
         End Try
         'Me.ModoInsercion()
-
     End Sub
 
     Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click
@@ -92,6 +89,10 @@ Public Class INGRESO_MERCADERIA
     End Sub
 
     Private Sub DGV1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV1.CellContentClick
+
+    End Sub
+
+    Private Sub CMB_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CMB_producto.SelectedIndexChanged
 
     End Sub
 End Class

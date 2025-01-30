@@ -48,14 +48,24 @@ Public Class CLS_OBRAS
             Return False
         End Try
     End Function
+
     Function EliminaOBRA(ByVal id As Integer) As Boolean
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
                 con.Open()
-                Dim sql As String = "DELETE FROM OBRAS WHERE id_obra = @id" ' Asegúrate de que el nombre del campo sea correcto
-                Using ComandoSql As New OleDbCommand(sql, con)
-                    ComandoSql.Parameters.AddWithValue("@id", id) ' Asegúrate de que el nombre del parámetro coincida
-                    Dim rowsAffected As Integer = ComandoSql.ExecuteNonQuery()
+
+                ' Eliminar registros relacionados en la tabla "egresos"
+                Dim sqlEgresos As String = "DELETE FROM egresos WHERE id_obra = @id"
+                Using ComandoSqlEgresos As New OleDbCommand(sqlEgresos, con)
+                    ComandoSqlEgresos.Parameters.AddWithValue("@id", id)
+                    ComandoSqlEgresos.ExecuteNonQuery()
+                End Using
+
+                ' Eliminar registro en la tabla "OBRAS"
+                Dim sqlObras As String = "DELETE FROM OBRAS WHERE id_obra = @id"
+                Using ComandoSqlObras As New OleDbCommand(sqlObras, con)
+                    ComandoSqlObras.Parameters.AddWithValue("@id", id)
+                    Dim rowsAffected As Integer = ComandoSqlObras.ExecuteNonQuery()
                     If rowsAffected > 0 Then
                         Return True
                     Else
