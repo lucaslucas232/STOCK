@@ -54,6 +54,8 @@ Public Class STOCK
         btn_ingreso.Hide()
         btn_trans.Hide()
         btnlogout.Hide()
+        BTN_MOVIMIENTOS.Hide()
+
     End Sub
     Private Sub Btn_trans_Click(sender As Object, e As EventArgs) Handles btn_trans.Click
         Carga_formulario(transferencia)
@@ -76,7 +78,11 @@ Public Class STOCK
         Carga_formulario(REGISTRO_USUARIOS)
         Oculta()
     End Sub
-    Private Sub STOCK_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+    Private Sub BTN_MOVIMIENTOS_Click(sender As Object, e As EventArgs) Handles BTN_MOVIMIENTOS.Click
+        Carga_formulario(MOVIMIENTOS)
+        Oculta()
 
     End Sub
 End Class

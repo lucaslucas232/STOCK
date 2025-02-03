@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E7867B70-3046-4ED9-B6DD-65189F2AD9B7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>STOCK.My.MyApplication</StartupObject>
+    <StartupObject>STOCK.INVENTARIO</StartupObject>
     <RootNamespace>STOCK</RootNamespace>
     <AssemblyName>STOCK</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>

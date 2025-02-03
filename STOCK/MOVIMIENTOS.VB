@@ -65,21 +65,17 @@ Public Class MOVIMIENTOS
             MessageBox.Show("El campo 'Cantidad' no puede estar vacío. Por favor, ingrese una cantidad.")
             Return
         End If
-
         Dim id_producto As Integer = CInt(CMBPRODUCTO.SelectedValue)
         Dim cantidad As Integer = CInt(TXTCANTIDAD.Text)
         Dim origen_ID As Integer = CInt(CMBORIGEN.SelectedValue)
         Dim destino_ID As Integer = CInt(CMBDESTINO.SelectedValue)
-
         ' Verificar que origen_ID y destino_ID no sean iguales
         If origen_ID = destino_ID Then
             MessageBox.Show("El origen y el destino no pueden ser iguales. Por favor, seleccione valores diferentes.")
             Return
         End If
-
         ' Obtener saldo disponible del producto
         Dim saldoDisponible As Integer = ObtenerSaldoDisponible(id_producto, origen_ID)
-
         ' Verificar si la cantidad solicitada es menor o igual al saldo disponible
         If cantidad > saldoDisponible Then
             MessageBox.Show($"Saldo insuficiente. Saldo disponible: {saldoDisponible}.")
@@ -93,30 +89,30 @@ Public Class MOVIMIENTOS
         End If
     End Sub
 
-    Private Function ObtenerSaldoDisponible(id_producto As Integer, origen_ID As Integer) As Integer
+    Private Function ObtenerSaldoDisponible(id_producto As Integer, id_obra As Integer) As Integer
         Dim saldoDisponible As Integer = 0
 
         Using con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
 
             ' Obtener el total de ingresos
-            Dim sqlIngresos As String = "SELECT SUM(cantidad) FROM Ingresos WHERE id_producto = @IDProducto AND origen_ID = @OrigenID"
+            Dim sqlIngresos As String = "SELECT SUM(cantidad) FROM Ingresos WHERE id_producto = @IDProducto AND id_obra = @IDObra"
             Using cmdIngresos As New OleDbCommand(sqlIngresos, con)
-                cmdIngresos.Parameters.Add("@IDProducto", OleDbType.Integer).Value = id_producto
-                cmdIngresos.Parameters.Add("@OrigenID", OleDbType.Integer).Value = origen_ID
+                cmdIngresos.Parameters.AddWithValue("@IDProducto", id_producto)
+                cmdIngresos.Parameters.AddWithValue("@IDObra", id_obra)
                 Dim totalIngresos As Object = cmdIngresos.ExecuteScalar()
-                If totalIngresos IsNot DBNull.Value Then
+                If totalIngresos IsNot DBNull.Value AndAlso totalIngresos IsNot Nothing Then
                     saldoDisponible += Convert.ToInt32(totalIngresos)
                 End If
             End Using
 
             ' Obtener el total de egresos
-            Dim sqlEgresos As String = "SELECT SUM(cantidad) FROM Egresos WHERE id_producto = @IDProducto AND origen_ID = @OrigenID"
+            Dim sqlEgresos As String = "SELECT SUM(cantidad) FROM Egresos WHERE id_producto = @IDProducto AND id_obra = @IDObra"
             Using cmdEgresos As New OleDbCommand(sqlEgresos, con)
-                cmdEgresos.Parameters.Add("@IDProducto", OleDbType.Integer).Value = id_producto
-                cmdEgresos.Parameters.Add("@OrigenID", OleDbType.Integer).Value = origen_ID
+                cmdEgresos.Parameters.AddWithValue("@IDProducto", id_producto)
+                cmdEgresos.Parameters.AddWithValue("@IDObra", id_obra)
                 Dim totalEgresos As Object = cmdEgresos.ExecuteScalar()
-                If totalEgresos IsNot DBNull.Value Then
+                If totalEgresos IsNot DBNull.Value AndAlso totalEgresos IsNot Nothing Then
                     saldoDisponible -= Convert.ToInt32(totalEgresos)
                 End If
             End Using

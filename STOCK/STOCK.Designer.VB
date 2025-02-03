@@ -44,6 +44,7 @@ Partial Class STOCK
         Me.PRODUCTOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OBRAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnlogout = New System.Windows.Forms.Button()
+        Me.BTN_MOVIMIENTOS = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -85,19 +86,19 @@ Partial Class STOCK
         'USUARIOToolStripMenuItem
         '
         Me.USUARIOToolStripMenuItem.Name = "USUARIOToolStripMenuItem"
-        Me.USUARIOToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.USUARIOToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.USUARIOToolStripMenuItem.Text = "USUARIO"
         '
         'PRODUCTOToolStripMenuItem
         '
         Me.PRODUCTOToolStripMenuItem.Name = "PRODUCTOToolStripMenuItem"
-        Me.PRODUCTOToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PRODUCTOToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.PRODUCTOToolStripMenuItem.Text = "PRODUCTO"
         '
         'OBRAToolStripMenuItem
         '
         Me.OBRAToolStripMenuItem.Name = "OBRAToolStripMenuItem"
-        Me.OBRAToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OBRAToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.OBRAToolStripMenuItem.Text = "OBRA"
         '
         'btnlogout
@@ -109,6 +110,15 @@ Partial Class STOCK
         Me.btnlogout.Text = "LOG OUT"
         Me.btnlogout.UseVisualStyleBackColor = True
         '
+        'BTN_MOVIMIENTOS
+        '
+        Me.BTN_MOVIMIENTOS.Location = New System.Drawing.Point(153, 116)
+        Me.BTN_MOVIMIENTOS.Name = "BTN_MOVIMIENTOS"
+        Me.BTN_MOVIMIENTOS.Size = New System.Drawing.Size(117, 41)
+        Me.BTN_MOVIMIENTOS.TabIndex = 7
+        Me.BTN_MOVIMIENTOS.Text = "MOVIMIENTOS"
+        Me.BTN_MOVIMIENTOS.UseVisualStyleBackColor = True
+        '
         'STOCK
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -116,6 +126,7 @@ Partial Class STOCK
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(581, 230)
+        Me.Controls.Add(Me.BTN_MOVIMIENTOS)
         Me.Controls.Add(Me.btnlogout)
         Me.Controls.Add(Me.btn_ingreso)
         Me.Controls.Add(Me.btn_trans)
@@ -141,4 +152,5 @@ Partial Class STOCK
     Friend WithEvents PRODUCTOToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OBRAToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnlogout As Button
+    Friend WithEvents BTN_MOVIMIENTOS As Button
 End Class

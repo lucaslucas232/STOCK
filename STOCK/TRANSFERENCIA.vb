@@ -95,4 +95,8 @@ Public Class transferencia
     Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
 
     End Sub
+
+    Private Sub TXT_CANTIDAD_TextChanged(sender As Object, e As EventArgs) Handles TXT_CANTIDAD.TextChanged
+
+    End Sub
 End Class
