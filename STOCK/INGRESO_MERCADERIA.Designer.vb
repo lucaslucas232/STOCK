@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class INGRESO_MERCADERIA
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,14 +20,12 @@ Partial Class INGRESO_MERCADERIA
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TXT_CANTIDAD = New System.Windows.Forms.TextBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.CMB_producto = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.LBL_USUARIO = New System.Windows.Forms.Label()
@@ -38,6 +36,8 @@ Partial Class INGRESO_MERCADERIA
         Me.BTN_AGREGAR = New System.Windows.Forms.Button()
         Me.BTN_NUEVO = New System.Windows.Forms.Button()
         Me.cmbproducto = New System.Windows.Forms.ComboBox()
+        Me.CMB_DESTINO = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -53,7 +53,7 @@ Partial Class INGRESO_MERCADERIA
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(73, 175)
+        Me.Label2.Location = New System.Drawing.Point(73, 190)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(62, 13)
         Me.Label2.TabIndex = 2
@@ -61,7 +61,7 @@ Partial Class INGRESO_MERCADERIA
         '
         'TXT_CANTIDAD
         '
-        Me.TXT_CANTIDAD.Location = New System.Drawing.Point(76, 191)
+        Me.TXT_CANTIDAD.Location = New System.Drawing.Point(76, 206)
         Me.TXT_CANTIDAD.Name = "TXT_CANTIDAD"
         Me.TXT_CANTIDAD.Size = New System.Drawing.Size(220, 20)
         Me.TXT_CANTIDAD.TabIndex = 3
@@ -73,24 +73,6 @@ Partial Class INGRESO_MERCADERIA
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(96, 20)
         Me.DateTimePicker1.TabIndex = 4
-        '
-        'CMB_producto
-        '
-        Me.CMB_producto.FormattingEnabled = True
-        Me.CMB_producto.Items.AddRange(New Object() {"HERRAMIENTA", "INSUMO"})
-        Me.CMB_producto.Location = New System.Drawing.Point(76, 245)
-        Me.CMB_producto.Name = "CMB_producto"
-        Me.CMB_producto.Size = New System.Drawing.Size(121, 21)
-        Me.CMB_producto.TabIndex = 5
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(73, 229)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(32, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "TIPO"
         '
         'Label4
         '
@@ -181,17 +163,38 @@ Partial Class INGRESO_MERCADERIA
         '
         'cmbproducto
         '
+        Me.cmbproducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbproducto.FormattingEnabled = True
         Me.cmbproducto.Location = New System.Drawing.Point(76, 150)
         Me.cmbproducto.Name = "cmbproducto"
         Me.cmbproducto.Size = New System.Drawing.Size(169, 21)
         Me.cmbproducto.TabIndex = 37
         '
+        'CMB_DESTINO
+        '
+        Me.CMB_DESTINO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CMB_DESTINO.FormattingEnabled = True
+        Me.CMB_DESTINO.Location = New System.Drawing.Point(76, 273)
+        Me.CMB_DESTINO.Name = "CMB_DESTINO"
+        Me.CMB_DESTINO.Size = New System.Drawing.Size(169, 21)
+        Me.CMB_DESTINO.TabIndex = 39
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(73, 249)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(55, 13)
+        Me.Label3.TabIndex = 38
+        Me.Label3.Text = "DESTINO"
+        '
         'INGRESO_MERCADERIA
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CMB_DESTINO)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbproducto)
         Me.Controls.Add(Me.BTN_ELIMINAR)
         Me.Controls.Add(Me.BTN_CANCELAR)
@@ -202,8 +205,6 @@ Partial Class INGRESO_MERCADERIA
         Me.Controls.Add(Me.LBL_USUARIO)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.CMB_producto)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.TXT_CANTIDAD)
         Me.Controls.Add(Me.Label2)
@@ -219,8 +220,6 @@ Partial Class INGRESO_MERCADERIA
     Friend WithEvents Label2 As Label
     Friend WithEvents TXT_CANTIDAD As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents CMB_producto As ComboBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents LBL_USUARIO As Label
@@ -231,4 +230,6 @@ Partial Class INGRESO_MERCADERIA
     Friend WithEvents BTN_AGREGAR As Button
     Friend WithEvents BTN_NUEVO As Button
     Friend WithEvents cmbproducto As ComboBox
+    Friend WithEvents CMB_DESTINO As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

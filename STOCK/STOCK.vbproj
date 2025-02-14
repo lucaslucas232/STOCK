@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E7867B70-3046-4ED9-B6DD-65189F2AD9B7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>STOCK.INVENTARIO</StartupObject>
+    <StartupObject>STOCK.INGRESO_MERCADERIA</StartupObject>
     <RootNamespace>STOCK</RootNamespace>
     <AssemblyName>STOCK</AssemblyName>
     <FileAlignment>512</FileAlignment>

@@ -107,29 +107,30 @@ Where (((obras.nombre) Like '" & DATO & "'));"
                 End If
             End Using
         End Using
-        ActualizarTabla(DGV1, id_obra)
+        Dim startDate As Date = DateTimePicker_DESDE.Value
+        Dim endDate As Date = DateTimePicker_HASTA.Value
+        ActualizarTabla(DGV1, id_obra, startDate, endDate)
     End Sub
 
-    Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal id_obra As Integer)
+    Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal id_obra As Integer, ByVal startDate As Date, ByVal endDate As Date)
         Dim da1 As OleDbDataAdapter
         Dim dt1 As DataTable
         Dim consulta As String
-
         Try
             consulta = "SELECT p.ID_PRODUCTO, p.Nombre, " &
                    "SUM(i.cantidad) - IIF(SUM(e.cantidad) IS NULL, 0, SUM(e.cantidad)) AS SALDO " &
                    "FROM (ingresos AS i LEFT JOIN egresos AS e ON i.ID_PRODUCTO = e.ID_PRODUCTO) " &
                    "INNER JOIN productos AS p ON i.ID_PRODUCTO = p.ID_PRODUCTO " &
-                   "WHERE i.ID_OBRA = ? " &
+                   "WHERE i.ID_OBRA = @ID_OBRA AND i.fecha BETWEEN @StartDate AND @EndDate " &
                    "GROUP BY p.ID_PRODUCTO, p.Nombre"
-
             da1 = New OleDbDataAdapter(consulta, RutaDB_STOCK)
-            da1.SelectCommand.Parameters.AddWithValue("?", id_obra)
+            da1.SelectCommand.Parameters.AddWithValue("@ID_OBRA", id_obra)
+            da1.SelectCommand.Parameters.AddWithValue("@StartDate", startDate)
+            da1.SelectCommand.Parameters.AddWithValue("@EndDate", endDate)
             dt1 = New DataTable
             da1.Fill(dt1)
             n = dt1.Rows.Count
             MsgBox("Número de filas recuperadas: " & n.ToString())
-
             grilla.DataSource = dt1
             grilla.ReadOnly = True 'SOLO DE LECTURA
         Catch ex As Exception
@@ -137,4 +138,7 @@ Where (((obras.nombre) Like '" & DATO & "'));"
         End Try
     End Sub
 
+    Private Sub DGV1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV1.CellContentClick
+
+    End Sub
 End Class

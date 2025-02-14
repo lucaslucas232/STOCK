@@ -66,14 +66,29 @@ Public Class cls_herramientas
         Try
             Dim con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
-            Sql = "DELETE * FROM productos WHERE id_producto =" & id
-            ComandoSql = New OleDbCommand(Sql, con)
-            ComandoSql.ExecuteNonQuery()
-            ComandoSql.Dispose()
-            Sql = String.Empty
+
+            ' Eliminar registros relacionados en la tabla ingresos
+            Dim SqlIngresos As String = "DELETE FROM ingresos WHERE id_producto =" & id
+            Dim ComandoSqlIngresos As New OleDbCommand(SqlIngresos, con)
+            ComandoSqlIngresos.ExecuteNonQuery()
+            ComandoSqlIngresos.Dispose()
+
+            Dim Sqlegresos As String = "DELETE FROM egresos WHERE id_producto =" & id
+            Dim ComandoSqlegresos As New OleDbCommand(Sqlegresos, con)
+            ComandoSqlegresos.ExecuteNonQuery()
+            ComandoSqlegresos.Dispose()
+
+
+            ' Eliminar registro en la tabla productos
+            Dim SqlProductos As String = "DELETE FROM productos WHERE id_producto =" & id
+            Dim ComandoSqlProductos As New OleDbCommand(SqlProductos, con)
+            ComandoSqlProductos.ExecuteNonQuery()
+            ComandoSqlProductos.Dispose()
+
             con.Close()
             Return True
         Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al eliminar el registro")
             Return False
         End Try
     End Function

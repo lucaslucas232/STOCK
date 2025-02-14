@@ -68,8 +68,6 @@ Public Class REGISTRO_H_Y_I
         End If
         Return True
     End Function
-
-
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
                         ByVal campoSql As String, ByVal C_ORDEN As String)
         Try
@@ -87,7 +85,6 @@ Public Class REGISTRO_H_Y_I
             dt = New DataTable
             da.Fill(dt)
             n = dt.Rows.Count
-
             grilla.DataSource = dt
             grilla.ReadOnly = True
         Catch ex As Exception
@@ -110,7 +107,6 @@ Public Class REGISTRO_H_Y_I
         ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
         cmb_tipo.DropDownStyle = ComboBoxStyle.DropDownList
         cmb_tipo.SelectedIndex = 0
-
         BTN_NUEVO.Focus()
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
@@ -174,8 +170,8 @@ Public Class REGISTRO_H_Y_I
     Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click
         Dim i = MsgBox("¿Desea eliminar esta herramienta?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Confirmación")
         If i = MsgBoxResult.Yes Then
+            MsgBox("ID a eliminar: " & id) ' Verifica que el id es correcto
             Try
-
                 If obj_HERRAMIENTAS.Eliminaherramienta(id) = True Then
                     MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                     Me.LimpiarCampos()
@@ -193,7 +189,6 @@ Public Class REGISTRO_H_Y_I
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
             End Try
-        Else
         End If
     End Sub
 
@@ -232,6 +227,10 @@ Public Class REGISTRO_H_Y_I
     End Sub
 
     Private Sub DGV1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV1.CellContentClick
+
+    End Sub
+
+    Private Sub cmb_tipo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_tipo.SelectedIndexChanged
 
     End Sub
 End Class

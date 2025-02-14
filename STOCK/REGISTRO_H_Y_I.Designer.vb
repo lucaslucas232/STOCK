@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class REGISTRO_H_Y_I
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class REGISTRO_H_Y_I
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.txt_producto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,7 +39,7 @@ Partial Class REGISTRO_H_Y_I
         '
         'txt_producto
         '
-        Me.txt_producto.Location = New System.Drawing.Point(64, 114)
+        Me.txt_producto.Location = New System.Drawing.Point(64, 130)
         Me.txt_producto.Name = "txt_producto"
         Me.txt_producto.Size = New System.Drawing.Size(206, 20)
         Me.txt_producto.TabIndex = 2
@@ -47,7 +47,7 @@ Partial Class REGISTRO_H_Y_I
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(61, 87)
+        Me.Label1.Location = New System.Drawing.Point(61, 105)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 13)
         Me.Label1.TabIndex = 1
@@ -57,7 +57,7 @@ Partial Class REGISTRO_H_Y_I
         '
         Me.cmb_tipo.FormattingEnabled = True
         Me.cmb_tipo.Items.AddRange(New Object() {"HERRAMIENTA" & Global.Microsoft.VisualBasic.ChrW(9), "INSUMO"})
-        Me.cmb_tipo.Location = New System.Drawing.Point(64, 185)
+        Me.cmb_tipo.Location = New System.Drawing.Point(64, 193)
         Me.cmb_tipo.Name = "cmb_tipo"
         Me.cmb_tipo.Size = New System.Drawing.Size(121, 21)
         Me.cmb_tipo.TabIndex = 3
@@ -65,7 +65,7 @@ Partial Class REGISTRO_H_Y_I
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(61, 154)
+        Me.Label2.Location = New System.Drawing.Point(61, 168)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(32, 13)
         Me.Label2.TabIndex = 3
@@ -94,7 +94,7 @@ Partial Class REGISTRO_H_Y_I
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGV1.Location = New System.Drawing.Point(285, 87)
         Me.DGV1.Name = "DGV1"
-        Me.DGV1.Size = New System.Drawing.Size(240, 150)
+        Me.DGV1.Size = New System.Drawing.Size(240, 189)
         Me.DGV1.TabIndex = 13
         '
         'BTN_ELIMINAR
