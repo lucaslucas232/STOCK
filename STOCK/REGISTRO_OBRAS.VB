@@ -86,18 +86,17 @@ Public Class REGISTRO_OBRAS
             da = New OleDbDataAdapter(consulta, RutaDB_STOCK)
             dt = New DataTable
             da.Fill(dt)
-            n = dt.Rows.Count
-
             grilla.DataSource = dt
             grilla.ReadOnly = True
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error al cargar los datos")
         End Try
         If DGV1.Columns.Contains("id_obra") Then
             DGV1.Columns("id_obra").Visible = False
         End If
     End Sub
     Private Sub REGISTRO_H_Y_I_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         BTN_NUEVO.Focus()
         TXT_OBRA.Enabled = False
         BTN_MODIFICAR.Enabled = False

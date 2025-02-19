@@ -22,11 +22,15 @@ Public Class LOGIN
                     Dim dr As DataRow
                     dr = dt.Rows(0)
                     MsgBox("Usuario autentificado correctamente, tipo de usuario: " & dr("tipo"), MsgBoxStyle.OkOnly, "Login")
+                    Dim mdiform As New STOCK()
+
                     If LCase(dr("TIPO")) = "admin" Then
+                        mdiform.BTN_REGISTRO.Enabled = True
+                    Else
+                        mdiform.BTN_REGISTRO.Enabled = False
                         ' Aquí puedes habilitar o deshabilitar controles según el tipo de usuario.
                     End If
                     usuario = dr(0)
-                    Dim mdiform As New STOCK()
                     Me.Hide() ' Oculta el formulario de login
                     mdiform.ShowDialog() ' Abre el formulario de stock
                     Me.Close() ' Muestra nuevamente el formulario de login si se cierra el formulario de stock
@@ -45,6 +49,7 @@ Public Class LOGIN
 
     Private Sub LOGIN_CAJERO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TXT_USER.Select()
+
     End Sub
 
 End Class

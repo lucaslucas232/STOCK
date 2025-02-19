@@ -1,9 +1,6 @@
 ﻿Imports System.Data.OleDb
-
-
 Public Class MOVIMIENTOS
     Dim obj_MOVIMIENTOS As New CLS_MOVIMIENTOS
-
     Public Function ObtenerProductos() As DataTable
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
@@ -21,7 +18,6 @@ Public Class MOVIMIENTOS
             Return Nothing
         End Try
     End Function
-
     Public Function ObtenerDepositos() As DataTable
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
@@ -41,6 +37,7 @@ Public Class MOVIMIENTOS
     End Function
 
     Private Sub MOVIMIENTOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'Dim dbHelper As New DatabaseHelper()
         ' Llenar ComboBox de Productos
         Dim dtProductos As DataTable = ObtenerProductos()
@@ -81,7 +78,6 @@ Public Class MOVIMIENTOS
             MessageBox.Show($"Saldo insuficiente. Saldo disponible: {saldoDisponible}.")
             Return
         End If
-
         If obj_MOVIMIENTOS.TransferirMercaderia(id_producto, cantidad, origen_ID, destino_ID) Then
             MessageBox.Show("Transferencia realizada con éxito.")
         Else
@@ -91,10 +87,8 @@ Public Class MOVIMIENTOS
 
     Private Function ObtenerSaldoDisponible(id_producto As Integer, id_obra As Integer) As Integer
         Dim saldoDisponible As Integer = 0
-
         Using con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
-
             ' Obtener el total de ingresos
             Dim sqlIngresos As String = "SELECT SUM(cantidad) FROM Ingresos WHERE id_producto = @IDProducto AND id_obra = @IDObra"
             Using cmdIngresos As New OleDbCommand(sqlIngresos, con)
@@ -105,7 +99,6 @@ Public Class MOVIMIENTOS
                     saldoDisponible += Convert.ToInt32(totalIngresos)
                 End If
             End Using
-
             ' Obtener el total de egresos
             Dim sqlEgresos As String = "SELECT SUM(cantidad) FROM Egresos WHERE id_producto = @IDProducto AND id_obra = @IDObra"
             Using cmdEgresos As New OleDbCommand(sqlEgresos, con)
@@ -117,7 +110,6 @@ Public Class MOVIMIENTOS
                 End If
             End Using
         End Using
-
         Return saldoDisponible
     End Function
 End Class

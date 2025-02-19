@@ -91,7 +91,7 @@ Partial Class INVENTARIO
         Me.DateTimePicker_HASTA.Name = "DateTimePicker_HASTA"
         Me.DateTimePicker_HASTA.Size = New System.Drawing.Size(205, 30)
         Me.DateTimePicker_HASTA.TabIndex = 31
-        Me.DateTimePicker_HASTA.Value = New Date(2025, 2, 3, 0, 0, 0, 0)
+        Me.DateTimePicker_HASTA.Value = New Date(2025, 3, 3, 0, 0, 0, 0)
         '
         'DateTimePicker_DESDE
         '
@@ -101,7 +101,7 @@ Partial Class INVENTARIO
         Me.DateTimePicker_DESDE.Name = "DateTimePicker_DESDE"
         Me.DateTimePicker_DESDE.Size = New System.Drawing.Size(171, 30)
         Me.DateTimePicker_DESDE.TabIndex = 30
-        Me.DateTimePicker_DESDE.Value = New Date(2023, 1, 1, 0, 0, 0, 0)
+        Me.DateTimePicker_DESDE.Value = New Date(2025, 3, 3, 0, 0, 0, 0)
         '
         'ListBox1
         '

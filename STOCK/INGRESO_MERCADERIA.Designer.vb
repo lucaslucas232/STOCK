@@ -105,11 +105,11 @@ Partial Class INGRESO_MERCADERIA
         '
         Me.DGV1.AllowUserToAddRows = False
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV1.Location = New System.Drawing.Point(323, 78)
+        Me.DGV1.Location = New System.Drawing.Point(302, 78)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGV1.Size = New System.Drawing.Size(328, 230)
-        Me.DGV1.TabIndex = 31
+        Me.DGV1.TabIndex = 5
         '
         'BTN_ELIMINAR
         '
@@ -157,7 +157,7 @@ Partial Class INGRESO_MERCADERIA
         Me.BTN_NUEVO.Location = New System.Drawing.Point(657, 93)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
         Me.BTN_NUEVO.Size = New System.Drawing.Size(97, 27)
-        Me.BTN_NUEVO.TabIndex = 32
+        Me.BTN_NUEVO.TabIndex = 1
         Me.BTN_NUEVO.Text = "NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
@@ -168,7 +168,7 @@ Partial Class INGRESO_MERCADERIA
         Me.cmbproducto.Location = New System.Drawing.Point(76, 150)
         Me.cmbproducto.Name = "cmbproducto"
         Me.cmbproducto.Size = New System.Drawing.Size(169, 21)
-        Me.cmbproducto.TabIndex = 37
+        Me.cmbproducto.TabIndex = 2
         '
         'CMB_DESTINO
         '
@@ -177,7 +177,7 @@ Partial Class INGRESO_MERCADERIA
         Me.CMB_DESTINO.Location = New System.Drawing.Point(76, 273)
         Me.CMB_DESTINO.Name = "CMB_DESTINO"
         Me.CMB_DESTINO.Size = New System.Drawing.Size(169, 21)
-        Me.CMB_DESTINO.TabIndex = 39
+        Me.CMB_DESTINO.TabIndex = 4
         '
         'Label3
         '

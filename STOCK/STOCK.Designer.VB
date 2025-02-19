@@ -39,12 +39,13 @@ Partial Class STOCK
         Me.btn_trans = New System.Windows.Forms.Button()
         Me.btn_ingreso = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.REGISTROToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btn_registro = New System.Windows.Forms.ToolStripMenuItem()
         Me.USUARIOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PRODUCTOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OBRAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.BTN_MOVIMIENTOS = New System.Windows.Forms.Button()
+        Me.BTN_INVENTARIO = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -69,19 +70,19 @@ Partial Class STOCK
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REGISTROToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btn_registro})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(581, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'REGISTROToolStripMenuItem
+        'btn_registro
         '
-        Me.REGISTROToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.USUARIOToolStripMenuItem, Me.PRODUCTOToolStripMenuItem, Me.OBRAToolStripMenuItem})
-        Me.REGISTROToolStripMenuItem.Name = "REGISTROToolStripMenuItem"
-        Me.REGISTROToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
-        Me.REGISTROToolStripMenuItem.Text = "REGISTRO"
+        Me.btn_registro.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.USUARIOToolStripMenuItem, Me.PRODUCTOToolStripMenuItem, Me.OBRAToolStripMenuItem})
+        Me.btn_registro.Name = "btn_registro"
+        Me.btn_registro.Size = New System.Drawing.Size(71, 20)
+        Me.btn_registro.Text = "REGISTRO"
         '
         'USUARIOToolStripMenuItem
         '
@@ -103,7 +104,7 @@ Partial Class STOCK
         '
         'btnlogout
         '
-        Me.btnlogout.Location = New System.Drawing.Point(333, 134)
+        Me.btnlogout.Location = New System.Drawing.Point(481, 182)
         Me.btnlogout.Name = "btnlogout"
         Me.btnlogout.Size = New System.Drawing.Size(75, 23)
         Me.btnlogout.TabIndex = 5
@@ -119,6 +120,16 @@ Partial Class STOCK
         Me.BTN_MOVIMIENTOS.Text = "MOVIMIENTOS"
         Me.BTN_MOVIMIENTOS.UseVisualStyleBackColor = True
         '
+        'BTN_INVENTARIO
+        '
+        Me.BTN_INVENTARIO.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BTN_INVENTARIO.Location = New System.Drawing.Point(422, 54)
+        Me.BTN_INVENTARIO.Name = "BTN_INVENTARIO"
+        Me.BTN_INVENTARIO.Size = New System.Drawing.Size(120, 33)
+        Me.BTN_INVENTARIO.TabIndex = 9
+        Me.BTN_INVENTARIO.Text = "INVENTARIO"
+        Me.BTN_INVENTARIO.UseVisualStyleBackColor = True
+        '
         'STOCK
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -126,6 +137,7 @@ Partial Class STOCK
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(581, 230)
+        Me.Controls.Add(Me.BTN_INVENTARIO)
         Me.Controls.Add(Me.BTN_MOVIMIENTOS)
         Me.Controls.Add(Me.btnlogout)
         Me.Controls.Add(Me.btn_ingreso)
@@ -147,10 +159,11 @@ Partial Class STOCK
     Friend WithEvents btn_trans As Button
     Friend WithEvents btn_ingreso As Button
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents REGISTROToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btn_registro As ToolStripMenuItem
     Friend WithEvents USUARIOToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PRODUCTOToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OBRAToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnlogout As Button
     Friend WithEvents BTN_MOVIMIENTOS As Button
+    Friend WithEvents BTN_INVENTARIO As Button
 End Class

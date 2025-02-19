@@ -98,6 +98,7 @@ Public Class REGISTRO_H_Y_I
         STOCK.muestra()
     End Sub
     Private Sub REGISTRO_H_Y_I_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         txt_producto.Enabled = False
         cmb_tipo.Enabled = False
         BTN_MODIFICAR.Enabled = False

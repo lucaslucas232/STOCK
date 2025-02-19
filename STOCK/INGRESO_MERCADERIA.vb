@@ -3,7 +3,6 @@ Public Class INGRESO_MERCADERIA
     Dim id As Integer
     Dim obj_INGRESOS As New CLS_INGRESOS
     Dim n As Integer
-
     Sub pinta_fila(ByVal nn As Integer)
         Try
             For i As Integer = 0 To DGV1.Rows.Count - 1
@@ -16,22 +15,24 @@ Public Class INGRESO_MERCADERIA
             MsgBox(ex.Message)
         End Try
     End Sub
-    Function ObtenerCampo(ByVal grilla As DataGridView, ByVal indice_columna As Byte)
+    Function ObtenerCampo(ByVal grilla As DataGridView, ByVal indice_columna As Byte) As String
         Try
-            If Not IsDBNull(grilla.Item(indice_columna, grilla.CurrentCell.RowIndex).Value) Then
-                Return CStr(grilla.Item(indice_columna, grilla.CurrentCell.RowIndex).Value)
+            Dim valor As Object = grilla.Item(indice_columna, grilla.CurrentCell.RowIndex).Value
+            If Not IsDBNull(valor) Then
+                Return CStr(valor)
+            Else
+                Return String.Empty
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
+            Return String.Empty
         End Try
     End Function
-
     Private Sub LimpiarCampos()
         TXT_CANTIDAD.Text = ""
         cmbproducto.SelectedIndex = -1
         CMB_DESTINO.SelectedIndex = -1
     End Sub
-
     Function ValidarDatos() As Boolean
         If cmbproducto.Text.Trim = "" Then
             MsgBox("El campo Producto está vacío. Por favor, ingrese un producto.", MsgBoxStyle.Critical, "Error")
@@ -45,7 +46,6 @@ Public Class INGRESO_MERCADERIA
         End If
         Return True
     End Function
-
     Private Sub INGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CARGA_PRODUCTOS()
         CARGA_OBRAS()
@@ -60,29 +60,27 @@ Public Class INGRESO_MERCADERIA
         cmbproducto.DropDownStyle = ComboBoxStyle.DropDownList
         cmbproducto.SelectedIndex = 0
         BTN_NUEVO.Focus()
-
-        ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingresos")
+        ActualizarTabla(Me.DGV1, "ingresos", "", "id_ingreso")
     End Sub
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
-                        ByVal campoSql As String, ByVal C_ORDEN As String)
-        If grilla.Columns.Contains("id_ingresos") Then
-            grilla.Columns("id_ingresos").Visible = False
-        End If
-        If grilla.Columns.Contains("id_producto") Then
-            grilla.Columns("id_producto").Visible = False
-        End If
-
+                    ByVal campoSql As String, ByVal C_ORDEN As String)
         Try
+
             Dim da As OleDbDataAdapter
             Dim dt As DataTable
             Dim consulta As String
-            consulta = "Select "
-            If campoSql = "" Then
-                consulta += "*"
-            Else
-                consulta += campoSql
-            End If
-            consulta += " From " & nombre_tabla & " ORDER BY " & C_ORDEN
+
+            'consulta = "SELECT "
+            'If campoSql = "" Then
+            '    consulta += "*"
+            'Else
+            '    consulta += campoSql
+            'End If
+            'consulta += " From " & nombre_tabla & " ORDER BY " & C_ORDEN
+
+            consulta = "Select INGRESOS.Id_INGRESOS, INGRESOS.ID_PRODUCTO, INGRESOS.NOMBRE, INGRESOS.CANTIDAD, INGRESOS.ID_OBRA, INGRESOS.FECHA From INGRESOS Order By INGRESOS.Id_INGRESOS;"
+
+
             da = New OleDbDataAdapter(consulta, RutaDB_STOCK)
             dt = New DataTable
             da.Fill(dt)
@@ -90,37 +88,50 @@ Public Class INGRESO_MERCADERIA
             grilla.DataSource = dt
             grilla.ReadOnly = True
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error al cargar los datos")
         End Try
-        If DGV1.Columns.Contains("id_ingresos") Then
-            DGV1.Columns("id_ingresos").Visible = False
-        End If
-        If DGV1.Columns.Contains("id_producto") Then
-            DGV1.Columns("id_producto").Visible = False
-        End If
+
     End Sub
 
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
             If ValidarDatos() Then
-                Dim id_producto As Integer = CInt(cmbproducto.SelectedValue)
-                Dim nombre As String = cmbproducto.Text
-                Dim cantidad As Integer = CInt(TXT_CANTIDAD.Text)
-                Dim destino As String = CMB_DESTINO.Text
-                Dim tipo As String = "Tipo de Producto" ' Ajusta esto según tus necesidades
+                Dim id_producto As Integer
+                Dim cantidad As Integer
+                Dim destino As Integer
+                If Not IsDBNull(cmbproducto.SelectedValue) Then
+                    id_producto = CInt(cmbproducto.SelectedValue)
+                Else
+                    id_producto = 0 ' O un valor por defecto adecuado
+                End If
 
-                If obj_INGRESOS.AgregaINGRESO(id_producto, nombre, cantidad, destino, tipo) Then
+                If Not IsDBNull(TXT_CANTIDAD.Text) AndAlso Integer.TryParse(TXT_CANTIDAD.Text, cantidad) Then
+                    cantidad = CInt(TXT_CANTIDAD.Text)
+                Else
+                    cantidad = 0 ' O un valor por defecto adecuado
+                End If
+
+                If Not IsDBNull(CMB_DESTINO.SelectedValue) Then
+                    destino = CInt(CMB_DESTINO.SelectedValue)
+                Else
+                    destino = 0 ' O un valor por defecto adecuado
+                End If
+                MsgBox("ID_Producto: " & id_producto)
+                MsgBox("Cantidad: " & cantidad)
+                MsgBox("Destino (ID_Obra): " & destino)
+                MsgBox("Fecha: " & DateTime.Now)
+                Dim nombre As String = cmbproducto.Text
+                Dim fecha As DateTime = DateTime.Now
+                If obj_INGRESOS.AgregaINGRESO(id_producto, nombre, cantidad, destino, fecha) Then
                     MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmación")
                     LimpiarCampos()
-
-                    ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingresos")
+                    ActualizarTabla(Me.DGV1, "INGRESOS", "", "id_ingreso")
                     BTN_AGREGAR.Enabled = False
                     BTN_CANCELAR.Enabled = False
                     BTN_ELIMINAR.Enabled = False
                     BTN_NUEVO.Enabled = True
                     BTN_MODIFICAR.Enabled = False
                     BTN_NUEVO.Focus()
-
                 Else
                     MsgBox("Error al ingresar el registro, reintente la acción", MsgBoxStyle.Critical, "Error")
                 End If
@@ -129,50 +140,38 @@ Public Class INGRESO_MERCADERIA
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
         End Try
     End Sub
-    Private Function ObtenerIdSeleccionado() As Integer
-        Try
-            ' Supongamos que la columna ID está en la primera columna del DataGridView
-            Dim id As Integer = CInt(DGV1.CurrentRow.Cells(0).Value)
-            Return id
-        Catch ex As Exception
-            MsgBox("No se pudo obtener el ID seleccionado. Por favor, seleccione un registro válido.", MsgBoxStyle.Critical, "Error")
-            Return -1
-        End Try
-    End Function
-
-
+    'Private Function ObtenerIdSeleccionado() As Integer
+    '    Try
+    '        Dim id As Integer = CInt(DGV1.CurrentRow.Cells(0).Value)
+    '        Return id
+    '    Catch ex As Exception
+    '        MsgBox("No se pudo obtener el ID seleccionado. Por favor, seleccione un registro válido.", MsgBoxStyle.Critical, "Error")
+    '        Return -1
+    '    End Try
+    'End Function
     Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click
-        Dim id As Integer = ObtenerIdSeleccionado() ' Asegúrate de obtener el ID seleccionado
-        If id <= 0 Then
-            MsgBox("El ID proporcionado no es válido.", MsgBoxStyle.Critical, "Error")
-            Return
-        End If
-
-        Dim i = MsgBox("¿Desea eliminar esta herramienta?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Confirmación")
+        Dim i = MsgBox("¿Desea eliminar este ingreso?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Confirmación")
         If i = MsgBoxResult.Yes Then
-            MsgBox("ID a eliminar: " & id) ' Verifica que el id es correcto
-            Try
-                If obj_INGRESOS.EliminaINGRESO(id) Then
-                    MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                    Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
-                    BTN_AGREGAR.Enabled = False
-                    cmbproducto.Enabled = False
-                    BTN_CANCELAR.Enabled = False
-                    BTN_ELIMINAR.Enabled = False
-                    BTN_NUEVO.Enabled = True
-                    BTN_MODIFICAR.Enabled = False
-                    BTN_NUEVO.Focus()
-                Else
-                    MsgBox("Error al eliminar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
-                End If
-            Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
-            End Try
+            'Try
+            '    If obj_INGRESOS.EliminaINGRESO(id) Then
+            '        MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmación")
+            '        Me.LimpiarCampos()
+            '        ActualizarTabla(Me.DGV1, "ingresos", "", "id_ingreso")
+            '        BTN_AGREGAR.Enabled = False
+            '        cmbproducto.Enabled = False
+            '        BTN_CANCELAR.Enabled = False
+            '        BTN_ELIMINAR.Enabled = False
+            '        BTN_NUEVO.Enabled = True
+            '        BTN_MODIFICAR.Enabled = False
+            '        BTN_NUEVO.Focus()
+            '    Else
+            '        MsgBox("Error al eliminar el registro, reintente la acción", MsgBoxStyle.Critical, "Error")
+            '    End If
+            'Catch ex As Exception
+            '    MsgBox("Error en BTN_ELIMINAR_Click: " & ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
+            'End Try
         End If
     End Sub
-
-
     Private Sub INGRESO_MERCADERIA_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         STOCK.Muestra()
     End Sub
@@ -186,51 +185,49 @@ Public Class INGRESO_MERCADERIA
             cmbproducto.DisplayMember = "NOMBRE"
             cmbproducto.ValueMember = "Id_PRODUCTO"
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al cargar productos")
         End Try
     End Sub
+
     Sub CARGA_OBRAS()
-
         Dim sql As String
-        sql = "SELECT OBRAS.[Id_OBRA], OBRAS.[NOMBRE]
-FROM OBRAS;"
-
-
+        sql = "SELECT OBRAS.[Id_OBRA], OBRAS.[NOMBRE] FROM OBRAS;"
         Dim da As New OleDbDataAdapter(sql, RutaDB_STOCK)
         Dim dt As New DataTable
-        da.Fill(dt)
-        CMB_DESTINO.Items.Clear()
-        For i = 0 To dt.Rows.Count - 1
-            Dim dr As DataRow 'dr datarow
-            dr = dt.Rows(i)
-            CMB_DESTINO.Items.Add(dr(1))
-        Next
+        Try
+            da.Fill(dt)
+            CMB_DESTINO.DataSource = dt
+            CMB_DESTINO.DisplayMember = "NOMBRE"
+            CMB_DESTINO.ValueMember = "Id_OBRA"
+        Catch
 
-    End Sub
-
-    Private Sub DGV1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV1.CellContentClick
-
+        End Try
     End Sub
 
     Private Sub DGV1_MouseClick(sender As Object, e As MouseEventArgs) Handles DGV1.MouseClick
-        If DGV1.SelectedRows.Count = 0 Then
-            MsgBox("Debe seleccionar una herramienta para poder editarla", MsgBoxStyle.Critical, "Error")
-            DGV1.Focus()
-        Else
-            cmbproducto.Enabled = True
-            CMB_DESTINO.Enabled = True
-            'Me.ModoModificacion()
-            id = ObtenerCampo(Me.DGV1, 0)
-            cmbproducto.Text = ObtenerCampo(Me.DGV1, 1)
-            'cmbproducto.Text = ObtenerCampo(Me.DGV1, 2)
-            BTN_CANCELAR.Enabled = True
-            BTN_NUEVO.Enabled = False
-            BTN_AGREGAR.Enabled = False
-            BTN_ELIMINAR.Enabled = True
-            cmbproducto.Focus()
-        End If
+        Try
+            If DGV1.SelectedRows.Count = 0 Then
+                MsgBox("Debe seleccionar un registro para poder editarlo.", MsgBoxStyle.Critical, "Error")
+                DGV1.Focus()
+            Else
+                cmbproducto.Enabled = True
+                CMB_DESTINO.Enabled = True
+                TXT_CANTIDAD.Enabled = True
+                Dim idProducto As Integer = CInt(DGV1.CurrentRow.Cells("id_producto").Value)
+                Dim cantidad As Integer = CInt(DGV1.CurrentRow.Cells("cantidad").Value)
+                Dim idObra As Integer = CInt(DGV1.CurrentRow.Cells("id_obra").Value)
+                cmbproducto.SelectedValue = idProducto
+                TXT_CANTIDAD.Text = cantidad.ToString()
+                CMB_DESTINO.SelectedValue = idObra
+                BTN_CANCELAR.Enabled = True
+                BTN_NUEVO.Enabled = False
+                BTN_AGREGAR.Enabled = False
+                BTN_ELIMINAR.Enabled = True
+                cmbproducto.Focus()
+            End If
+        Catch ex As Exception
+            MsgBox("Error al cargar los datos: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
-
     Private Sub BTN_CANCELAR_Click(sender As Object, e As EventArgs) Handles BTN_CANCELAR.Click
         LimpiarCampos()
         BTN_CANCELAR.Enabled = False
@@ -246,14 +243,11 @@ FROM OBRAS;"
         Else
             id = -1
         End If
-
     End Sub
-
     Private Sub BTN_NUEVO_Click(sender As Object, e As EventArgs) Handles BTN_NUEVO.Click
         Try
             BTN_AGREGAR.Enabled = True
             TXT_CANTIDAD.Enabled = True
-
             BTN_NUEVO.Enabled = False
             BTN_MODIFICAR.Enabled = False
             BTN_ELIMINAR.Enabled = False
@@ -262,11 +256,9 @@ FROM OBRAS;"
             cmbproducto.Focus()
             cmbproducto.Enabled = True
             CMB_DESTINO.Enabled = True
-
             LimpiarCampos()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
     End Sub
 End Class

@@ -5,7 +5,6 @@ Module MODULO_STOCK
     Public usuario As String = ""
 
     'Public usuario As String = ""
-
     Public Function Carga_formulario(ByVal form As Form) As Boolean
         For Each f In Application.OpenForms
             If f.Name = form.Name Then
@@ -17,6 +16,12 @@ Module MODULO_STOCK
         form.Show()
         Return True
     End Function
+
+    'Public Sub HandleChildFormClosing(sender As Object, e As FormClosingEventArgs)
+    '    If e.CloseReason = CloseReason.MdiFormClosing Then
+    '        e.Cancel = False
+    '    End If
+    'End Sub
 
 
 End Module

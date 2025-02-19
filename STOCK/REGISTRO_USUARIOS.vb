@@ -90,6 +90,7 @@ Public Class REGISTRO_USUARIOS
         STOCK.muestra()
     End Sub
     Private Sub REGISTRO_USUARIOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         BTN_NUEVO.Focus()
         txt_USUARIO.Enabled = False
         TXT_CONTRASEÑA.Enabled = False
