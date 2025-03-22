@@ -26,7 +26,6 @@ Public Class REGISTRO_H_Y_I
     End Sub
     Sub LimpiarCampos()
         txt_producto.Text = ""
-        cmb_tipo.Text = ""
     End Sub
     Function ObtenerCampo(ByVal grilla As DataGridView, ByVal indice_columna As Byte)
         Try
@@ -43,11 +42,9 @@ Public Class REGISTRO_H_Y_I
             DGV1.Focus()
         Else
             txt_producto.Enabled = True
-            cmb_tipo.Enabled = True
             Me.ModoModificacion()
             id = ObtenerCampo(Me.DGV1, 0)
             txt_producto.Text = ObtenerCampo(Me.DGV1, 1)
-            cmb_tipo.Text = ObtenerCampo(Me.DGV1, 2)
 
             BTN_NUEVO.Enabled = False
             BTN_AGREGAR.Enabled = False
@@ -59,11 +56,6 @@ Public Class REGISTRO_H_Y_I
         If txt_producto.Text.Trim = "" Then
             MsgBox("El campo Producto está vacío. Por favor, ingrese un producto.", MsgBoxStyle.Critical, "Error")
             txt_producto.Focus()
-            Return False
-        End If
-        If cmb_tipo.Text = "" Then
-            MsgBox("El campo Tipo está vacío. Por favor, seleccione un tipo.", MsgBoxStyle.Critical, "Error")
-            cmb_tipo.Focus()
             Return False
         End If
         Return True
@@ -100,34 +92,28 @@ Public Class REGISTRO_H_Y_I
     Private Sub REGISTRO_H_Y_I_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         txt_producto.Enabled = False
-        cmb_tipo.Enabled = False
         BTN_MODIFICAR.Enabled = False
         BTN_ELIMINAR.Enabled = False
         BTN_AGREGAR.Enabled = False
         BTN_CANCELAR.Enabled = False
         ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
-        cmb_tipo.DropDownStyle = ComboBoxStyle.DropDownList
-        cmb_tipo.SelectedIndex = 0
         BTN_NUEVO.Focus()
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
             If ValidarDatos() Then
-                If obj_HERRAMIENTAS.Agregaherramienta(txt_producto.Text, cmb_tipo.Text) = True Then
-                    MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                    Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "productos", "", "ID_producto")
-                    BTN_AGREGAR.Enabled = False
-                    txt_producto.Enabled = False
-                    cmb_tipo.Enabled = False
-                    BTN_CANCELAR.Enabled = False
-                    BTN_ELIMINAR.Enabled = False
-                    BTN_NUEVO.Enabled = True
-                    BTN_MODIFICAR.Enabled = False
-                    BTN_NUEVO.Focus()
-                Else
-                    MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
-                End If
+                MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
+                Me.LimpiarCampos()
+                ActualizarTabla(Me.DGV1, "productos", "", "ID_producto")
+                BTN_AGREGAR.Enabled = False
+                txt_producto.Enabled = False
+                BTN_CANCELAR.Enabled = False
+                BTN_ELIMINAR.Enabled = False
+                BTN_NUEVO.Enabled = True
+                BTN_MODIFICAR.Enabled = False
+                BTN_NUEVO.Focus()
+            Else
+                MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
@@ -144,14 +130,13 @@ Public Class REGISTRO_H_Y_I
             If i = MsgBoxResult.Yes Then
                 If ValidarDatos() Then
                     Console.WriteLine("Starting modification...")
-                    If obj_HERRAMIENTAS.Modificaherramienta(txt_producto.Text, cmb_tipo.Text, id) = True Then
+                    If obj_HERRAMIENTAS.Modificaherramienta(txt_producto.Text, id) = True Then
                         MsgBox("Registro actualizado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                         ActualizarTabla(Me.DGV1, "PRODUCTOS", "", "id_producto")
                         LimpiarCampos()
                         BTN_AGREGAR.Enabled = False
                         txt_producto.Enabled = False
                         txt_producto.Enabled = False
-                        cmb_tipo.Enabled = False
                         BTN_CANCELAR.Enabled = False
                         BTN_ELIMINAR.Enabled = False
                         BTN_NUEVO.Enabled = True
@@ -201,7 +186,6 @@ Public Class REGISTRO_H_Y_I
         BTN_NUEVO.Enabled = True
         BTN_AGREGAR.Enabled = False
         txt_producto.Enabled = False
-        cmb_tipo.Enabled = False
         pinta_fila(0)
         If id > 0 Then
             id = DGV1.Item(0, 0).Value
@@ -219,7 +203,6 @@ Public Class REGISTRO_H_Y_I
             BTN_CANCELAR.Enabled = True
             txt_producto.Enabled = True
             txt_producto.Focus()
-            cmb_tipo.Enabled = True
 
             LimpiarCampos()
         Catch ex As Exception
@@ -231,7 +214,7 @@ Public Class REGISTRO_H_Y_I
 
     End Sub
 
-    Private Sub cmb_tipo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_tipo.SelectedIndexChanged
+    Private Sub cmb_tipo_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class

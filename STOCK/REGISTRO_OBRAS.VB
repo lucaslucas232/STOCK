@@ -96,7 +96,6 @@ Public Class REGISTRO_OBRAS
         End If
     End Sub
     Private Sub REGISTRO_H_Y_I_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         BTN_NUEVO.Focus()
         TXT_OBRA.Enabled = False
         BTN_MODIFICAR.Enabled = False
@@ -149,7 +148,6 @@ Public Class REGISTRO_OBRAS
                         Me.LimpiarCampos()
                         BTN_AGREGAR.Enabled = False
                         TXT_OBRA.Enabled = False
-
                         BTN_CANCELAR.Enabled = False
                         BTN_ELIMINAR.Enabled = False
                         BTN_NUEVO.Enabled = True
@@ -169,8 +167,6 @@ Public Class REGISTRO_OBRAS
         End Try
 
     End Sub
-
-
     Private Sub BTN_CANCELAR_Click(sender As Object, e As EventArgs) Handles BTN_CANCELAR.Click
         LimpiarCampos()
         BTN_CANCELAR.Enabled = False
@@ -211,30 +207,10 @@ Public Class REGISTRO_OBRAS
         If result = MsgBoxResult.Yes Then
             Try
                 'MessageBox.Show("ID del registro a eliminar: " & id)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 If obj_OBRAS.EliminaOBRA(id) Then
                     MsgBox("Registro eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmación")
                     Me.LimpiarCampos()
                     ActualizarTabla(Me.DGV1, "OBRAS", "", "ID_obra")
-                    'Me.ModoInsercion()
                     BTN_AGREGAR.Enabled = False
                     TXT_OBRA.Enabled = False
                     BTN_CANCELAR.Enabled = False

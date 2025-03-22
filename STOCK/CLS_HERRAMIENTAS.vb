@@ -4,22 +4,18 @@ Imports System.Data.OleDb
 Public Class cls_herramientas
     Dim ComandoSql As OleDbCommand
     Dim Sql As String
-    Function Agregaherramienta(ByVal nombre As String, ByVal TIPO As String) As Boolean
-
+    Function Agregaherramienta(ByVal nombre As String) As Boolean
         Try
             Dim con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
-
-
-            Sql = "Insert into productos (nombre, TIPO) " _
-                    + "Values (@nombre,@TIPO)"
+            Sql = "Insert into productos (nombre) " _
+                    + "Values (@nombre)"
 
             ComandoSql = New OleDbCommand
             With ComandoSql
                 .Connection = con
                 .CommandText = Sql
                 .Parameters.AddWithValue("@nombre", nombre.ToUpper)
-                .Parameters.AddWithValue("@tipo", TIPO)
 
                 .ExecuteNonQuery()
             End With
@@ -39,14 +35,13 @@ Public Class cls_herramientas
         End Try
 
     End Function
-    Function Modificaherramienta(ByVal nombre As String, ByVal tipo As String, ByVal ID As Integer) As Boolean
+    Function Modificaherramienta(ByVal nombre As String, ByVal ID As Integer) As Boolean
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
                 con.Open()
-                Dim sql As String = "UPDATE productos SET Nombre = ?, tipo = ? WHERE ID_producto = ?"
+                Dim sql As String = "UPDATE productos SET Nombre = ? WHERE ID_producto = ?"
                 Using comandoSql As New OleDbCommand(sql, con)
                     comandoSql.Parameters.AddWithValue("@nombre", nombre.ToUpper())
-                    comandoSql.Parameters.AddWithValue("@tipo", tipo)
                     comandoSql.Parameters.AddWithValue("@ID_producto", ID)
                     comandoSql.ExecuteNonQuery()
                 End Using

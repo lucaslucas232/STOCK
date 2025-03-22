@@ -24,11 +24,7 @@ Partial Class INVENTARIO
     Private Sub InitializeComponent()
         Me.BTN_CANCELAR = New System.Windows.Forms.Button()
         Me.BTN_BUSCAR = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.DGV1 = New System.Windows.Forms.DataGridView()
-        Me.DateTimePicker_HASTA = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker_DESDE = New System.Windows.Forms.DateTimePicker()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.txt_nombre_obra = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -38,7 +34,7 @@ Partial Class INVENTARIO
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(662, 203)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(607, 135)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(103, 35)
         Me.BTN_CANCELAR.TabIndex = 36
@@ -48,65 +44,25 @@ Partial Class INVENTARIO
         'BTN_BUSCAR
         '
         Me.BTN_BUSCAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_BUSCAR.Location = New System.Drawing.Point(662, 150)
+        Me.BTN_BUSCAR.Location = New System.Drawing.Point(607, 82)
         Me.BTN_BUSCAR.Name = "BTN_BUSCAR"
         Me.BTN_BUSCAR.Size = New System.Drawing.Size(103, 35)
         Me.BTN_BUSCAR.TabIndex = 35
         Me.BTN_BUSCAR.Text = "BUSCAR"
         Me.BTN_BUSCAR.UseVisualStyleBackColor = True
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(358, 71)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(87, 25)
-        Me.Label2.TabIndex = 34
-        Me.Label2.Text = "HASTA:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(89, 66)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 25)
-        Me.Label1.TabIndex = 33
-        Me.Label1.Text = "DESDE:"
-        '
         'DGV1
         '
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV1.Location = New System.Drawing.Point(247, 130)
+        Me.DGV1.Location = New System.Drawing.Point(181, 82)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.Size = New System.Drawing.Size(409, 286)
         Me.DGV1.TabIndex = 32
         '
-        'DateTimePicker_HASTA
-        '
-        Me.DateTimePicker_HASTA.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker_HASTA.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker_HASTA.Location = New System.Drawing.Point(451, 66)
-        Me.DateTimePicker_HASTA.Name = "DateTimePicker_HASTA"
-        Me.DateTimePicker_HASTA.Size = New System.Drawing.Size(205, 30)
-        Me.DateTimePicker_HASTA.TabIndex = 31
-        Me.DateTimePicker_HASTA.Value = New Date(2025, 3, 3, 0, 0, 0, 0)
-        '
-        'DateTimePicker_DESDE
-        '
-        Me.DateTimePicker_DESDE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker_DESDE.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker_DESDE.Location = New System.Drawing.Point(181, 66)
-        Me.DateTimePicker_DESDE.Name = "DateTimePicker_DESDE"
-        Me.DateTimePicker_DESDE.Size = New System.Drawing.Size(171, 30)
-        Me.DateTimePicker_DESDE.TabIndex = 30
-        Me.DateTimePicker_DESDE.Value = New Date(2025, 3, 3, 0, 0, 0, 0)
-        '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(63, 130)
+        Me.ListBox1.Location = New System.Drawing.Point(44, 82)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(94, 238)
         Me.ListBox1.TabIndex = 37
@@ -138,11 +94,7 @@ Partial Class INVENTARIO
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_BUSCAR)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DGV1)
-        Me.Controls.Add(Me.DateTimePicker_HASTA)
-        Me.Controls.Add(Me.DateTimePicker_DESDE)
         Me.Name = "INVENTARIO"
         Me.Text = "INVENTARIO"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -153,11 +105,7 @@ Partial Class INVENTARIO
 
     Friend WithEvents BTN_CANCELAR As Button
     Friend WithEvents BTN_BUSCAR As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents DGV1 As DataGridView
-    Friend WithEvents DateTimePicker_HASTA As DateTimePicker
-    Friend WithEvents DateTimePicker_DESDE As DateTimePicker
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents txt_nombre_obra As TextBox
     Friend WithEvents Label3 As Label

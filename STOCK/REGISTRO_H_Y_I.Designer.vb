@@ -24,8 +24,6 @@ Partial Class REGISTRO_H_Y_I
     Private Sub InitializeComponent()
         Me.txt_producto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmb_tipo = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.LBL_USUARIO = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DGV1 = New System.Windows.Forms.DataGridView()
@@ -39,7 +37,7 @@ Partial Class REGISTRO_H_Y_I
         '
         'txt_producto
         '
-        Me.txt_producto.Location = New System.Drawing.Point(64, 130)
+        Me.txt_producto.Location = New System.Drawing.Point(61, 112)
         Me.txt_producto.Name = "txt_producto"
         Me.txt_producto.Size = New System.Drawing.Size(206, 20)
         Me.txt_producto.TabIndex = 2
@@ -47,29 +45,11 @@ Partial Class REGISTRO_H_Y_I
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(61, 105)
+        Me.Label1.Location = New System.Drawing.Point(58, 87)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "NOMBRE PRODUCTO"
-        '
-        'cmb_tipo
-        '
-        Me.cmb_tipo.FormattingEnabled = True
-        Me.cmb_tipo.Items.AddRange(New Object() {"HERRAMIENTA" & Global.Microsoft.VisualBasic.ChrW(9), "INSUMO"})
-        Me.cmb_tipo.Location = New System.Drawing.Point(64, 193)
-        Me.cmb_tipo.Name = "cmb_tipo"
-        Me.cmb_tipo.Size = New System.Drawing.Size(121, 21)
-        Me.cmb_tipo.TabIndex = 3
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(61, 168)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "TIPO"
         '
         'LBL_USUARIO
         '
@@ -160,8 +140,6 @@ Partial Class REGISTRO_H_Y_I
         Me.Controls.Add(Me.DGV1)
         Me.Controls.Add(Me.LBL_USUARIO)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmb_tipo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_producto)
         Me.Name = "REGISTRO_H_Y_I"
@@ -174,8 +152,6 @@ Partial Class REGISTRO_H_Y_I
 
     Friend WithEvents txt_producto As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents cmb_tipo As ComboBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents LBL_USUARIO As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents DGV1 As DataGridView
