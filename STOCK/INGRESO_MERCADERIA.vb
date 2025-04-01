@@ -47,6 +47,9 @@ Public Class INGRESO_MERCADERIA
         Return True
     End Function
     Private Sub INGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim fechaCompleta As Date = Now
+        Dim soloFecha As String = fechaCompleta.ToString("dd/MM/yyyy")
+        Console.WriteLine(soloFecha) ' Muestra: 31/03/2025
         CARGA_PRODUCTOS()
         CARGA_OBRAS()
         DateTimePicker1.Enabled = False

@@ -43,7 +43,7 @@ Public Class STOCK
     Sub Muestra()
         Debug.WriteLine("Mostrando botones")
         btn_ingreso.Show()
-        btn_trans.Show()
+        'btn_trans.Show()
         btnlogout.Show()
         BTN_MOVIMIENTOS.Show()
         BTN_INVENTARIO.Show()
@@ -51,13 +51,13 @@ Public Class STOCK
 
     Public Sub Oculta()
         btn_ingreso.Hide()
-        btn_trans.Hide()
+        'btn_trans.Hide()
         btnlogout.Hide()
         BTN_MOVIMIENTOS.Hide()
         BTN_INVENTARIO.Hide()
     End Sub
 
-    Private Sub Btn_trans_Click(sender As Object, e As EventArgs) Handles btn_trans.Click
+    Private Sub Btn_trans_Click(sender As Object, e As EventArgs)
         Carga_formulario(transferencia)
         Oculta()
     End Sub

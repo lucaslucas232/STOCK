@@ -36,7 +36,6 @@ Partial Class STOCK
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btn_trans = New System.Windows.Forms.Button()
         Me.btn_ingreso = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.btn_registro = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,21 +48,11 @@ Partial Class STOCK
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'btn_trans
-        '
-        Me.btn_trans.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btn_trans.Location = New System.Drawing.Point(151, 54)
-        Me.btn_trans.Name = "btn_trans"
-        Me.btn_trans.Size = New System.Drawing.Size(120, 33)
-        Me.btn_trans.TabIndex = 0
-        Me.btn_trans.Text = "TRANSFERENCIA"
-        Me.btn_trans.UseVisualStyleBackColor = True
-        '
         'btn_ingreso
         '
-        Me.btn_ingreso.Location = New System.Drawing.Point(322, 54)
+        Me.btn_ingreso.Location = New System.Drawing.Point(194, 54)
         Me.btn_ingreso.Name = "btn_ingreso"
-        Me.btn_ingreso.Size = New System.Drawing.Size(75, 47)
+        Me.btn_ingreso.Size = New System.Drawing.Size(120, 41)
         Me.btn_ingreso.TabIndex = 1
         Me.btn_ingreso.Text = "INGRESO DE STOCK"
         Me.btn_ingreso.UseVisualStyleBackColor = True
@@ -73,7 +62,7 @@ Partial Class STOCK
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btn_registro})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(581, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(522, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -104,7 +93,7 @@ Partial Class STOCK
         '
         'btnlogout
         '
-        Me.btnlogout.Location = New System.Drawing.Point(481, 182)
+        Me.btnlogout.Location = New System.Drawing.Point(388, 176)
         Me.btnlogout.Name = "btnlogout"
         Me.btnlogout.Size = New System.Drawing.Size(75, 23)
         Me.btnlogout.TabIndex = 5
@@ -113,9 +102,9 @@ Partial Class STOCK
         '
         'BTN_MOVIMIENTOS
         '
-        Me.BTN_MOVIMIENTOS.Location = New System.Drawing.Point(153, 116)
+        Me.BTN_MOVIMIENTOS.Location = New System.Drawing.Point(49, 54)
         Me.BTN_MOVIMIENTOS.Name = "BTN_MOVIMIENTOS"
-        Me.BTN_MOVIMIENTOS.Size = New System.Drawing.Size(117, 41)
+        Me.BTN_MOVIMIENTOS.Size = New System.Drawing.Size(120, 41)
         Me.BTN_MOVIMIENTOS.TabIndex = 7
         Me.BTN_MOVIMIENTOS.Text = "MOVIMIENTOS"
         Me.BTN_MOVIMIENTOS.UseVisualStyleBackColor = True
@@ -123,9 +112,9 @@ Partial Class STOCK
         'BTN_INVENTARIO
         '
         Me.BTN_INVENTARIO.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BTN_INVENTARIO.Location = New System.Drawing.Point(422, 54)
+        Me.BTN_INVENTARIO.Location = New System.Drawing.Point(343, 54)
         Me.BTN_INVENTARIO.Name = "BTN_INVENTARIO"
-        Me.BTN_INVENTARIO.Size = New System.Drawing.Size(120, 33)
+        Me.BTN_INVENTARIO.Size = New System.Drawing.Size(120, 41)
         Me.BTN_INVENTARIO.TabIndex = 9
         Me.BTN_INVENTARIO.Text = "INVENTARIO"
         Me.BTN_INVENTARIO.UseVisualStyleBackColor = True
@@ -136,12 +125,11 @@ Partial Class STOCK
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(581, 230)
+        Me.ClientSize = New System.Drawing.Size(522, 239)
         Me.Controls.Add(Me.BTN_INVENTARIO)
         Me.Controls.Add(Me.BTN_MOVIMIENTOS)
         Me.Controls.Add(Me.btnlogout)
         Me.Controls.Add(Me.btn_ingreso)
-        Me.Controls.Add(Me.btn_trans)
         Me.Controls.Add(Me.MenuStrip1)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
@@ -155,8 +143,6 @@ Partial Class STOCK
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btn_trans As Button
     Friend WithEvents btn_ingreso As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents btn_registro As ToolStripMenuItem

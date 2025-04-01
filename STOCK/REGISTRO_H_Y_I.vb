@@ -102,18 +102,20 @@ Public Class REGISTRO_H_Y_I
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
             If ValidarDatos() Then
-                MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                Me.LimpiarCampos()
-                ActualizarTabla(Me.DGV1, "productos", "", "ID_producto")
-                BTN_AGREGAR.Enabled = False
-                txt_producto.Enabled = False
-                BTN_CANCELAR.Enabled = False
-                BTN_ELIMINAR.Enabled = False
-                BTN_NUEVO.Enabled = True
-                BTN_MODIFICAR.Enabled = False
-                BTN_NUEVO.Focus()
-            Else
-                MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
+                If obj_HERRAMIENTAS.Agregaherramienta(txt_producto.Text) = True Then
+                    MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
+                    Me.LimpiarCampos()
+                    ActualizarTabla(Me.DGV1, "productos", "", "ID_producto")
+                    BTN_AGREGAR.Enabled = False
+                    txt_producto.Enabled = False
+                    BTN_CANCELAR.Enabled = False
+                    BTN_ELIMINAR.Enabled = False
+                    BTN_NUEVO.Enabled = True
+                    BTN_MODIFICAR.Enabled = False
+                    BTN_NUEVO.Focus()
+                Else
+                    MsgBox("Error al ingresar el registro, reintente la accion", MsgBoxStyle.Critical, "Error")
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de Validación de datos")
@@ -156,7 +158,6 @@ Public Class REGISTRO_H_Y_I
     Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click
         Dim i = MsgBox("¿Desea eliminar esta herramienta?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Confirmación")
         If i = MsgBoxResult.Yes Then
-            MsgBox("ID a eliminar: " & id) ' Verifica que el id es correcto
             Try
                 If obj_HERRAMIENTAS.Eliminaherramienta(id) = True Then
                     MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")

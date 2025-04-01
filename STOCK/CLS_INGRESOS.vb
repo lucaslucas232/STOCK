@@ -18,7 +18,7 @@ Public Class CLS_INGRESOS
                 .Parameters.AddWithValue("@nombre", nombre.ToUpper())
                 .Parameters.AddWithValue("@cantidad", cantidad)
                 .Parameters.AddWithValue("@id_obra", destino)
-                .Parameters.AddWithValue("@fecha", fecha)
+                .Parameters.Add("@fecha", OleDbType.Date).Value = fecha
                 .ExecuteNonQuery()
             End With
             Return True

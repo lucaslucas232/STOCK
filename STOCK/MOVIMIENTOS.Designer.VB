@@ -32,13 +32,14 @@ Partial Class MOVIMIENTOS
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BTN_CANCELAR = New System.Windows.Forms.Button()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'CMBPRODUCTO
         '
         Me.CMBPRODUCTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CMBPRODUCTO.FormattingEnabled = True
-        Me.CMBPRODUCTO.Location = New System.Drawing.Point(112, 76)
+        Me.CMBPRODUCTO.Location = New System.Drawing.Point(42, 99)
         Me.CMBPRODUCTO.Name = "CMBPRODUCTO"
         Me.CMBPRODUCTO.Size = New System.Drawing.Size(194, 21)
         Me.CMBPRODUCTO.TabIndex = 0
@@ -47,7 +48,7 @@ Partial Class MOVIMIENTOS
         '
         Me.CMBORIGEN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CMBORIGEN.FormattingEnabled = True
-        Me.CMBORIGEN.Location = New System.Drawing.Point(112, 127)
+        Me.CMBORIGEN.Location = New System.Drawing.Point(42, 185)
         Me.CMBORIGEN.Name = "CMBORIGEN"
         Me.CMBORIGEN.Size = New System.Drawing.Size(194, 21)
         Me.CMBORIGEN.TabIndex = 1
@@ -56,21 +57,21 @@ Partial Class MOVIMIENTOS
         '
         Me.CMBDESTINO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CMBDESTINO.FormattingEnabled = True
-        Me.CMBDESTINO.Location = New System.Drawing.Point(112, 186)
+        Me.CMBDESTINO.Location = New System.Drawing.Point(275, 186)
         Me.CMBDESTINO.Name = "CMBDESTINO"
         Me.CMBDESTINO.Size = New System.Drawing.Size(194, 21)
         Me.CMBDESTINO.TabIndex = 2
         '
         'TXTCANTIDAD
         '
-        Me.TXTCANTIDAD.Location = New System.Drawing.Point(350, 76)
+        Me.TXTCANTIDAD.Location = New System.Drawing.Point(275, 100)
         Me.TXTCANTIDAD.Name = "TXTCANTIDAD"
         Me.TXTCANTIDAD.Size = New System.Drawing.Size(100, 20)
         Me.TXTCANTIDAD.TabIndex = 3
         '
         'BTN_ACEPTAR
         '
-        Me.BTN_ACEPTAR.Location = New System.Drawing.Point(503, 74)
+        Me.BTN_ACEPTAR.Location = New System.Drawing.Point(500, 132)
         Me.BTN_ACEPTAR.Name = "BTN_ACEPTAR"
         Me.BTN_ACEPTAR.Size = New System.Drawing.Size(99, 23)
         Me.BTN_ACEPTAR.TabIndex = 4
@@ -80,7 +81,7 @@ Partial Class MOVIMIENTOS
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(118, 60)
+        Me.Label1.Location = New System.Drawing.Point(48, 83)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(68, 13)
         Me.Label1.TabIndex = 5
@@ -89,7 +90,7 @@ Partial Class MOVIMIENTOS
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(118, 111)
+        Me.Label2.Location = New System.Drawing.Point(48, 169)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 13)
         Me.Label2.TabIndex = 6
@@ -98,7 +99,7 @@ Partial Class MOVIMIENTOS
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(118, 170)
+        Me.Label3.Location = New System.Drawing.Point(281, 170)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(55, 13)
         Me.Label3.TabIndex = 7
@@ -107,7 +108,7 @@ Partial Class MOVIMIENTOS
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(347, 44)
+        Me.Label4.Location = New System.Drawing.Point(281, 84)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 13)
         Me.Label4.TabIndex = 8
@@ -115,18 +116,28 @@ Partial Class MOVIMIENTOS
         '
         'BTN_CANCELAR
         '
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(503, 125)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(500, 183)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(99, 23)
         Me.BTN_CANCELAR.TabIndex = 9
         Me.BTN_CANCELAR.Text = "CANCELAR"
         Me.BTN_CANCELAR.UseVisualStyleBackColor = True
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(42, 49)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(99, 20)
+        Me.DateTimePicker1.TabIndex = 10
+        Me.DateTimePicker1.Value = New Date(2025, 3, 30, 0, 0, 0, 0)
+        '
         'MOVIMIENTOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(692, 277)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -154,4 +165,5 @@ Partial Class MOVIMIENTOS
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents BTN_CANCELAR As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

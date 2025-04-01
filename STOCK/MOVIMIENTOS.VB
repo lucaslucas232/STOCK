@@ -37,7 +37,9 @@ Public Class MOVIMIENTOS
     End Function
 
     Private Sub MOVIMIENTOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Dim fechaCompleta As Date = Now
+        Dim soloFecha As String = fechaCompleta.ToString("dd/MM/yyyy")
+        Console.WriteLine(soloFecha) ' Muestra: 31/03/2025
         'Dim dbHelper As New DatabaseHelper()
         ' Llenar ComboBox de Productos
         Dim dtProductos As DataTable = ObtenerProductos()
@@ -56,6 +58,7 @@ Public Class MOVIMIENTOS
             CMBDESTINO.DisplayMember = "nombre"
             CMBDESTINO.ValueMember = "id_OBRA"
         End If
+        DateTimePicker1.Enabled = False
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTN_ACEPTAR.Click
         If String.IsNullOrWhiteSpace(TXTCANTIDAD.Text) Then
@@ -66,7 +69,8 @@ Public Class MOVIMIENTOS
         Dim cantidad As Integer = CInt(TXTCANTIDAD.Text)
         Dim origen_ID As Integer = CInt(CMBORIGEN.SelectedValue)
         Dim destino_ID As Integer = CInt(CMBDESTINO.SelectedValue)
-        ' Verificar que origen_ID y destino_ID no sean iguales
+        Dim fecha As DateTime = DateTime.Now
+
         If origen_ID = destino_ID Then
             MessageBox.Show("El origen y el destino no pueden ser iguales. Por favor, seleccione valores diferentes.")
             Return
@@ -78,7 +82,7 @@ Public Class MOVIMIENTOS
             MessageBox.Show($"Saldo insuficiente. Saldo disponible: {saldoDisponible}.")
             Return
         End If
-        If obj_MOVIMIENTOS.TransferirMercaderia(id_producto, cantidad, origen_ID, destino_ID) Then
+        If obj_MOVIMIENTOS.TransferirMercaderia(id_producto, cantidad, origen_ID, destino_ID, fecha) Then
             MessageBox.Show("Transferencia realizada con éxito.")
         Else
             MessageBox.Show("Error al realizar la transferencia.")
