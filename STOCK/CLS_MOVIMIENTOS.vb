@@ -45,7 +45,18 @@ Public Class CLS_MOVIMIENTOS
                         cmdIngreso.ExecuteNonQuery()
                     End Using
                     'MessageBox.Show("Ingreso ejecutado")
+                    Dim sqlMovimiento As String = "INSERT INTO movimientos (id_producto, producto, obra_origen, obra_destino, cantidad, fecha) VALUES (@id_producto, @producto, @obra_origen, @obra_destino, @cantidad, @fecha)"
+                    Using cmdMovimiento As New OleDbCommand(sqlMovimiento, con, transaction)
+                        cmdMovimiento.Parameters.AddWithValue("@id_producto", id_producto)
+                        cmdMovimiento.Parameters.AddWithValue("@producto", nombre)
+                        cmdMovimiento.Parameters.AddWithValue("@obra_origen", origen_id)
+                        cmdMovimiento.Parameters.AddWithValue("@obra_destino", destino_id)
+                        cmdMovimiento.Parameters.AddWithValue("@cantidad", cantidad)
+                        cmdMovimiento.Parameters.Add("@fecha", OleDbType.Date).Value = fecha
+                        cmdMovimiento.ExecuteNonQuery()
+                    End Using
                     transaction.Commit()
+
                     Return True
                 Catch ex As Exception
                     transaction.Rollback()

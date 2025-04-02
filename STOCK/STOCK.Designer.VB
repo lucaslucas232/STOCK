@@ -50,7 +50,7 @@ Partial Class STOCK
         '
         'btn_ingreso
         '
-        Me.btn_ingreso.Location = New System.Drawing.Point(194, 54)
+        Me.btn_ingreso.Location = New System.Drawing.Point(49, 54)
         Me.btn_ingreso.Name = "btn_ingreso"
         Me.btn_ingreso.Size = New System.Drawing.Size(120, 41)
         Me.btn_ingreso.TabIndex = 1
@@ -62,7 +62,7 @@ Partial Class STOCK
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btn_registro})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(522, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(545, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -102,7 +102,7 @@ Partial Class STOCK
         '
         'BTN_MOVIMIENTOS
         '
-        Me.BTN_MOVIMIENTOS.Location = New System.Drawing.Point(49, 54)
+        Me.BTN_MOVIMIENTOS.Location = New System.Drawing.Point(197, 54)
         Me.BTN_MOVIMIENTOS.Name = "BTN_MOVIMIENTOS"
         Me.BTN_MOVIMIENTOS.Size = New System.Drawing.Size(120, 41)
         Me.BTN_MOVIMIENTOS.TabIndex = 7
@@ -125,7 +125,7 @@ Partial Class STOCK
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(522, 239)
+        Me.ClientSize = New System.Drawing.Size(545, 243)
         Me.Controls.Add(Me.BTN_INVENTARIO)
         Me.Controls.Add(Me.BTN_MOVIMIENTOS)
         Me.Controls.Add(Me.btnlogout)

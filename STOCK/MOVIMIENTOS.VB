@@ -35,20 +35,76 @@ Public Class MOVIMIENTOS
             Return Nothing
         End Try
     End Function
+    Public Function ObtenerMovimientos() As DataTable
+        Try
+            Using con As New OleDbConnection(RutaDB_STOCK)
+                con.Open()
+                Dim sql As String = "SELECT producto, obra_origen, obra_destino, cantidad, fecha FROM movimientos"
+                Using cmd As New OleDbCommand(sql, con)
+                    Dim dt As New DataTable()
+                    Using da As New OleDbDataAdapter(cmd)
+                        da.Fill(dt)
+                    End Using
+                    Return dt
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error al obtener movimientos: {ex.Message}")
+            Return Nothing
+        End Try
+    End Function
 
+    Public Function ObtenerNombreObra(id_obra As Integer) As String
+        Try
+            Using con As New OleDbConnection(RutaDB_STOCK)
+                con.Open()
+                Dim sql As String = "SELECT nombre FROM obras WHERE id_obra = @id_obra"
+                Using cmd As New OleDbCommand(sql, con)
+                    cmd.Parameters.AddWithValue("@id_obra", id_obra)
+                    Dim resultado As Object = cmd.ExecuteScalar()
+                    If resultado IsNot Nothing AndAlso resultado IsNot DBNull.Value Then
+                        Return resultado.ToString()
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error al obtener nombre de obra: {ex.Message}")
+        End Try
+        Return "Desconocido"
+    End Function
     Private Sub MOVIMIENTOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim fechaCompleta As Date = Now
-        Dim soloFecha As String = fechaCompleta.ToString("dd/MM/yyyy")
-        Console.WriteLine(soloFecha) ' Muestra: 31/03/2025
-        'Dim dbHelper As New DatabaseHelper()
-        ' Llenar ComboBox de Productos
+        ' Configurar columnas del DataGridView
+        With DGVMOVIMIENTOS
+            .Columns.Clear() ' Esto asegura que las columnas no se dupliquen al reabrir el formulario.
+            .Columns.Add("producto", "Producto")
+            .Columns.Add("obra_origen", "Obra Origen")
+            .Columns.Add("obra_destino", "Obra Destino")
+            .Columns.Add("cantidad", "Cantidad")
+            .Columns.Add("fecha", "Fecha")
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End With
+
+        ' Cargar datos previos desde la tabla 'movimientos'
+        Dim dtMovimientos As DataTable = ObtenerMovimientos()
+        If dtMovimientos IsNot Nothing AndAlso dtMovimientos.Rows.Count > 0 Then
+            For Each row As DataRow In dtMovimientos.Rows
+                Dim nombreOrigen As String = ObtenerNombreObra(CInt(row("obra_origen")))
+                Dim nombreDestino As String = ObtenerNombreObra(CInt(row("obra_destino")))
+                DGVMOVIMIENTOS.Rows.Add(row("producto").ToString(),
+                                nombreOrigen,
+                                nombreDestino,
+                                row("cantidad").ToString(),
+                                CDate(row("fecha")).ToString("dd/MM/yyyy"))
+            Next
+        End If
+        ' Continuar con otras inicializaciones
         Dim dtProductos As DataTable = ObtenerProductos()
         If dtProductos IsNot Nothing Then
             CMBPRODUCTO.DataSource = dtProductos
             CMBPRODUCTO.DisplayMember = "nombre"
             CMBPRODUCTO.ValueMember = "id_PRODUCTO"
         End If
-        ' Llenar ComboBox de Depósitos (Origen y Destino)
+
         Dim dtDepositos As DataTable = ObtenerDepositos()
         If dtDepositos IsNot Nothing Then
             CMBORIGEN.DataSource = dtDepositos.Copy()
@@ -58,6 +114,7 @@ Public Class MOVIMIENTOS
             CMBDESTINO.DisplayMember = "nombre"
             CMBDESTINO.ValueMember = "id_OBRA"
         End If
+
         DateTimePicker1.Enabled = False
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTN_ACEPTAR.Click
@@ -84,6 +141,8 @@ Public Class MOVIMIENTOS
         End If
         If obj_MOVIMIENTOS.TransferirMercaderia(id_producto, cantidad, origen_ID, destino_ID, fecha) Then
             MessageBox.Show("Transferencia realizada con éxito.")
+            DGVMOVIMIENTOS.Rows.Add(CMBPRODUCTO.Text, CMBORIGEN.Text, CMBDESTINO.Text, cantidad, fecha.ToString("dd/MM/yyyy"))
+            TXTCANTIDAD.Text = ""
         Else
             MessageBox.Show("Error al realizar la transferencia.")
         End If

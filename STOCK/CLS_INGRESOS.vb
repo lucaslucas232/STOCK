@@ -31,6 +31,7 @@ Public Class CLS_INGRESOS
         Finally
             con.Close()
         End Try
+
     End Function
 
     Function EliminaINGRESO(ByVal id As Integer) As Boolean

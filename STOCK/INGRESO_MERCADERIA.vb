@@ -49,7 +49,7 @@ Public Class INGRESO_MERCADERIA
     Private Sub INGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim fechaCompleta As Date = Now
         Dim soloFecha As String = fechaCompleta.ToString("dd/MM/yyyy")
-        Console.WriteLine(soloFecha) ' Muestra: 31/03/2025
+        Console.WriteLine(soloFecha)
         CARGA_PRODUCTOS()
         CARGA_OBRAS()
         DateTimePicker1.Enabled = False
@@ -64,6 +64,10 @@ Public Class INGRESO_MERCADERIA
         cmbproducto.SelectedIndex = 0
         BTN_NUEVO.Focus()
         ActualizarTabla(Me.DGV1, "ingresos", "", "id_ingreso")
+        DGV1.Columns("id_ingresos").Visible = False
+        DGV1.Columns("id_producto").Visible = False
+        DGV1.Columns("id_obra").Visible = False
+
     End Sub
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
                     ByVal campoSql As String, ByVal C_ORDEN As String)
@@ -134,6 +138,7 @@ Public Class INGRESO_MERCADERIA
                     BTN_ELIMINAR.Enabled = False
                     BTN_NUEVO.Enabled = True
                     BTN_MODIFICAR.Enabled = False
+
                     BTN_NUEVO.Focus()
                 Else
                     MsgBox("Error al ingresar el registro, reintente la acción", MsgBoxStyle.Critical, "Error")
