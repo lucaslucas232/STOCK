@@ -175,4 +175,8 @@ Public Class MOVIMIENTOS
         End Using
         Return saldoDisponible
     End Function
+
+    Private Sub CMBPRODUCTO_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CMBPRODUCTO.SelectedIndexChanged
+
+    End Sub
 End Class

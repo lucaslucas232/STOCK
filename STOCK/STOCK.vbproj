@@ -100,6 +100,12 @@
     <Compile Include="CLS_OBRAS.vb" />
     <Compile Include="CLS_TRANSFERENCIA.vb" />
     <Compile Include="CLS_USUARIOS.vb" />
+    <Compile Include="FILTRO_HERRAMIENTAS.Designer.vb">
+      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FILTRO_HERRAMIENTAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="INGRESO_MERCADERIA.Designer.vb">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
     </Compile>
@@ -176,6 +182,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BUSCAR_PRODUCTO.resx">
       <DependentUpon>BUSCAR_PRODUCTO.VB</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FILTRO_HERRAMIENTAS.resx">
+      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="INGRESO_MERCADERIA.resx">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
