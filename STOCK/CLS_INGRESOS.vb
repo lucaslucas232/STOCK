@@ -33,6 +33,35 @@ Public Class CLS_INGRESOS
         End Try
 
     End Function
+    Function MODIFICA_INGRESO(ByVal id_producto As Integer, ByVal nombre As String, ByVal cantidad As Integer, ByVal destino As Integer, ByVal fecha As DateTime) As Boolean
+        Dim con As New OleDbConnection(RutaDB_STOCK)
+        Try
+            con.Open()
+            Sql = "INSERT INTO INGRESOS (ID_PRODUCTO, NOMBRE, CANTIDAD, ID_OBRA, FECHA) VALUES (@id_producto, @nombre, @cantidad, @id_obra, @fecha)"
+            ComandoSql = New OleDbCommand
+            With ComandoSql
+                .Connection = con
+                .CommandText = Sql
+                .Parameters.AddWithValue("@id_producto", id_producto)
+                .Parameters.AddWithValue("@nombre", nombre.ToUpper())
+                .Parameters.AddWithValue("@cantidad", cantidad)
+                .Parameters.AddWithValue("@id_obra", destino)
+                .Parameters.Add("@fecha", OleDbType.Date).Value = fecha
+                .ExecuteNonQuery()
+            End With
+            Return True
+        Catch exsql As OleDbException
+            MsgBox("SQL Error: " & exsql.Message & " - " & exsql.ErrorCode.ToString())
+            Return False
+        Catch ex As Exception
+            MsgBox("General Error: " & ex.Message)
+            Return False
+        Finally
+            con.Close()
+        End Try
+
+    End Function
+
 
     Function EliminaINGRESO(ByVal id As Integer) As Boolean
         Dim con As New OleDbConnection(RutaDB_STOCK)

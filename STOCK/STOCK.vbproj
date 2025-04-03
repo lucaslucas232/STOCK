@@ -88,18 +88,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUSCAR_PRODUCTO.Designer.VB">
-      <DependentUpon>BUSCAR_PRODUCTO.VB</DependentUpon>
-    </Compile>
-    <Compile Include="BUSCAR_PRODUCTO.VB">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CLS_HERRAMIENTAS.vb" />
     <Compile Include="CLS_INGRESOS.vb" />
     <Compile Include="CLS_MOVIMIENTOS.vb" />
     <Compile Include="CLS_OBRAS.vb" />
-    <Compile Include="CLS_TRANSFERENCIA.vb" />
+    <Compile Include="CLS_EGRESO.vb" />
     <Compile Include="CLS_USUARIOS.vb" />
+    <Compile Include="FILTRO_HERRAMIENTAS.Designer.vb">
+      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FILTRO_HERRAMIENTAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="INGRESO_MERCADERIA.Designer.vb">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
     </Compile>
@@ -143,11 +143,10 @@
     <Compile Include="REGISTRO_OBRAS.VB">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TRANSFERENCIA.vb">
-      <SubType>Form</SubType>
+    <Compile Include="EGRESO_MERCADERIA.Designer.VB">
+      <DependentUpon>EGRESO_MERCADERIA.VB</DependentUpon>
     </Compile>
-    <Compile Include="TRANSFERENCIA.Designer.vb">
-      <DependentUpon>TRANSFERENCIA.vb</DependentUpon>
+    <Compile Include="EGRESO_MERCADERIA.VB">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -174,8 +173,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BUSCAR_PRODUCTO.resx">
-      <DependentUpon>BUSCAR_PRODUCTO.VB</DependentUpon>
+    <EmbeddedResource Include="FILTRO_HERRAMIENTAS.resx">
+      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="INGRESO_MERCADERIA.resx">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
@@ -198,8 +197,8 @@
     <EmbeddedResource Include="REGISTRO_USUARIOS.resx">
       <DependentUpon>REGISTRO_USUARIOS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TRANSFERENCIA.resx">
-      <DependentUpon>TRANSFERENCIA.vb</DependentUpon>
+    <EmbeddedResource Include="EGRESO_MERCADERIA.resx">
+      <DependentUpon>EGRESO_MERCADERIA.VB</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

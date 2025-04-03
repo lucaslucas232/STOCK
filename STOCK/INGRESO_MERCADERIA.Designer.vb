@@ -30,7 +30,6 @@ Partial Class INGRESO_MERCADERIA
         Me.Label5 = New System.Windows.Forms.Label()
         Me.LBL_USUARIO = New System.Windows.Forms.Label()
         Me.DGV1 = New System.Windows.Forms.DataGridView()
-        Me.BTN_ELIMINAR = New System.Windows.Forms.Button()
         Me.BTN_CANCELAR = New System.Windows.Forms.Button()
         Me.BTN_MODIFICAR = New System.Windows.Forms.Button()
         Me.BTN_AGREGAR = New System.Windows.Forms.Button()
@@ -111,16 +110,6 @@ Partial Class INGRESO_MERCADERIA
         Me.DGV1.Size = New System.Drawing.Size(328, 230)
         Me.DGV1.TabIndex = 5
         '
-        'BTN_ELIMINAR
-        '
-        Me.BTN_ELIMINAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(657, 282)
-        Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
-        Me.BTN_ELIMINAR.Size = New System.Drawing.Size(97, 27)
-        Me.BTN_ELIMINAR.TabIndex = 36
-        Me.BTN_ELIMINAR.Text = "ELIMINAR"
-        Me.BTN_ELIMINAR.UseVisualStyleBackColor = True
-        '
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -196,7 +185,6 @@ Partial Class INGRESO_MERCADERIA
         Me.Controls.Add(Me.CMB_DESTINO)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbproducto)
-        Me.Controls.Add(Me.BTN_ELIMINAR)
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_MODIFICAR)
         Me.Controls.Add(Me.BTN_AGREGAR)
@@ -224,7 +212,6 @@ Partial Class INGRESO_MERCADERIA
     Friend WithEvents Label5 As Label
     Friend WithEvents LBL_USUARIO As Label
     Friend WithEvents DGV1 As DataGridView
-    Friend WithEvents BTN_ELIMINAR As Button
     Friend WithEvents BTN_CANCELAR As Button
     Friend WithEvents BTN_MODIFICAR As Button
     Friend WithEvents BTN_AGREGAR As Button

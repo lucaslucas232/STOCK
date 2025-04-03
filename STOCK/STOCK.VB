@@ -1,7 +1,5 @@
 ﻿Imports System.Windows.Forms
-
 Public Class STOCK
-
     Private Sub Logout()
         Dim loginForm As New LOGIN()
         AddHandler loginForm.FormClosed, AddressOf OnLoginFormClosed
@@ -43,24 +41,26 @@ Public Class STOCK
     Sub Muestra()
         Debug.WriteLine("Mostrando botones")
         btn_ingreso.Show()
-        'btn_trans.Show()
         btnlogout.Show()
         BTN_MOVIMIENTOS.Show()
         BTN_INVENTARIO.Show()
+        BTN_FILTRO.Show()
+        BTN_EGRESO.Show()
     End Sub
 
     Public Sub Oculta()
         btn_ingreso.Hide()
-        'btn_trans.Hide()
         btnlogout.Hide()
         BTN_MOVIMIENTOS.Hide()
         BTN_INVENTARIO.Hide()
+        BTN_FILTRO.Hide()
+        BTN_EGRESO.Hide()
     End Sub
 
-    Private Sub Btn_trans_Click(sender As Object, e As EventArgs)
-        Carga_formulario(transferencia)
-        Oculta()
-    End Sub
+    'Private Sub Btn_trans_Click(sender As Object, e As EventArgs)
+    '    Carga_formulario(transferencia)
+    '    Oculta()
+    'End Sub
 
     Private Sub Btn_ingreso_Click(sender As Object, e As EventArgs) Handles btn_ingreso.Click
         Carga_formulario(INGRESO_MERCADERIA)
@@ -96,5 +96,17 @@ Public Class STOCK
         While Me.MdiChildren.Length > 0
             Me.MdiChildren(0).Close()
         End While
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTN_FILTRO.Click
+        Carga_formulario(FILTRO_HERRAMIENTAS)
+        Oculta()
+
+    End Sub
+
+    Private Sub BTN_EGRESO_Click(sender As Object, e As EventArgs) Handles BTN_EGRESO.Click
+        Carga_formulario(EGRESO_MERCADERIA)
+        Oculta()
+
     End Sub
 End Class

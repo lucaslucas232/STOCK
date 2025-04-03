@@ -45,6 +45,8 @@ Partial Class STOCK
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.BTN_MOVIMIENTOS = New System.Windows.Forms.Button()
         Me.BTN_INVENTARIO = New System.Windows.Forms.Button()
+        Me.BTN_FILTRO = New System.Windows.Forms.Button()
+        Me.BTN_EGRESO = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -93,7 +95,7 @@ Partial Class STOCK
         '
         'btnlogout
         '
-        Me.btnlogout.Location = New System.Drawing.Point(388, 176)
+        Me.btnlogout.Location = New System.Drawing.Point(388, 192)
         Me.btnlogout.Name = "btnlogout"
         Me.btnlogout.Size = New System.Drawing.Size(75, 23)
         Me.btnlogout.TabIndex = 5
@@ -116,8 +118,27 @@ Partial Class STOCK
         Me.BTN_INVENTARIO.Name = "BTN_INVENTARIO"
         Me.BTN_INVENTARIO.Size = New System.Drawing.Size(120, 41)
         Me.BTN_INVENTARIO.TabIndex = 9
-        Me.BTN_INVENTARIO.Text = "INVENTARIO"
+        Me.BTN_INVENTARIO.Text = "INVENTARIO OBRAS"
         Me.BTN_INVENTARIO.UseVisualStyleBackColor = True
+        '
+        'BTN_FILTRO
+        '
+        Me.BTN_FILTRO.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BTN_FILTRO.Location = New System.Drawing.Point(343, 113)
+        Me.BTN_FILTRO.Name = "BTN_FILTRO"
+        Me.BTN_FILTRO.Size = New System.Drawing.Size(120, 41)
+        Me.BTN_FILTRO.TabIndex = 11
+        Me.BTN_FILTRO.Text = "INVENTARIO PRODUCTOS"
+        Me.BTN_FILTRO.UseVisualStyleBackColor = True
+        '
+        'BTN_EGRESO
+        '
+        Me.BTN_EGRESO.Location = New System.Drawing.Point(49, 113)
+        Me.BTN_EGRESO.Name = "BTN_EGRESO"
+        Me.BTN_EGRESO.Size = New System.Drawing.Size(120, 41)
+        Me.BTN_EGRESO.TabIndex = 13
+        Me.BTN_EGRESO.Text = "EGRESO DE STOCK"
+        Me.BTN_EGRESO.UseVisualStyleBackColor = True
         '
         'STOCK
         '
@@ -126,6 +147,8 @@ Partial Class STOCK
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(545, 243)
+        Me.Controls.Add(Me.BTN_EGRESO)
+        Me.Controls.Add(Me.BTN_FILTRO)
         Me.Controls.Add(Me.BTN_INVENTARIO)
         Me.Controls.Add(Me.BTN_MOVIMIENTOS)
         Me.Controls.Add(Me.btnlogout)
@@ -152,4 +175,6 @@ Partial Class STOCK
     Friend WithEvents btnlogout As Button
     Friend WithEvents BTN_MOVIMIENTOS As Button
     Friend WithEvents BTN_INVENTARIO As Button
+    Friend WithEvents BTN_FILTRO As Button
+    Friend WithEvents BTN_EGRESO As Button
 End Class

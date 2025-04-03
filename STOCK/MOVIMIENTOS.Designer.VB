@@ -68,7 +68,7 @@ Partial Class MOVIMIENTOS
         '
         Me.TXTCANTIDAD.Location = New System.Drawing.Point(275, 100)
         Me.TXTCANTIDAD.Name = "TXTCANTIDAD"
-        Me.TXTCANTIDAD.Size = New System.Drawing.Size(100, 20)
+        Me.TXTCANTIDAD.Size = New System.Drawing.Size(194, 20)
         Me.TXTCANTIDAD.TabIndex = 3
         '
         'BTN_ACEPTAR
