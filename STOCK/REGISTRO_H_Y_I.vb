@@ -215,7 +215,4 @@ Public Class REGISTRO_H_Y_I
 
     End Sub
 
-    Private Sub cmb_tipo_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

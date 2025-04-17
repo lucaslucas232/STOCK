@@ -1,9 +1,9 @@
 ﻿Imports System.Data.OleDb
 
 
-Public Class cls_Egreso
+Public Class Cls_Egreso
     Public Property Id_Producto As Integer
-    Public Property id_obra As Integer
+    Public Property Id_obra As Integer
     Public Property NOMBRE As String
 
     Public Property Cantidad As Integer
