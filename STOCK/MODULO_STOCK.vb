@@ -17,11 +17,6 @@ Module MODULO_STOCK
         Return True
     End Function
 
-    'Public Sub HandleChildFormClosing(sender As Object, e As FormClosingEventArgs)
-    '    If e.CloseReason = CloseReason.MdiFormClosing Then
-    '        e.Cancel = False
-    '    End If
-    'End Sub
 
 
 End Module

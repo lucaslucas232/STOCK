@@ -1,9 +1,9 @@
 ﻿Imports System.Data.OleDb
 Public Class REGISTRO_OBRAS
-    Dim obj_OBRAS As New CLS_OBRAS
-    Dim n As Integer
+    Dim Obj_OBRAS As New CLS_OBRAS
+    'Dim n As Integer
     Dim id As Integer
-    Dim ini As Integer
+    'Dim ini As Integer
     Sub Pinta_fila(ByVal nn As Integer)
         Try
             For i As Integer = 0 To DGV1.Rows.Count - 1

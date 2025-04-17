@@ -12,6 +12,7 @@ Public Class EGRESO_MERCADERIA
             CMB_ORIGEN.DataSource = dt
             CMB_ORIGEN.DisplayMember = "NOMBRE"
             CMB_ORIGEN.ValueMember = "Id_OBRA"
+            CMB_ORIGEN.SelectedIndex = -1
         Catch
         End Try
     End Sub
@@ -25,35 +26,50 @@ Public Class EGRESO_MERCADERIA
             cmbproducto.DataSource = dt
             cmbproducto.DisplayMember = "NOMBRE"
             cmbproducto.ValueMember = "Id_PRODUCTO"
+            cmbproducto.SelectedIndex = -1
         Catch ex As Exception
         End Try
     End Sub
-    Sub ActualizarTablaEgresos(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
-                           ByVal campoSql As String, ByVal C_ORDEN As String)
-        Try
-            Dim da As OleDbDataAdapter
-            Dim dt As DataTable
-            Dim consulta As String
-            consulta =
-            "SELECT EGRESOS.Id_EGRESOS, EGRESOS.ID_PRODUCTO, EGRESOS.NOMBRE, EGRESOS.CANTIDAD, " &
-            "OBRAS.NOMBRE AS OBRA_DESTINO, EGRESOS.ID_OBRA, EGRESOS.FECHA " &
-            "FROM EGRESOS " &
-            "INNER JOIN OBRAS ON EGRESOS.ID_OBRA = OBRAS.ID_OBRA " &
-            "ORDER BY EGRESOS.Id_EGRESOS;"
+    Private Sub ActualizarSaldo()
+        If cmbproducto.SelectedIndex <> -1 AndAlso CMB_ORIGEN.SelectedIndex <> -1 Then
 
-            da = New OleDbDataAdapter(consulta, RutaDB_STOCK)
-            dt = New DataTable
-            da.Fill(dt)
-            n = dt.Rows.Count
-            grilla.DataSource = dt
-            grilla.ReadOnly = True
-        Catch ex As Exception
-            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error al cargar los datos")
-        End Try
+            Dim id_Producto As Integer = CInt(cmbproducto.SelectedValue)
+            Dim id_Obra As Integer = CInt(CMB_ORIGEN.SelectedValue)
+            Dim saldoDisponible As Integer = ObtenerSaldoDisponible(id_Producto, id_Obra)
+            LBL_SALDO.Text = $"Saldo disponible: {saldoDisponible}"
+        Else
+            LBL_SALDO.Text = "Saldo disponible: N/A"
+        End If
     End Sub
+
+
+    'Sub ActualizarTablaEgresos(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
+    '                       ByVal campoSql As String, ByVal C_ORDEN As String)
+    '    Try
+    '        Dim da As OleDbDataAdapter
+    '        Dim dt As DataTable
+    '        Dim consulta As String
+    '        consulta =
+    '        "SELECT EGRESOS.Id_EGRESOS, EGRESOS.ID_PRODUCTO, EGRESOS.NOMBRE, EGRESOS.CANTIDAD, " &
+    '        "OBRAS.NOMBRE AS OBRA_DESTINO, EGRESOS.ID_OBRA, EGRESOS.FECHA " &
+    '        "FROM EGRESOS " &
+    '        "INNER JOIN OBRAS ON EGRESOS.ID_OBRA = OBRAS.ID_OBRA " &
+    '        "ORDER BY EGRESOS.Id_EGRESOS;"
+
+    '        da = New OleDbDataAdapter(consulta, RutaDB_STOCK)
+    '        dt = New DataTable
+    '        da.Fill(dt)
+    '        n = dt.Rows.Count
+    '        grilla.DataSource = dt
+    '        grilla.ReadOnly = True
+    '    Catch ex As Exception
+    '        MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error al cargar los datos")
+    '    End Try
+    'End Sub
     Private Sub EGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CARGA_PRODUCTOS()
         CARGA_OBRAS()
+        DateTimePicker1.Enabled = False
 
         'ActualizarTablaEgresos(Me.dgv1, "egresos", "", "id_egreso")
     End Sub
@@ -121,7 +137,15 @@ Public Class EGRESO_MERCADERIA
             MessageBox.Show("Egreso registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             MessageBox.Show("Error al registrar el egreso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-            End Sub
+        End If
+        ActualizarSaldo()
+    End Sub
 
+    Private Sub cmbproducto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbproducto.SelectedIndexChanged
+        ActualizarSaldo()
+    End Sub
+
+    Private Sub CMB_ORIGEN_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CMB_ORIGEN.SelectedIndexChanged
+        ActualizarSaldo()
+    End Sub
 End Class

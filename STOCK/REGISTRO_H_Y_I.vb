@@ -1,11 +1,11 @@
 ﻿Imports System.Data.OleDb
 
 Public Class REGISTRO_H_Y_I
-    Dim obj_HERRAMIENTAS As New cls_herramientas
-    Dim n As Integer
+    Dim Obj_HERRAMIENTAS As New cls_herramientas
+    'Dim n As Integer
     Dim id As Integer
-    Dim ini As Integer
-    Sub pinta_fila(ByVal nn As Integer)
+    'Dim ini As Integer
+    Sub Pinta_fila(ByVal nn As Integer)
         Try
             For i As Integer = 0 To DGV1.Rows.Count - 1
                 DGV1.Rows(i).Selected = False
@@ -76,7 +76,7 @@ Public Class REGISTRO_H_Y_I
             da = New OleDbDataAdapter(consulta, RutaDB_STOCK)
             dt = New DataTable
             da.Fill(dt)
-            n = dt.Rows.Count
+            'n = dt.Rows.Count
             grilla.DataSource = dt
             grilla.ReadOnly = True
         Catch ex As Exception
@@ -215,7 +215,4 @@ Public Class REGISTRO_H_Y_I
 
     End Sub
 
-    Private Sub cmb_tipo_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
 End Class
