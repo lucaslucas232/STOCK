@@ -45,8 +45,6 @@ Partial Class STOCK
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.BTN_MOVIMIENTOS = New System.Windows.Forms.Button()
         Me.BTN_INVENTARIO = New System.Windows.Forms.Button()
-        Me.BTN_FILTRO = New System.Windows.Forms.Button()
-        Me.BTN_EGRESO = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '

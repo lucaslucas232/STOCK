@@ -176,6 +176,9 @@
     <EmbeddedResource Include="FILTRO_HERRAMIENTAS.resx">
       <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FILTRO_HERRAMIENTAS.resx">
+      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="INGRESO_MERCADERIA.resx">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
     </EmbeddedResource>
