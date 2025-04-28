@@ -38,7 +38,6 @@ Partial Class LOGIN
         Me.TXT_PASS.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TXT_PASS.Size = New System.Drawing.Size(228, 23)
         Me.TXT_PASS.TabIndex = 18
-        Me.TXT_PASS.Text = "1234"
         '
         'TXT_USER
         '
@@ -47,7 +46,6 @@ Partial Class LOGIN
         Me.TXT_USER.Name = "TXT_USER"
         Me.TXT_USER.Size = New System.Drawing.Size(228, 23)
         Me.TXT_USER.TabIndex = 17
-        Me.TXT_USER.Text = "LUCAS"
         '
         'LBL_PASS
         '
