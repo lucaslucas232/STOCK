@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_082F4EA25EE64D8EB9C6FD010FB46FD5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0CC660F107A14D33B307E11AB63CB3B3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_159D47D17420455BB8E88054944E6950"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -23,6 +35,24 @@
         {
         "MsmKey" = "8:_16A89E95B4C45CBD024924AB24DF2B0F"
         "OwnerKey" = "8:_159D47D17420455BB8E88054944E6950"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_332AFDAE80164FE6B14DD4A60404A6B0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D41895494E2D4386A7448DFF76ADB7E7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D6EF8234F1554F6DB8DBC0F60FD21395"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,6 +124,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -101,6 +139,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_04611D98D1E54584A3D59C4BC7D05BA3"
+            {
+            "Name" = "8:cmd.exe"
+            "Condition" = "8:"
+            "Object" = "8:_082F4EA25EE64D8EB9C6FD010FB46FD5"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:/c \"[TARGETDIR]eliminar_elementos.bat\""
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_D444313D_AA37_4A75_9F74_3583077C8DD2"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -124,6 +176,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_082F4EA25EE64D8EB9C6FD010FB46FD5"
+            {
+            "SourcePath" = "8:C:\\Windows\\System32\\cmd.exe"
+            "TargetName" = "8:cmd.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_525C2244DDE34D778F1FAB92A8D1AC07"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CC660F107A14D33B307E11AB63CB3B3"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\OneDrive\\Desktop\\Eliminar_elementos.bat"
+            "TargetName" = "8:Eliminar_elementos.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_525C2244DDE34D778F1FAB92A8D1AC07"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_16A89E95B4C45CBD024924AB24DF2B0F"
             {
             "AssemblyRegister" = "3:1"
@@ -153,6 +245,66 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_332AFDAE80164FE6B14DD4A60404A6B0"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\OneDrive\\Desktop\\README.txt"
+            "TargetName" = "8:README.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_A13B83B00DFF4DE6BB4B6289197EF30F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D41895494E2D4386A7448DFF76ADB7E7"
+            {
+            "SourcePath" = "8:..\\STOCK\\bin\\Debug\\STOCK.accdb"
+            "TargetName" = "8:STOCK.accdb"
+            "Tag" = "8:"
+            "Folder" = "8:_A13B83B00DFF4DE6BB4B6289197EF30F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6EF8234F1554F6DB8DBC0F60FD21395"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\OneDrive\\Desktop\\Eliminar_elementos.bat"
+            "TargetName" = "8:Eliminar_elementos.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_525C2244DDE34D778F1FAB92A8D1AC07"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -223,7 +375,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:setupstock"
         "ProductCode" = "8:{925763A1-F309-4EB3-9FC1-A7D2951DE765}"
-        "PackageCode" = "8:{DC648E0C-F0A0-464C-AA1E-91BE80DEAAE4}"
+        "PackageCode" = "8:{A53DC629-08C7-4C38-9A35-6E3C8E45BE15}"
         "UpgradeCode" = "8:{E5173358-DC3F-4636-8737-AA8458874B2E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
