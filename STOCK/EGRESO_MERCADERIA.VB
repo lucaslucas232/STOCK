@@ -41,31 +41,6 @@ Public Class EGRESO_MERCADERIA
             LBL_SALDO.Text = "Saldo disponible: N/A"
         End If
     End Sub
-
-
-    'Sub ActualizarTablaEgresos(ByVal grilla As DataGridView, ByVal nombre_tabla As String,
-    '                       ByVal campoSql As String, ByVal C_ORDEN As String)
-    '    Try
-    '        Dim da As OleDbDataAdapter
-    '        Dim dt As DataTable
-    '        Dim consulta As String
-    '        consulta =
-    '        "SELECT EGRESOS.Id_EGRESOS, EGRESOS.ID_PRODUCTO, EGRESOS.NOMBRE, EGRESOS.CANTIDAD, " &
-    '        "OBRAS.NOMBRE AS OBRA_DESTINO, EGRESOS.ID_OBRA, EGRESOS.FECHA " &
-    '        "FROM EGRESOS " &
-    '        "INNER JOIN OBRAS ON EGRESOS.ID_OBRA = OBRAS.ID_OBRA " &
-    '        "ORDER BY EGRESOS.Id_EGRESOS;"
-
-    '        da = New OleDbDataAdapter(consulta, RutaDB_STOCK)
-    '        dt = New DataTable
-    '        da.Fill(dt)
-    '        n = dt.Rows.Count
-    '        grilla.DataSource = dt
-    '        grilla.ReadOnly = True
-    '    Catch ex As Exception
-    '        MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error al cargar los datos")
-    '    End Try
-    'End Sub
     Private Sub EGRESO_MERCADERIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CARGA_PRODUCTOS()
         CARGA_OBRAS()

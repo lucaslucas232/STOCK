@@ -81,7 +81,7 @@ Partial Class REGISTRO_USUARIOS
         Me.DGV1.Name = "DGV1"
         Me.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGV1.Size = New System.Drawing.Size(237, 170)
-        Me.DGV1.TabIndex = 45
+        Me.DGV1.TabIndex = 9
         '
         'BTN_ELIMINAR
         '
@@ -89,7 +89,7 @@ Partial Class REGISTRO_USUARIOS
         Me.BTN_ELIMINAR.Location = New System.Drawing.Point(643, 243)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
         Me.BTN_ELIMINAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_ELIMINAR.TabIndex = 50
+        Me.BTN_ELIMINAR.TabIndex = 8
         Me.BTN_ELIMINAR.Text = "ELIMINAR"
         Me.BTN_ELIMINAR.UseVisualStyleBackColor = True
         '
@@ -99,7 +99,7 @@ Partial Class REGISTRO_USUARIOS
         Me.BTN_CANCELAR.Location = New System.Drawing.Point(643, 196)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_CANCELAR.TabIndex = 49
+        Me.BTN_CANCELAR.TabIndex = 7
         Me.BTN_CANCELAR.Text = "CANCELAR"
         Me.BTN_CANCELAR.UseVisualStyleBackColor = True
         '
@@ -109,7 +109,7 @@ Partial Class REGISTRO_USUARIOS
         Me.BTN_MODIFICAR.Location = New System.Drawing.Point(643, 149)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
         Me.BTN_MODIFICAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_MODIFICAR.TabIndex = 48
+        Me.BTN_MODIFICAR.TabIndex = 6
         Me.BTN_MODIFICAR.Text = "MODIFICAR"
         Me.BTN_MODIFICAR.UseVisualStyleBackColor = True
         '
@@ -119,7 +119,7 @@ Partial Class REGISTRO_USUARIOS
         Me.BTN_AGREGAR.Location = New System.Drawing.Point(643, 102)
         Me.BTN_AGREGAR.Name = "BTN_AGREGAR"
         Me.BTN_AGREGAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_AGREGAR.TabIndex = 47
+        Me.BTN_AGREGAR.TabIndex = 5
         Me.BTN_AGREGAR.Text = "AGREGAR"
         Me.BTN_AGREGAR.UseVisualStyleBackColor = True
         '

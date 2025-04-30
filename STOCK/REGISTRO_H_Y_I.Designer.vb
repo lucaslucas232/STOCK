@@ -24,8 +24,6 @@ Partial Class REGISTRO_H_Y_I
     Private Sub InitializeComponent()
         Me.txt_producto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.LBL_USUARIO = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.DGV1 = New System.Windows.Forms.DataGridView()
         Me.BTN_ELIMINAR = New System.Windows.Forms.Button()
         Me.BTN_CANCELAR = New System.Windows.Forms.Button()
@@ -37,7 +35,7 @@ Partial Class REGISTRO_H_Y_I
         '
         'txt_producto
         '
-        Me.txt_producto.Location = New System.Drawing.Point(61, 112)
+        Me.txt_producto.Location = New System.Drawing.Point(62, 92)
         Me.txt_producto.Name = "txt_producto"
         Me.txt_producto.Size = New System.Drawing.Size(206, 20)
         Me.txt_producto.TabIndex = 2
@@ -45,34 +43,16 @@ Partial Class REGISTRO_H_Y_I
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(58, 87)
+        Me.Label1.Location = New System.Drawing.Point(59, 67)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "NOMBRE PRODUCTO"
         '
-        'LBL_USUARIO
-        '
-        Me.LBL_USUARIO.AutoSize = True
-        Me.LBL_USUARIO.Location = New System.Drawing.Point(429, 28)
-        Me.LBL_USUARIO.Name = "LBL_USUARIO"
-        Me.LBL_USUARIO.Size = New System.Drawing.Size(15, 13)
-        Me.LBL_USUARIO.TabIndex = 11
-        Me.LBL_USUARIO.Text = "**"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(354, 28)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(59, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "USUARIO:"
-        '
         'DGV1
         '
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV1.Location = New System.Drawing.Point(285, 87)
+        Me.DGV1.Location = New System.Drawing.Point(286, 67)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.Size = New System.Drawing.Size(240, 189)
         Me.DGV1.TabIndex = 13
@@ -83,7 +63,7 @@ Partial Class REGISTRO_H_Y_I
         Me.BTN_ELIMINAR.Location = New System.Drawing.Point(554, 255)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
         Me.BTN_ELIMINAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_ELIMINAR.TabIndex = 65
+        Me.BTN_ELIMINAR.TabIndex = 6
         Me.BTN_ELIMINAR.Text = "ELIMINAR"
         Me.BTN_ELIMINAR.UseVisualStyleBackColor = True
         '
@@ -93,7 +73,7 @@ Partial Class REGISTRO_H_Y_I
         Me.BTN_CANCELAR.Location = New System.Drawing.Point(554, 208)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_CANCELAR.TabIndex = 64
+        Me.BTN_CANCELAR.TabIndex = 5
         Me.BTN_CANCELAR.Text = "CANCELAR"
         Me.BTN_CANCELAR.UseVisualStyleBackColor = True
         '
@@ -103,7 +83,7 @@ Partial Class REGISTRO_H_Y_I
         Me.BTN_MODIFICAR.Location = New System.Drawing.Point(554, 161)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
         Me.BTN_MODIFICAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_MODIFICAR.TabIndex = 63
+        Me.BTN_MODIFICAR.TabIndex = 4
         Me.BTN_MODIFICAR.Text = "MODIFICAR"
         Me.BTN_MODIFICAR.UseVisualStyleBackColor = True
         '
@@ -113,7 +93,7 @@ Partial Class REGISTRO_H_Y_I
         Me.BTN_AGREGAR.Location = New System.Drawing.Point(554, 114)
         Me.BTN_AGREGAR.Name = "BTN_AGREGAR"
         Me.BTN_AGREGAR.Size = New System.Drawing.Size(115, 27)
-        Me.BTN_AGREGAR.TabIndex = 4
+        Me.BTN_AGREGAR.TabIndex = 3
         Me.BTN_AGREGAR.Text = "AGREGAR"
         Me.BTN_AGREGAR.UseVisualStyleBackColor = True
         '
@@ -138,8 +118,6 @@ Partial Class REGISTRO_H_Y_I
         Me.Controls.Add(Me.BTN_AGREGAR)
         Me.Controls.Add(Me.BTN_NUEVO)
         Me.Controls.Add(Me.DGV1)
-        Me.Controls.Add(Me.LBL_USUARIO)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_producto)
         Me.Name = "REGISTRO_H_Y_I"
@@ -152,8 +130,6 @@ Partial Class REGISTRO_H_Y_I
 
     Friend WithEvents txt_producto As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents LBL_USUARIO As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents DGV1 As DataGridView
     Friend WithEvents BTN_ELIMINAR As Button
     Friend WithEvents BTN_CANCELAR As Button
