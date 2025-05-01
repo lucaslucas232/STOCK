@@ -78,6 +78,9 @@ Public Class FILTRO_HERRAMIENTAS
         ActualizarTabla(DGV1)
         DGV1.Columns("INGRESOS").Visible = False
         DGV1.Columns("EGRESOS").Visible = False
+        DGV1.AutoResizeColumns()
+        DGV1.AutoResizeRows()
+
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txt_nombre_producto.TextChanged

@@ -59,7 +59,7 @@ Partial Class FILTRO_HERRAMIENTAS
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(604, 130)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(409, 130)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(103, 35)
         Me.BTN_CANCELAR.TabIndex = 42
@@ -69,7 +69,7 @@ Partial Class FILTRO_HERRAMIENTAS
         'BTN_BUSCAR
         '
         Me.BTN_BUSCAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_BUSCAR.Location = New System.Drawing.Point(604, 77)
+        Me.BTN_BUSCAR.Location = New System.Drawing.Point(409, 77)
         Me.BTN_BUSCAR.Name = "BTN_BUSCAR"
         Me.BTN_BUSCAR.Size = New System.Drawing.Size(103, 35)
         Me.BTN_BUSCAR.TabIndex = 41
@@ -81,14 +81,14 @@ Partial Class FILTRO_HERRAMIENTAS
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGV1.Location = New System.Drawing.Point(178, 77)
         Me.DGV1.Name = "DGV1"
-        Me.DGV1.Size = New System.Drawing.Size(409, 286)
+        Me.DGV1.Size = New System.Drawing.Size(198, 238)
         Me.DGV1.TabIndex = 40
         '
         'FILTRO_HERRAMIENTAS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(742, 383)
+        Me.ClientSize = New System.Drawing.Size(553, 368)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txt_nombre_producto)
         Me.Controls.Add(Me.ListBoxproductos)

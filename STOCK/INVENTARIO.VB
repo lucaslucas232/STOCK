@@ -76,6 +76,10 @@ From obras"
     Private Sub BTN_BUSCAR_Click(sender As Object, e As EventArgs) Handles BTN_BUSCAR.Click
         ActualizarTabla(Me.DGV1)
         DGV1.Columns("id_producto").Visible = False
+        DGV1.Columns("total_ingresos").Visible = False
+        DGV1.Columns("total_egresos").Visible = False
+        DGV1.AutoResizeColumns()
+        DGV1.AutoResizeRows()
 
     End Sub
 

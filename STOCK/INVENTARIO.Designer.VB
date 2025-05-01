@@ -34,7 +34,7 @@ Partial Class INVENTARIO
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(607, 135)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(452, 135)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(103, 35)
         Me.BTN_CANCELAR.TabIndex = 36
@@ -44,7 +44,7 @@ Partial Class INVENTARIO
         'BTN_BUSCAR
         '
         Me.BTN_BUSCAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_BUSCAR.Location = New System.Drawing.Point(607, 82)
+        Me.BTN_BUSCAR.Location = New System.Drawing.Point(452, 82)
         Me.BTN_BUSCAR.Name = "BTN_BUSCAR"
         Me.BTN_BUSCAR.Size = New System.Drawing.Size(103, 35)
         Me.BTN_BUSCAR.TabIndex = 35
@@ -56,7 +56,7 @@ Partial Class INVENTARIO
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGV1.Location = New System.Drawing.Point(181, 82)
         Me.DGV1.Name = "DGV1"
-        Me.DGV1.Size = New System.Drawing.Size(409, 286)
+        Me.DGV1.Size = New System.Drawing.Size(240, 238)
         Me.DGV1.TabIndex = 32
         '
         'ListBox1
@@ -88,7 +88,7 @@ Partial Class INVENTARIO
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(586, 349)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txt_nombre_obra)
         Me.Controls.Add(Me.ListBox1)

@@ -1,5 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class MOVIMIENTOS
+
+
     Dim obj_MOVIMIENTOS As New CLS_MOVIMIENTOS
     Public Function ObtenerProductos() As DataTable
         Try
@@ -35,6 +37,28 @@ Public Class MOVIMIENTOS
             Return Nothing
         End Try
     End Function
+    Public Function FiltrarMovimientos(startDate As Date, endDate As Date) As DataTable
+        Try
+            Using con As New OleDbConnection(RutaDB_STOCK)
+                con.Open()
+                Dim sql As String = "SELECT producto, obra_origen, obra_destino, cantidad, fecha FROM movimientos " &
+                                "WHERE fecha BETWEEN ? AND ? ORDER BY fecha DESC"
+
+                Using cmd As New OleDbCommand(sql, con)
+                    cmd.Parameters.AddWithValue("?", startDate.ToString("dd/MM/yyyy"))
+                    cmd.Parameters.AddWithValue("?", endDate.ToString("dd/MM/yyyy"))
+                    Dim dt As New DataTable()
+                    Using da As New OleDbDataAdapter(cmd)
+                        da.Fill(dt)
+                    End Using
+                    Return dt
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error filtering movements: {ex.Message}")
+            Return Nothing
+        End Try
+    End Function
     Public Function ObtenerMovimientos() As DataTable
         Try
             Using con As New OleDbConnection(RutaDB_STOCK)
@@ -52,6 +76,40 @@ Public Class MOVIMIENTOS
             MessageBox.Show($"Error al obtener movimientos: {ex.Message}")
             Return Nothing
         End Try
+
+        'Using con As New OleDbConnection(RutaDB_STOCK)
+        '    Dim sql As String = "SELECT TOP 10 producto, obra_origen, obra_destino, cantidad, fecha " &
+        '            "FROM movimientos WHERE fecha BETWEEN ? AND ? ORDER BY fecha DESC"
+
+        '    Using cmd As New OleDbCommand(sql, con)
+        '        cmd.Parameters.AddWithValue("?", dtpinicio.Value.ToString("dd/MM/yyyy")) ' Format for Access
+        '        cmd.Parameters.AddWithValue("?", dtpfin.Value.ToString("dd/MM/yyyy")) ' Format for Access
+
+        '        Dim dt As New DataTable()
+        '        Using da As New OleDbDataAdapter(cmd)
+        '            da.Fill(dt)
+        '        End Using
+        '        Return dt
+        '    End Using
+
+        '------------------------------------------------------------------------------------------------------
+
+        'Dim sql As String = "SELECT top 10 producto, obra_origen, obra_destino, cantidad, fecha " &
+        '                "FROM movimientos WHERE fecha BETWEEN @startDate AND @endDate " &
+        '                "ORDER BY [fecha] DESC" ' Use LIMIT instead of TOP for databases like SQLite
+
+        'Using cmd As New OleDbCommand(sql, con)
+        '    cmd.Parameters.AddWithValue("@startDate", dtpinicio.Value) ' Assuming you have a DateTimePicker named dtpInicio
+        '    cmd.Parameters.AddWithValue("@endDate", dtpfin.Value) ' Another DateTimePicker for the end date
+
+        '    Dim dt As New DataTable()
+        '    Using da As New OleDbDataAdapter(cmd)
+        '        da.Fill(dt)
+        '    End Using
+        '    Return dt
+        'End Using
+        'End Using
+
     End Function
 
     Public Function ObtenerNombreObra(id_obra As Integer) As String
@@ -178,5 +236,26 @@ Public Class MOVIMIENTOS
 
     Private Sub CMBPRODUCTO_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CMBPRODUCTO.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles dtpinicio.ValueChanged
+
+    End Sub
+
+    Private Sub btnFiltrar_Click(sender As Object, e As EventArgs) Handles btnfiltrar.Click
+        Dim startDate As Date = dtpinicio.Value
+        Dim endDate As Date = dtpfin.Value
+
+        DGVMOVIMIENTOS.DataSource = Nothing ' Remove old data
+        DGVMOVIMIENTOS.Columns.Clear() ' Clear duplicate columns
+
+        DGVMOVIMIENTOS.DataSource = FiltrarMovimientos(startDate, endDate)
+    End Sub
+    Private Sub btnCancelar2_Click(sender As Object, e As EventArgs) Handles btncancelar2.Click
+        dtpinicio.Value = DateTime.Now.AddMonths(-1)
+        dtpfin.Value = DateTime.Now
+        dtpinicio.Visible = True
+        dtpfin.Visible = True
+        DGVMOVIMIENTOS.DataSource = ObtenerMovimientos()
     End Sub
 End Class
