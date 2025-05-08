@@ -30,12 +30,14 @@ Partial Class REGISTRO_H_Y_I
         Me.BTN_MODIFICAR = New System.Windows.Forms.Button()
         Me.BTN_AGREGAR = New System.Windows.Forms.Button()
         Me.BTN_NUEVO = New System.Windows.Forms.Button()
+        Me.txtfiltro = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_producto
         '
-        Me.txt_producto.Location = New System.Drawing.Point(62, 92)
+        Me.txt_producto.Location = New System.Drawing.Point(32, 60)
         Me.txt_producto.Name = "txt_producto"
         Me.txt_producto.Size = New System.Drawing.Size(206, 20)
         Me.txt_producto.TabIndex = 2
@@ -43,7 +45,7 @@ Partial Class REGISTRO_H_Y_I
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(59, 67)
+        Me.Label1.Location = New System.Drawing.Point(29, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 13)
         Me.Label1.TabIndex = 1
@@ -52,7 +54,7 @@ Partial Class REGISTRO_H_Y_I
         'DGV1
         '
         Me.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV1.Location = New System.Drawing.Point(286, 67)
+        Me.DGV1.Location = New System.Drawing.Point(256, 35)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.Size = New System.Drawing.Size(240, 189)
         Me.DGV1.TabIndex = 13
@@ -60,7 +62,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_ELIMINAR
         '
         Me.BTN_ELIMINAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(554, 255)
+        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(524, 223)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
         Me.BTN_ELIMINAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_ELIMINAR.TabIndex = 6
@@ -70,7 +72,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(554, 208)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(524, 176)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
         Me.BTN_CANCELAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_CANCELAR.TabIndex = 5
@@ -80,7 +82,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_MODIFICAR
         '
         Me.BTN_MODIFICAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(554, 161)
+        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(524, 129)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
         Me.BTN_MODIFICAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_MODIFICAR.TabIndex = 4
@@ -90,7 +92,7 @@ Partial Class REGISTRO_H_Y_I
         'BTN_AGREGAR
         '
         Me.BTN_AGREGAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_AGREGAR.Location = New System.Drawing.Point(554, 114)
+        Me.BTN_AGREGAR.Location = New System.Drawing.Point(524, 82)
         Me.BTN_AGREGAR.Name = "BTN_AGREGAR"
         Me.BTN_AGREGAR.Size = New System.Drawing.Size(115, 27)
         Me.BTN_AGREGAR.TabIndex = 3
@@ -100,18 +102,36 @@ Partial Class REGISTRO_H_Y_I
         'BTN_NUEVO
         '
         Me.BTN_NUEVO.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN_NUEVO.Location = New System.Drawing.Point(554, 67)
+        Me.BTN_NUEVO.Location = New System.Drawing.Point(524, 35)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
         Me.BTN_NUEVO.Size = New System.Drawing.Size(115, 27)
         Me.BTN_NUEVO.TabIndex = 1
         Me.BTN_NUEVO.Text = "NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
+        'txtfiltro
+        '
+        Me.txtfiltro.Location = New System.Drawing.Point(256, 257)
+        Me.txtfiltro.Name = "txtfiltro"
+        Me.txtfiltro.Size = New System.Drawing.Size(206, 20)
+        Me.txtfiltro.TabIndex = 14
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(253, 237)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(54, 13)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "BUSCAR:"
+        '
         'REGISTRO_H_Y_I
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(751, 333)
+        Me.ClientSize = New System.Drawing.Size(680, 315)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtfiltro)
         Me.Controls.Add(Me.BTN_ELIMINAR)
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_MODIFICAR)
@@ -136,4 +156,6 @@ Partial Class REGISTRO_H_Y_I
     Friend WithEvents BTN_MODIFICAR As Button
     Friend WithEvents BTN_AGREGAR As Button
     Friend WithEvents BTN_NUEVO As Button
+    Friend WithEvents txtfiltro As TextBox
+    Friend WithEvents Label2 As Label
 End Class

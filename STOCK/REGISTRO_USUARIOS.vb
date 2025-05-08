@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+
 Public Class REGISTRO_USUARIOS
     Dim id As Integer
     Dim obj_USUARIO As New CLS_USUARIOS
@@ -83,8 +84,6 @@ Public Class REGISTRO_USUARIOS
         If DGV1.Columns.Contains("id") Then
             DGV1.Columns("id").Visible = False
         End If
-
-
     End Sub
     Private Sub REGISTRO_USUARIOS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         STOCK.muestra()
@@ -99,7 +98,7 @@ Public Class REGISTRO_USUARIOS
         BTN_ELIMINAR.Enabled = False
         BTN_AGREGAR.Enabled = False
         BTN_CANCELAR.Enabled = False
-        ActualizarTabla(Me.DGV1, "USUARIOS", "", "id")
+        ActualizarTabla(Me.DGV1, "USUARIOS", "", "usuario")
         CMB_TIPO.DropDownStyle = ComboBoxStyle.DropDownList
         CMB_TIPO.SelectedIndex = 0
 

@@ -102,7 +102,7 @@ Public Class REGISTRO_OBRAS
         BTN_ELIMINAR.Enabled = False
         BTN_AGREGAR.Enabled = False
         BTN_CANCELAR.Enabled = False
-        ActualizarTabla(Me.DGV1, "OBRAS", "", "id_obra")
+        ActualizarTabla(Me.DGV1, "OBRAS", "", "nombre")
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try

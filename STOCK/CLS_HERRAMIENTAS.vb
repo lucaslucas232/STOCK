@@ -4,26 +4,66 @@ Imports System.Data.OleDb
 Public Class cls_herramientas
     Dim ComandoSql As OleDbCommand
     Dim Sql As String
+    'Function Agregaherramienta(ByVal nombre As String) As Boolean
+    '    Try
+    '        Dim con As New OleDbConnection(RutaDB_STOCK)
+    '        con.Open()
+    '        Sql = "Insert into productos (nombre) " _
+    '                + "Values (@nombre)"
+
+    '        ComandoSql = New OleDbCommand
+    '        With ComandoSql
+    '            .Connection = con
+    '            .CommandText = Sql
+    '            .Parameters.AddWithValue("@nombre", nombre.ToUpper)
+
+    '            .ExecuteNonQuery()
+    '        End With
+
+    '        ComandoSql.Dispose()
+    '        Sql = String.Empty
+    '        con.Close()
+    '        Return True
+
+    '    Catch exsql As OleDbException
+    '        MsgBox(exsql.Message)
+    '        Return False
+
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message)
+    '        Return False
+    '    End Try
+
+    'End Function
     Function Agregaherramienta(ByVal nombre As String) As Boolean
         Try
             Dim con As New OleDbConnection(RutaDB_STOCK)
             con.Open()
-            Sql = "Insert into productos (nombre) " _
-                    + "Values (@nombre)"
 
-            ComandoSql = New OleDbCommand
-            With ComandoSql
-                .Connection = con
-                .CommandText = Sql
-                .Parameters.AddWithValue("@nombre", nombre.ToUpper)
+            ' Verificar si el producto ya existe en la base de datos
+            Dim consulta As String = "SELECT COUNT(*) FROM productos WHERE nombre = @nombre"
+            Dim cmdCheck As New OleDbCommand(consulta, con)
 
-                .ExecuteNonQuery()
-            End With
+            cmdCheck.Parameters.AddWithValue("@nombre", nombre.ToUpper)
 
-            ComandoSql.Dispose()
-            Sql = String.Empty
+            Dim existe As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
+
+            If existe > 0 Then
+                MsgBox("El producto ya está registrado.", MsgBoxStyle.Exclamation, "Duplicado")
+                con.Close()
+                Return False ' No se inserta el registro
+            End If
+
+            ' Si no existe, procede a la inserción
+            Dim sqlInsert As String = "INSERT INTO productos (nombre) VALUES (@nombre)"
+            Dim cmdInsert As New OleDbCommand(sqlInsert, con)
+            cmdInsert.Parameters.AddWithValue("@nombre", nombre.ToUpper)
+
+            cmdInsert.ExecuteNonQuery()
+            cmdInsert.Dispose()
             con.Close()
-            Return True
+
+            Return True ' Registro exitoso
 
         Catch exsql As OleDbException
             MsgBox(exsql.Message)
@@ -33,7 +73,6 @@ Public Class cls_herramientas
             MsgBox(ex.Message)
             Return False
         End Try
-
     End Function
     Function Modificaherramienta(ByVal nombre As String, ByVal ID As Integer) As Boolean
         Try

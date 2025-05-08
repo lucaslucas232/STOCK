@@ -96,8 +96,10 @@ Public Class REGISTRO_H_Y_I
         BTN_ELIMINAR.Enabled = False
         BTN_AGREGAR.Enabled = False
         BTN_CANCELAR.Enabled = False
-        ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
+        ActualizarTabla(Me.DGV1, "productos", "", "nombre")
         BTN_NUEVO.Focus()
+        DGV1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        DGV1.ScrollBars = ScrollBars.Horizontal
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
@@ -105,7 +107,7 @@ Public Class REGISTRO_H_Y_I
                 If obj_HERRAMIENTAS.Agregaherramienta(txt_producto.Text) = True Then
                     MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                     Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "productos", "", "ID_producto")
+                    ActualizarTabla(Me.DGV1, "productos", "", "nombre")
                     BTN_AGREGAR.Enabled = False
                     txt_producto.Enabled = False
                     BTN_CANCELAR.Enabled = False
@@ -215,4 +217,21 @@ Public Class REGISTRO_H_Y_I
 
     End Sub
 
+    Private Sub TxtFiltro_TextChanged(sender As Object, e As EventArgs) Handles txtfiltro.TextChanged
+        FiltrarRegistros(txtfiltro.Text)
+    End Sub
+    Private Sub FiltrarRegistros(ByVal criterio As String)
+        If TypeOf DGV1.DataSource Is DataTable Then
+            Dim dt As DataTable = CType(DGV1.DataSource, DataTable)
+            Dim dv As New DataView(dt)
+            dv.RowFilter = "nombre LIKE '%" & criterio & "%'"
+            DGV1.DataSource = dv
+        ElseIf TypeOf DGV1.DataSource Is DataView Then
+            Dim dv As DataView = CType(DGV1.DataSource, DataView)
+            dv.RowFilter = "nombre LIKE '%" & criterio & "%'"
+            ' No es necesario reasignar el DataSource, ya que dv se mantiene.
+        Else
+            MessageBox.Show("El DataGridView no tiene un DataTable o DataView válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
 End Class
