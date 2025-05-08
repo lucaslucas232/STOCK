@@ -13,6 +13,7 @@ Public Class LOGIN
                     + "FROM usuarios " _
                     + "WHERE usuarios.usuario='" & TXT_USER.Text & "' AND usuarios.contraseña='" & TXT_PASS.Text & "';"
                 Dim da As New OleDbDataAdapter(SQL1, RutaDB_STOCK)
+                MessageBox.Show("Database Path: " & RutaDB_STOCK)
                 Dim dt As New DataTable
                 da.Fill(dt)
                 If dt.Rows.Count = 0 Then

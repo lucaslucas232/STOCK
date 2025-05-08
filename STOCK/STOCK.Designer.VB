@@ -47,7 +47,6 @@ Partial Class STOCK
         Me.BTN_INVENTARIO = New System.Windows.Forms.Button()
         Me.BTN_EGRESO = New System.Windows.Forms.Button()
         Me.BTN_FILTRO = New System.Windows.Forms.Button()
-
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -122,6 +121,15 @@ Partial Class STOCK
         Me.BTN_INVENTARIO.Text = "INVENTARIO OBRAS"
         Me.BTN_INVENTARIO.UseVisualStyleBackColor = True
         '
+        'BTN_EGRESO
+        '
+        Me.BTN_EGRESO.Location = New System.Drawing.Point(49, 113)
+        Me.BTN_EGRESO.Name = "BTN_EGRESO"
+        Me.BTN_EGRESO.Size = New System.Drawing.Size(120, 41)
+        Me.BTN_EGRESO.TabIndex = 13
+        Me.BTN_EGRESO.Text = "EGRESO DE STOCK"
+        Me.BTN_EGRESO.UseVisualStyleBackColor = True
+        '
         'BTN_FILTRO
         '
         Me.BTN_FILTRO.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -131,15 +139,6 @@ Partial Class STOCK
         Me.BTN_FILTRO.TabIndex = 11
         Me.BTN_FILTRO.Text = "INVENTARIO PRODUCTOS"
         Me.BTN_FILTRO.UseVisualStyleBackColor = True
-        '
-        'BTN_EGRESO
-        '
-        Me.BTN_EGRESO.Location = New System.Drawing.Point(49, 113)
-        Me.BTN_EGRESO.Name = "BTN_EGRESO"
-        Me.BTN_EGRESO.Size = New System.Drawing.Size(120, 41)
-        Me.BTN_EGRESO.TabIndex = 13
-        Me.BTN_EGRESO.Text = "EGRESO DE STOCK"
-        Me.BTN_EGRESO.UseVisualStyleBackColor = True
         '
         'STOCK
         '

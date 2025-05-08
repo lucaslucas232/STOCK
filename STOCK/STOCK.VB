@@ -109,4 +109,5 @@ Public Class STOCK
         Oculta()
 
     End Sub
+
 End Class
