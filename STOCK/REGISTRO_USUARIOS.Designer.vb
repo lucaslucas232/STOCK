@@ -171,7 +171,7 @@ Partial Class REGISTRO_USUARIOS
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txt_USUARIO)
         Me.Name = "REGISTRO_USUARIOS"
-        Me.Text = "REGISTRO_USUARIOS"
+        Me.Text = "REGISTRO USUARIOS"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

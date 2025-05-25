@@ -72,6 +72,9 @@ Public Class FILTRO_HERRAMIENTAS
 
     Private Sub FILTRO_HERRAMIENTAS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         carga_productos()
+        ListBoxproductos.ScrollAlwaysVisible = True
+        ListBoxproductos.HorizontalScrollbar = True
+
     End Sub
 
     Private Sub BTN_BUSCAR_Click(sender As Object, e As EventArgs) Handles BTN_BUSCAR.Click
@@ -108,5 +111,9 @@ Public Class FILTRO_HERRAMIENTAS
     Private Sub BTN_CANCELAR_Click(sender As Object, e As EventArgs) Handles BTN_CANCELAR.Click
         DGV1.DataSource = Nothing
         DGV1.Rows.Clear()
+    End Sub
+
+    Private Sub ListBoxproductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxproductos.SelectedIndexChanged
+
     End Sub
 End Class

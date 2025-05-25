@@ -47,9 +47,9 @@ Partial Class REGISTRO_H_Y_I
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(29, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(118, 13)
+        Me.Label1.Size = New System.Drawing.Size(121, 13)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "NOMBRE PRODUCTO"
+        Me.Label1.Text = "NOMBRE PRODUCTO:"
         '
         'DGV1
         '
@@ -129,7 +129,7 @@ Partial Class REGISTRO_H_Y_I
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(680, 315)
+        Me.ClientSize = New System.Drawing.Size(696, 352)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtfiltro)
         Me.Controls.Add(Me.BTN_ELIMINAR)
@@ -141,7 +141,7 @@ Partial Class REGISTRO_H_Y_I
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_producto)
         Me.Name = "REGISTRO_H_Y_I"
-        Me.Text = "REGISTRO_H_Y_I"
+        Me.Text = "REGISTRO HERRAMIENTAS"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

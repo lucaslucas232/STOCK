@@ -99,7 +99,7 @@ Partial Class LOGIN
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_OK)
         Me.Name = "LOGIN"
-        Me.Text = "LOGIN"
+        Me.Text = "BIENVENIDO"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

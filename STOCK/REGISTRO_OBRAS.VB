@@ -103,6 +103,10 @@ Public Class REGISTRO_OBRAS
         BTN_AGREGAR.Enabled = False
         BTN_CANCELAR.Enabled = False
         ActualizarTabla(Me.DGV1, "OBRAS", "", "nombre")
+        DGV1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        DGV1.ScrollBars = ScrollBars.Both
+
+
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
@@ -110,7 +114,7 @@ Public Class REGISTRO_OBRAS
                 If obj_OBRAS.AgregaOBRA(TXT_OBRA.Text) = True Then
                     MsgBox("Registro ingresado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                     Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "OBRAS", "", "ID_obra")
+                    ActualizarTabla(Me.DGV1, "OBRAS", "", "NOMBRE")
                     BTN_AGREGAR.Enabled = False
                     TXT_OBRA.Enabled = False
                     BTN_CANCELAR.Enabled = False
@@ -144,7 +148,7 @@ Public Class REGISTRO_OBRAS
                     'MessageBox.Show("ID del registro a modificar: " & id)
                     If obj_OBRAS.ModificaOBRA(TXT_OBRA.Text, id) Then
                         MessageBox.Show("Registro actualizado satisfactoriamente")
-                        ActualizarTabla(Me.DGV1, "obras", "", "id_obra")
+                        ActualizarTabla(Me.DGV1, "obras", "", "NOMBRE")
                         Me.LimpiarCampos()
                         BTN_AGREGAR.Enabled = False
                         TXT_OBRA.Enabled = False
@@ -210,7 +214,7 @@ Public Class REGISTRO_OBRAS
                 If obj_OBRAS.EliminaOBRA(id) Then
                     MsgBox("Registro eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmación")
                     Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "OBRAS", "", "ID_obra")
+                    ActualizarTabla(Me.DGV1, "OBRAS", "", "NOMBRE")
                     BTN_AGREGAR.Enabled = False
                     TXT_OBRA.Enabled = False
                     BTN_CANCELAR.Enabled = False

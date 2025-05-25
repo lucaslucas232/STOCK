@@ -72,6 +72,8 @@ From obras"
     End Sub
     Private Sub INVENTARIO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         carga_datos()
+        ListBox1.ScrollAlwaysVisible = True
+        ListBox1.HorizontalScrollbar = True
     End Sub
     Private Sub BTN_BUSCAR_Click(sender As Object, e As EventArgs) Handles BTN_BUSCAR.Click
         ActualizarTabla(Me.DGV1)

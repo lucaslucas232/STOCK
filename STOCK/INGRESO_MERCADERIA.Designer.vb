@@ -198,7 +198,7 @@ Partial Class INGRESO_MERCADERIA
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "INGRESO_MERCADERIA"
-        Me.Text = "INGRESO_MERCADERIA"
+        Me.Text = "INGRESO DE MERCADERIA"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

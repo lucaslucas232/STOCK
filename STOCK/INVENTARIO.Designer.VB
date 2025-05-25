@@ -62,6 +62,7 @@ Partial Class INVENTARIO
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.IntegralHeight = False
         Me.ListBox1.Location = New System.Drawing.Point(44, 82)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(94, 238)
@@ -96,7 +97,7 @@ Partial Class INVENTARIO
         Me.Controls.Add(Me.BTN_BUSCAR)
         Me.Controls.Add(Me.DGV1)
         Me.Name = "INVENTARIO"
-        Me.Text = "INVENTARIO"
+        Me.Text = "INVENTARIO DE OBRAS"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

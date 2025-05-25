@@ -96,9 +96,9 @@ Partial Class REGISTRO_OBRAS
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(41, 62)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(87, 13)
+        Me.Label1.Size = New System.Drawing.Size(90, 13)
         Me.Label1.TabIndex = 67
-        Me.Label1.Text = "NOMBRE OBRA"
+        Me.Label1.Text = "NOMBRE OBRA:"
         '
         'TXT_OBRA
         '
@@ -121,7 +121,7 @@ Partial Class REGISTRO_OBRAS
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TXT_OBRA)
         Me.Name = "REGISTRO_OBRAS"
-        Me.Text = "REGITRO_OBRAS"
+        Me.Text = "REGITRO OBRAS"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

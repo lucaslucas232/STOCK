@@ -65,6 +65,7 @@ Public Class INGRESO_MERCADERIA
         ActualizarTabla(Me.DGV1, "ingresos", "", "id_ingreso")
         DGV1.Columns("id_ingresos").Visible = False
         DGV1.Columns("id_producto").Visible = False
+        DGV1.Columns("id_OBRA").Visible = False
 
     End Sub
     Sub ActualizarTabla(ByVal grilla As DataGridView, ByVal nombre_tabla As String,

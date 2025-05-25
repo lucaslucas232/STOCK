@@ -158,7 +158,7 @@ Partial Class EGRESO_MERCADERIA
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "EGRESO_MERCADERIA"
-        Me.Text = "EGRESO"
+        Me.Text = "EGRESO DE MERCADERIA"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

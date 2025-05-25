@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+'Imports Microsoft.Office.Interop.Excel
 
 Public Class REGISTRO_H_Y_I
     Dim Obj_HERRAMIENTAS As New cls_herramientas
@@ -99,7 +100,8 @@ Public Class REGISTRO_H_Y_I
         ActualizarTabla(Me.DGV1, "productos", "", "nombre")
         BTN_NUEVO.Focus()
         DGV1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        DGV1.ScrollBars = ScrollBars.Horizontal
+        DGV1.ScrollBars = ScrollBars.Both
+
     End Sub
     Private Sub BTN_AGREGAR_Click(sender As Object, e As EventArgs) Handles BTN_AGREGAR.Click
         Try
@@ -136,7 +138,7 @@ Public Class REGISTRO_H_Y_I
                     Console.WriteLine("Starting modification...")
                     If obj_HERRAMIENTAS.Modificaherramienta(txt_producto.Text, id) = True Then
                         MsgBox("Registro actualizado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
-                        ActualizarTabla(Me.DGV1, "PRODUCTOS", "", "id_producto")
+                        ActualizarTabla(Me.DGV1, "PRODUCTOS", "", "NOMBRE")
                         LimpiarCampos()
                         BTN_AGREGAR.Enabled = False
                         txt_producto.Enabled = False
@@ -164,7 +166,7 @@ Public Class REGISTRO_H_Y_I
                 If obj_HERRAMIENTAS.Eliminaherramienta(id) = True Then
                     MsgBox("Registro Eliminado satisfactoriamente", MsgBoxStyle.Information, "Confirmacion")
                     Me.LimpiarCampos()
-                    ActualizarTabla(Me.DGV1, "productos", "", "id_producto")
+                    ActualizarTabla(Me.DGV1, "productos", "", "NOMBRE")
                     BTN_AGREGAR.Enabled = False
                     txt_producto.Enabled = False
                     BTN_CANCELAR.Enabled = False
@@ -234,4 +236,48 @@ Public Class REGISTRO_H_Y_I
             MessageBox.Show("El DataGridView no tiene un DataTable o DataView válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
+
+    'Dim importando As Boolean = False
+
+    'Sub ActualizarTabla()
+    '    If importando Then Exit Sub ' Evita que se ejecute si se está importando Excel
+    '    ' Código de actualización de la tabla...
+    'End Sub
+
+    'Private Sub TXT_IMPORT_Click(sender As Object, e As EventArgs) Handles TXT_IMPORT.Click
+    '    importando = True
+    '    DGV1.DataSource = Nothing ' Limpia la tabla antes de importar
+    '    ' Código de importación desde Excel...
+    '    importando = False
+    '    Dim OPENFILEDIALOG1 As New OpenFileDialog()
+    '    OPENFILEDIALOG1.Filter = "ARCHIVOS DE EXCEL (*.XLS)|*.XLSX|Todos los archivos(*.*)|*.*"
+    '    OPENFILEDIALOG1.FilterIndex = 1
+    '    OPENFILEDIALOG1.RestoreDirectory = True
+    '    If OPENFILEDIALOG1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+    '        Dim path As String = OPENFILEDIALOG1.FileName
+    '        Dim excelapp As New Microsoft.Office.Interop.Excel.Application()
+    '        Dim excelworkbook As Microsoft.Office.Interop.Excel.Workbook = excelapp.Workbooks.Open(path)
+    '        Dim excelworksheet As Microsoft.Office.Interop.Excel.Worksheet = excelworkbook.Worksheets(1)
+
+    '        Dim dt As New Data.DataTable()
+    '        dt.Columns.Add("nombre")
+
+    '        Dim num As Integer = 1
+    '        DGV1.Columns.Clear()
+
+    '        For i As Integer = 1 To excelworksheet.UsedRange.Rows.Count
+    '            Dim dr As DataRow = dt.NewRow()
+    '            dr("nombre") = excelworksheet.Cells(i, 1).value
+    '            dt.Rows.Add(dr)
+    '            num += 3
+    '        Next
+    '        DGV1.DataSource = dt
+    '        DGV1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.AllCells
+    '        'DGV1.AutoResizeColumn()
+    '        DGV1.DefaultCellStyle.Font = New System.Drawing.Font("Microsoft sans serif", 11)
+    '        excelworkbook.Close()
+    '        excelapp.Quit()
+
+    '    End If
+    'End Sub
 End Class

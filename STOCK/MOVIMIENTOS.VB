@@ -158,7 +158,10 @@ Public Class MOVIMIENTOS
         ' Continuar con otras inicializaciones
         Dim dtProductos As DataTable = ObtenerProductos()
         If dtProductos IsNot Nothing Then
+
             CMBPRODUCTO.DataSource = dtProductos
+            dtProductos.DefaultView.Sort = "nombre ASC"
+
             CMBPRODUCTO.DisplayMember = "nombre"
             CMBPRODUCTO.ValueMember = "id_PRODUCTO"
         End If
@@ -166,6 +169,8 @@ Public Class MOVIMIENTOS
         Dim dtDepositos As DataTable = ObtenerDepositos()
         If dtDepositos IsNot Nothing Then
             CMBORIGEN.DataSource = dtDepositos.Copy()
+            dtDepositos.DefaultView.Sort = "nombre ASC"
+
             CMBORIGEN.DisplayMember = "nombre"
             CMBORIGEN.ValueMember = "id_OBRA"
             CMBDESTINO.DataSource = dtDepositos
@@ -257,5 +262,9 @@ Public Class MOVIMIENTOS
         dtpinicio.Visible = True
         dtpfin.Visible = True
         DGVMOVIMIENTOS.DataSource = ObtenerMovimientos()
+    End Sub
+
+    Private Sub BTN_CANCELAR_Click(sender As Object, e As EventArgs) Handles BTN_CANCELAR.Click
+        Me.Close()
     End Sub
 End Class

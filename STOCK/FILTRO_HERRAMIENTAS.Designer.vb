@@ -96,7 +96,7 @@ Partial Class FILTRO_HERRAMIENTAS
         Me.Controls.Add(Me.BTN_BUSCAR)
         Me.Controls.Add(Me.DGV1)
         Me.Name = "FILTRO_HERRAMIENTAS"
-        Me.Text = "FILTRO_HERRAMIENTAS"
+        Me.Text = "INVENTARIO HERRAMIENTAS"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
