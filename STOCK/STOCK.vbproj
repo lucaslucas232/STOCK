@@ -98,10 +98,10 @@
     <Compile Include="CLS_OBRAS.vb" />
     <Compile Include="CLS_EGRESO.vb" />
     <Compile Include="CLS_USUARIOS.vb" />
-    <Compile Include="FILTRO_HERRAMIENTAS.Designer.vb">
-      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
+    <Compile Include="INVENTARIO_HERRAMIENTAS.Designer.vb">
+      <DependentUpon>INVENTARIO_HERRAMIENTAS.vb</DependentUpon>
     </Compile>
-    <Compile Include="FILTRO_HERRAMIENTAS.vb">
+    <Compile Include="INVENTARIO_HERRAMIENTAS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="INGRESO_MERCADERIA.Designer.vb">
@@ -110,10 +110,10 @@
     <Compile Include="INGRESO_MERCADERIA.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INVENTARIO.Designer.VB">
-      <DependentUpon>INVENTARIO.VB</DependentUpon>
+    <Compile Include="INVENTARIO_OBRAS.Designer.VB">
+      <DependentUpon>INVENTARIO_OBRAS.VB</DependentUpon>
     </Compile>
-    <Compile Include="INVENTARIO.VB">
+    <Compile Include="INVENTARIO_OBRAS.VB">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LOGIN.Designer.VB">
@@ -129,10 +129,10 @@
     <Compile Include="MOVIMIENTOS.VB">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="REGISTRO_H_Y_I.Designer.vb">
-      <DependentUpon>REGISTRO_H_Y_I.vb</DependentUpon>
+    <Compile Include="REGISTRO_HERRAMIENTAS.Designer.vb">
+      <DependentUpon>REGISTRO_HERRAMIENTAS.vb</DependentUpon>
     </Compile>
-    <Compile Include="REGISTRO_H_Y_I.vb">
+    <Compile Include="REGISTRO_HERRAMIENTAS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="REGISTRO_USUARIOS.Designer.vb">
@@ -177,14 +177,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FILTRO_HERRAMIENTAS.resx">
-      <DependentUpon>FILTRO_HERRAMIENTAS.vb</DependentUpon>
+    <EmbeddedResource Include="INVENTARIO_HERRAMIENTAS.resx">
+      <DependentUpon>INVENTARIO_HERRAMIENTAS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="INGRESO_MERCADERIA.resx">
       <DependentUpon>INGRESO_MERCADERIA.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INVENTARIO.resx">
-      <DependentUpon>INVENTARIO.VB</DependentUpon>
+    <EmbeddedResource Include="INVENTARIO_OBRAS.resx">
+      <DependentUpon>INVENTARIO_OBRAS.VB</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.VB</DependentUpon>
@@ -192,8 +192,8 @@
     <EmbeddedResource Include="MOVIMIENTOS.resx">
       <DependentUpon>MOVIMIENTOS.VB</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="REGISTRO_H_Y_I.resx">
-      <DependentUpon>REGISTRO_H_Y_I.vb</DependentUpon>
+    <EmbeddedResource Include="REGISTRO_HERRAMIENTAS.resx">
+      <DependentUpon>REGISTRO_HERRAMIENTAS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="REGISTRO_OBRAS.resx">
       <DependentUpon>REGISTRO_OBRAS.VB</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 'Imports Microsoft.Office.Interop.Excel
 
-Public Class REGISTRO_H_Y_I
+Public Class REGISTRO_HERRAMIENTAS
     Dim Obj_HERRAMIENTAS As New cls_herramientas
     'Dim n As Integer
     Dim id As Integer

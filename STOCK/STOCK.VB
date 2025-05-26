@@ -73,7 +73,7 @@ Public Class STOCK
     End Sub
 
     Private Sub PRODUCTOToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PRODUCTOToolStripMenuItem.Click
-        Carga_formulario(REGISTRO_H_Y_I)
+        Carga_formulario(REGISTRO_HERRAMIENTAS)
         Oculta()
     End Sub
 
@@ -88,7 +88,7 @@ Public Class STOCK
     End Sub
 
     Private Sub BTN_INVENTARIO_Click(sender As Object, e As EventArgs) Handles BTN_INVENTARIO.Click
-        Carga_formulario(INVENTARIO)
+        Carga_formulario(INVENTARIO_OBRAS)
         Oculta()
     End Sub
 
@@ -99,7 +99,7 @@ Public Class STOCK
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTN_FILTRO.Click
-        Carga_formulario(FILTRO_HERRAMIENTAS)
+        Carga_formulario(INVENTARIO_HERRAMIENTAS)
         Oculta()
 
     End Sub

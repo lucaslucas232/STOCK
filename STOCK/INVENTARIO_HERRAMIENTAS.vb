@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 
-Public Class FILTRO_HERRAMIENTAS
+Public Class INVENTARIO_HERRAMIENTAS
     Sub carga_productos()
         Try
             Dim SQL As String

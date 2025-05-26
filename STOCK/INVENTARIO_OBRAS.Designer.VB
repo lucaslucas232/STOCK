@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class INVENTARIO
+Partial Class INVENTARIO_OBRAS
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -85,7 +85,7 @@ Partial Class INVENTARIO
         Me.Label3.TabIndex = 39
         Me.Label3.Text = "Nombre Obra:"
         '
-        'INVENTARIO
+        'INVENTARIO_OBRAS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -96,7 +96,7 @@ Partial Class INVENTARIO
         Me.Controls.Add(Me.BTN_CANCELAR)
         Me.Controls.Add(Me.BTN_BUSCAR)
         Me.Controls.Add(Me.DGV1)
-        Me.Name = "INVENTARIO"
+        Me.Name = "INVENTARIO_OBRAS"
         Me.Text = "INVENTARIO DE OBRAS"
         CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

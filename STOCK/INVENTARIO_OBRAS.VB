@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 
-Public Class INVENTARIO
+Public Class INVENTARIO_OBRAS
     Dim n As Integer
     Sub pinta_fila(ByVal nn As Integer)
         Try
